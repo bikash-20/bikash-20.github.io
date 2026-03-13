@@ -497,6 +497,19 @@ footer {
 .f-left span { color:rgba(240,242,245,0.2); }
 .f-right { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:rgba(240,242,245,0.18); }
 
+/* ===== TYPING EFFECT ===== */
+.type-cursor {
+  display: inline-block;
+  color: var(--gold);
+  animation: blink 0.75s step-end infinite;
+  margin-left: 1px;
+  font-weight: 300;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
 /* ===== RESPONSIVE ===== */
 @media(max-width:900px){
   nav { padding:14px 22px; }
@@ -552,7 +565,7 @@ footer {
       and technical prowess, weaving together functionality and aesthetic appeal to deliver
       <em>exceptional digital experiences.</em>
     </p>
-    <div class="hero-role">2nd Year · BSc Computer Science &amp; Engineering</div>
+    <div class="hero-role">I'm Bikash, and I… <span id="typed"></span><span class="type-cursor">|</span></div>
     <div class="hero-btns">
       <a href="#projects" class="btn-fill">View Projects</a>
       <a href="#contact" class="btn-outline">Get in Touch</a>
@@ -743,6 +756,44 @@ const fills=document.querySelectorAll('.sb-fill');
 new IntersectionObserver(entries=>{
   entries.forEach(e=>{ if(e.isIntersecting){ fills.forEach(f=>f.classList.add('on')); } });
 },{threshold:.15}).observe(document.getElementById('skillBars'));
+
+// Typing effect
+const words = [
+  "build efficient algorithms.",
+  "solve challenging problems.",
+  "write modern C++ code.",
+  "craft clean Python solutions.",
+  "explore the depths of algorithms.",
+  "pursue AI research goals.",
+  "turn ideas into code.",
+  "design intelligent systems.",
+  "optimize performance-critical code.",
+  "learn something new every day."
+];
+let wi=0, ci=0, deleting=false;
+const typedEl = document.getElementById('typed');
+
+function type(){
+  const word = words[wi];
+  if(!deleting){
+    typedEl.textContent = word.slice(0, ci+1);
+    ci++;
+    if(ci === word.length){
+      deleting = true;
+      setTimeout(type, 2000);
+      return;
+    }
+  } else {
+    typedEl.textContent = word.slice(0, ci-1);
+    ci--;
+    if(ci === 0){
+      deleting = false;
+      wi = (wi+1) % words.length;
+    }
+  }
+  setTimeout(type, deleting ? 45 : 90);
+}
+type();
 
 // Active nav
 document.querySelectorAll('section[id]').forEach(sec=>{
