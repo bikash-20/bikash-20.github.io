@@ -421,6 +421,23 @@ nav a:hover {
   font-size:13px; color:var(--gold); transition:background .3s;
 }
 .proj-card:hover .proj-arrow { background:var(--gold); color:var(--dark); }
+.proj-github {
+  display:inline-flex; align-items:center; gap:7px;
+  margin-top:16px;
+  padding:8px 16px;
+  border:1px solid rgba(201,168,76,0.3);
+  border-radius:100px;
+  font-size:11px; font-weight:700; letter-spacing:1.5px;
+  text-transform:uppercase; color:var(--gold);
+  text-decoration:none; background:rgba(201,168,76,0.05);
+  transition:all .3s; width:fit-content;
+}
+.proj-github:hover {
+  background:rgba(201,168,76,0.15);
+  border-color:var(--gold);
+  box-shadow:0 0 14px rgba(201,168,76,0.2);
+  transform:translateY(-2px);
+}
 
 /* ===== RESEARCH ===== */
 .research-bg {
@@ -671,6 +688,7 @@ footer {
       <div class="proj-lang">C Language</div>
       <h3 class="proj-title">Digital Clock</h3>
       <p class="proj-desc">Terminal-based digital clock displaying live time, date, day and month name using the <em>time.h</em> library with real-time refresh.</p>
+      <a href="https://github.com/bikash-20/C-project" target="_blank" class="proj-github">⬡ View on GitHub</a>
       <div class="proj-arrow">→</div>
     </div>
     <div class="proj-card">
@@ -678,6 +696,7 @@ footer {
       <div class="proj-lang">C++ Language</div>
       <h3 class="proj-title">Echoes of the Void</h3>
       <p class="proj-desc">Full text-adventure RPG with turn-based combat, puzzle mechanics, and an inventory system built with object-oriented C++.</p>
+      <a href="https://github.com/bikash-20/cpp-project/blob/main/game%20project.cpp" target="_blank" class="proj-github">⬡ View on GitHub</a>
       <div class="proj-arrow">→</div>
     </div>
     <div class="proj-card">
@@ -685,6 +704,7 @@ footer {
       <div class="proj-lang">C++ · HTML · Dijkstra</div>
       <h3 class="proj-title">Google Maps Navigator</h3>
       <p class="proj-desc">A fully functional Google Maps-style navigation system built in C++ using the Raylib graphics library. Features <em>Dijkstra's shortest path algorithm</em> across a 15-node city graph with weighted routes, animated car movement, turn-by-turn directions, live path highlighting, and an interactive web version in HTML/JS. Left-click sets destination, right-click sets start — shortest route recalculates instantly.</p>
+      <a href="https://github.com/bikash-20/google-maps-navigator-DSA-project/blob/main/maps_dijkstra.cpp" target="_blank" class="proj-github">⬡ View on GitHub</a>
       <div class="proj-arrow">→</div>
     </div>
     <div class="proj-card" style="border-style:dashed;opacity:.35;">
