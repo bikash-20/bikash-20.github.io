@@ -17,6 +17,8 @@
   --dark2:   #13161A;
   --teal-lt: #226b69;
   --teal-glow: rgba(26,92,90,0.35);
+  --neon: #1DD8D5;
+  --purple-glow: #3D2B56;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -102,7 +104,7 @@ nav a:hover {
   pointer-events: none;
 }
 .blob-1 { width:520px;height:520px; background:var(--teal); top:-100px;right:-80px; animation-delay:0s; }
-.blob-2 { width:280px;height:280px; background:var(--slate); bottom:-50px;left:-50px; animation-delay:-7s; }
+.blob-2 { width:280px;height:280px; background:var(--purple-glow); bottom:-50px;left:-50px; animation-delay:-7s; opacity:0.2; }
 .blob-3 { width:160px;height:160px; background:var(--gold); top:48%;left:46%; animation-delay:-12s; opacity:.08; }
 
 @keyframes blobMove {
@@ -155,7 +157,7 @@ nav a:hover {
 
 .hero-bio {
   font-size: 15px; font-weight: 300; line-height: 1.9;
-  color: rgba(240,242,245,0.55);
+  color: rgba(240,242,245,0.78);
   max-width: 480px; margin-bottom: 18px;
   border-left: 2px solid var(--gold);
   padding-left: 18px;
@@ -322,7 +324,7 @@ nav a:hover {
 }
 .about-text p {
   font-size: 15px; font-weight: 300;
-  color: rgba(240,242,245,0.65); line-height: 1.85; max-width: 700px;
+  color: rgba(240,242,245,0.78); line-height: 1.85; max-width: 700px;
 }
 .about-text p strong { color: var(--gold-lt); font-weight: 600; }
 
@@ -359,13 +361,15 @@ nav a:hover {
 }
 .skill-pill .dot {
   width:5px; height:5px; border-radius:50%;
-  background:var(--teal-lt); transition:background .3s;
+  background: var(--neon);
+  box-shadow: 0 0 5px var(--neon);
+  transition:background .3s, box-shadow .3s;
 }
-.skill-pill:hover .dot { background:var(--gold); }
+.skill-pill:hover .dot { background:var(--gold); box-shadow: 0 0 6px var(--gold); }
 
 .skill-bars { display:grid; gap:16px; max-width:640px; }
 .sb-row { display:grid; grid-template-columns:130px 1fr 42px; align-items:center; gap:14px; }
-.sb-label { font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(240,242,245,0.32); font-weight:600; }
+.sb-label { font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(240,242,245,0.65); font-weight:600; }
 .sb-track { height:2px; background:rgba(255,255,255,0.05); border-radius:2px; overflow:hidden; }
 .sb-fill {
   height:100%; border-radius:2px;
@@ -374,6 +378,24 @@ nav a:hover {
   animation:growBar 1.3s ease forwards; animation-play-state:paused;
 }
 .sb-fill.on { animation-play-state:running; }
+
+/* Individual bar widths */
+.sb-row:nth-child(1) .sb-fill { width:88%; }
+.sb-row:nth-child(2) .sb-fill { width:80%; }
+.sb-row:nth-child(3) .sb-fill { width:75%; }
+.sb-row:nth-child(4) .sb-fill { width:70%; }
+.sb-row:nth-child(5) .sb-fill { width:60%; }
+.sb-row:nth-child(6) .sb-fill { width:45%; }
+.sb-row:nth-child(7) .sb-fill { width:35%; }
+
+/* Individual bar widths */
+.sb-row:nth-child(1) .sb-fill { width:88%; }
+.sb-row:nth-child(2) .sb-fill { width:80%; }
+.sb-row:nth-child(3) .sb-fill { width:75%; }
+.sb-row:nth-child(4) .sb-fill { width:70%; }
+.sb-row:nth-child(5) .sb-fill { width:60%; }
+.sb-row:nth-child(6) .sb-fill { width:45%; }
+.sb-row:nth-child(7) .sb-fill { width:35%; }
 @keyframes growBar { from{transform:scaleX(0)} to{transform:scaleX(1)} }
 .sb-pct { font-size:10px; color:var(--gold); text-align:right; font-weight:700; }
 
@@ -412,7 +434,18 @@ nav a:hover {
   font-size:22px; color:var(--white);
   margin-bottom:10px;
 }
-.proj-desc { font-size:14px; font-weight:300; line-height:1.7; color:rgba(240,242,245,0.42); }
+.proj-desc { font-size:14px; font-weight:300; line-height:1.7; color:rgba(240,242,245,0.72); }
+.proj-bullets {
+  list-style: none;
+  margin-top: 10px;
+  display: flex; flex-direction: column; gap: 7px;
+}
+.proj-bullets li {
+  font-size: 13px; font-weight: 300; line-height: 1.5;
+  color: rgba(240,242,245,0.5);
+  padding-left: 4px;
+}
+.proj-bullets li em { color: var(--gold-lt); font-style: italic; }
 .proj-arrow {
   position:absolute; bottom:24px; right:24px;
   width:32px; height:32px;
@@ -476,7 +509,7 @@ nav a:hover {
   font-family:'DM Serif Display',serif;
   font-size:18px; color:var(--steel); margin-bottom:12px;
 }
-.contact-left p { font-size:15px; font-weight:300; line-height:1.85; color:rgba(240,242,245,0.48); margin-bottom:32px; }
+.contact-left p { font-size:15px; font-weight:300; line-height:1.85; color:rgba(240,242,245,0.72); margin-bottom:32px; }
 
 .c-links { display:flex; flex-direction:column; gap:12px; }
 .c-link {
@@ -496,7 +529,7 @@ nav a:hover {
 .c-text { flex:1; }
 .c-label {
   font-size:9px; letter-spacing:2px; text-transform:uppercase;
-  color:rgba(240,242,245,0.25); display:block; margin-bottom:2px; font-weight:600;
+  color:rgba(240,242,245,0.55); display:block; margin-bottom:2px; font-weight:600;
 }
 .c-val { font-size:13px; font-weight:600; color:var(--white); }
 .c-arr { font-size:14px; color:var(--gold); opacity:0; transform:translateX(-8px); transition:all .3s; }
@@ -662,6 +695,10 @@ footer {
     <div class="skill-pill"><span class="dot"></span>CSS</div>
     <div class="skill-pill"><span class="dot"></span>Data Structures</div>
     <div class="skill-pill"><span class="dot"></span>Algorithms</div>
+    <div class="skill-pill"><span class="dot"></span>Arduino</div>
+    <div class="skill-pill"><span class="dot"></span>Robotics Basics</div>
+    <div class="skill-pill"><span class="dot"></span>Arduino</div>
+    <div class="skill-pill"><span class="dot"></span>Robotics Basics</div>
     <div class="skill-pill"><span class="dot"></span>Microsoft Excel</div>
     <div class="skill-pill"><span class="dot"></span>PowerPoint</div>
   </div>
@@ -671,6 +708,8 @@ footer {
     <div class="sb-row"><span class="sb-label">DSA</span><div class="sb-track"><div class="sb-fill" style="animation-delay:.4s"></div></div><span class="sb-pct">75%</span></div>
     <div class="sb-row"><span class="sb-label">HTML / CSS</span><div class="sb-track"><div class="sb-fill" style="animation-delay:.55s"></div></div><span class="sb-pct">70%</span></div>
     <div class="sb-row"><span class="sb-label">Java</span><div class="sb-track"><div class="sb-fill" style="animation-delay:.7s"></div></div><span class="sb-pct">60%</span></div>
+    <div class="sb-row"><span class="sb-label">Arduino</span><div class="sb-track"><div class="sb-fill" style="animation-delay:.85s;--w:.45"></div></div><span class="sb-pct">45%</span></div>
+    <div class="sb-row"><span class="sb-label">Robotics</span><div class="sb-track"><div class="sb-fill" style="animation-delay:1s;--w:.35"></div></div><span class="sb-pct">35%</span></div>
   </div>
 </section>
 
@@ -687,7 +726,14 @@ footer {
       <div class="proj-num">01</div>
       <div class="proj-lang">C Language</div>
       <h3 class="proj-title">Digital Clock</h3>
-      <p class="proj-desc">Terminal-based digital clock displaying live time, date, day and month name using the <em>time.h</em> library with real-time refresh.Built in C using POSIX Threads to run 3 concurrent threads simultaneously — one ticking the clock, one listening for input,and one playing continuous alarm sound. Mutex locks ensure thread-safe access to shared data.the terminal UI is styled using ANSI escape codes, and all clock state is managed through a single ClockState struct.Runs exclusively on macOS and Linux.</p>
+      <p class="proj-desc">Terminal-based digital clock with real-time refresh using <em>time.h</em></p>
+      <ul class="proj-bullets">
+        <li>🧵 <em>POSIX Threads</em> — 3 concurrent threads running simultaneously</li>
+        <li>🔒 Mutex locks for thread-safe shared data access</li>
+        <li>🎨 Terminal UI styled with <em>ANSI escape codes</em></li>
+        <li>📦 All states managed via single <em>ClockState</em> struct</li>
+        <li>🍎 Runs exclusively on macOS &amp; Linux</li>
+      </ul>
       <a href="https://github.com/bikash-20/C-project" target="_blank" class="proj-github">⬡ View on GitHub</a>
       <div class="proj-arrow">→</div>
     </div>
@@ -770,7 +816,7 @@ footer {
 
 <!-- FOOTER -->
 <footer>
-  <div class="f-left">BT<span> · Portfolio v6</span></div>
+  <div class="f-left">BT<span> · Portfolio v7</span></div>
   <div class="f-right">CSE Student · Bangladesh · 2025</div>
 </footer>
 
@@ -785,11 +831,15 @@ document.querySelectorAll('a,button,.skill-pill,.proj-card,.res-card,.c-link').f
   el.addEventListener('mouseleave',()=>{ cur.style.width='8px';cur.style.height='8px';cur.style.background='var(--gold)';curR.style.width='30px';curR.style.height='30px'; });
 });
 
-// Skill bars
-const fills=document.querySelectorAll('.sb-fill');
-new IntersectionObserver(entries=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ fills.forEach(f=>f.classList.add('on')); } });
-},{threshold:.15}).observe(document.getElementById('skillBars'));
+// Skill bars — watch each one individually
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('on');
+    }
+  });
+}, {threshold: 0.15});
+document.querySelectorAll('.sb-fill').forEach((el) => barObserver.observe(el));
 
 // Typing effect
 const words = [
@@ -802,7 +852,10 @@ const words = [
   "turn ideas into code.",
   "design intelligent systems.",
   "optimize performance-critical code.",
-  "learn something new every day."
+  "tinker with Arduino & robotics.",
+  "learn something new every day.",
+  "bridge hardware and software.",
+  "dream in data structures."
 ];
 let wi=0, ci=0, deleting=false;
 const typedEl = document.getElementById('typed');
