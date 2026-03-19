@@ -788,9 +788,11 @@ footer {
   </div>
   <div class="contact-inner">
     <div class="contact-left">
-  <h3 class="c-title">Open to Collaboration</h3>
-<p class="c-sub">
-Whether you want to discuss a project, tackle a problem together, or just say hello — all my profiles are open!
+  <h2 class="title">Open to Collaboration</h2>
+
+<p class="subtitle">
+Projects, research, competitive programming, or just tech talk —
+all my profiles are open.
 </p>
 
 <link rel="stylesheet"
@@ -798,104 +800,202 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <style>
 
-.c-title{
-  text-align:center;
-  font-size:28px;
-  margin-bottom:5px;
+body{
+background:#0b0f17;
+color:white;
+font-family:sans-serif;
 }
 
-.c-sub{
-  text-align:center;
-  opacity:.8;
-  margin-bottom:20px;
+
+/* title */
+
+.title{
+text-align:center;
+font-size:32px;
+background:linear-gradient(90deg,#00f0ff,#ff00ff,#00ff9c);
+-webkit-background-clip:text;
+color:transparent;
 }
+
+.subtitle{
+text-align:center;
+opacity:.7;
+margin-bottom:25px;
+}
+
+
+/* grid */
 
 .c-links{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:18px;
+
 }
+
+
+/* card */
 
 .c-link{
 
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+position:relative;
 
-  padding:12px 15px;
-  border-radius:12px;
+display:flex;
+align-items:center;
+justify-content:space-between;
 
-  text-decoration:none;
-  color:white;
+padding:14px 16px;
 
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(8px);
+border-radius:14px;
 
-  border:1px solid rgba(255,255,255,0.1);
+text-decoration:none;
+color:white;
 
-  transition:0.3s;
-  position:relative;
-  overflow:hidden;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+
+overflow:hidden;
+
+transition:.3s;
+
 }
+
+
+/* animated border */
+
+.c-link::before{
+
+content:"";
+
+position:absolute;
+
+inset:-2px;
+
+background:linear-gradient(
+90deg,
+#00f0ff,
+#ff00ff,
+#00ff9c,
+#00f0ff
+);
+
+background-size:300%;
+
+z-index:-1;
+
+animation:borderMove 6s linear infinite;
+
+border-radius:16px;
+
+}
+
+
+@keyframes borderMove{
+
+0%{background-position:0%}
+100%{background-position:300%}
+
+}
+
+
+/* hover glow */
 
 .c-link:hover{
 
-  transform:translateY(-3px) scale(1.02);
+transform:scale(1.04);
 
-  border:1px solid #00f0ff;
+box-shadow:
 
-  box-shadow:
-  0 0 10px #00f0ff,
-  0 0 20px #00f0ff,
-  0 0 40px #00f0ff;
+0 0 10px #00f0ff,
+0 0 20px #ff00ff,
+0 0 40px #00ff9c;
 
 }
+
+
+
+/* icon */
 
 .c-ico{
-  font-size:22px;
-  width:30px;
-  text-align:center;
+
+font-size:22px;
+width:30px;
+text-align:center;
+
 }
+
 
 .c-text{
-  flex:1;
-  margin-left:10px;
+
+flex:1;
+margin-left:10px;
+
 }
 
+
 .c-label{
-  font-weight:bold;
+
+font-weight:bold;
 }
+
 
 .c-variable{
 
-  font-size:12px;
-  padding:2px 6px;
-  border-radius:4px;
-  margin-left:6px;
+font-size:12px;
+padding:2px 6px;
+border-radius:4px;
+margin-left:6px;
 
 }
+
 
 .c-arr{
-  font-size:18px;
-  opacity:.6;
+
+opacity:.6;
+font-size:18px;
+
 }
+
+
+/* floating text */
 
 .contact-art{
 
-  text-align:right;
-  font-size:60px;
-  font-weight:bold;
-  opacity:.08;
-  margin-top:30px;
-  line-height:55px;
+position:relative;
+
+margin-top:40px;
+
+font-size:70px;
+
+font-weight:bold;
+
+opacity:.05;
+
+line-height:60px;
+
+text-align:right;
+
+animation:floatText 6s ease-in-out infinite;
+
+}
+
+
+@keyframes floatText{
+
+0%{transform:translateY(0px)}
+50%{transform:translateY(-10px)}
+100%{transform:translateY(0px)}
+
 }
 
 </style>
 
 
+
 <div class="c-links">
 
-<!-- GitHub -->
+
 <a href="https://github.com/bikash-20" target="_blank" class="c-link">
 <div class="c-ico"><i class="fab fa-github"></i></div>
 <div class="c-text">
@@ -906,8 +1006,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </a>
 
 
-<!-- Codeforces -->
-<a href="https://codeforces.com/profile/talukder_20" target="_blank" class="c-link">
+
+<a href="https://codeforces.com/profile/talukder_20"
+target="_blank" class="c-link">
 <div class="c-ico">
 <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/codeforces.svg" width="18">
 </div>
@@ -919,8 +1020,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </a>
 
 
-<!-- LeetCode -->
-<a href="https://leetcode.com/u/bikashtalukder/" target="_blank" class="c-link">
+
+<a href="https://leetcode.com/u/bikashtalukder/"
+target="_blank" class="c-link">
 <div class="c-ico">
 <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/leetcode.svg" width="18">
 </div>
@@ -932,7 +1034,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </a>
 
 
-<!-- Facebook -->
+
 <a href="https://www.facebook.com/profile.php?id=61577923653790"
 target="_blank" class="c-link">
 <div class="c-ico"><i class="fab fa-facebook"></i></div>
@@ -944,7 +1046,7 @@ target="_blank" class="c-link">
 </a>
 
 
-<!-- Instagram -->
+
 <a href="https://www.instagram.com/talukder_20/"
 target="_blank" class="c-link">
 <div class="c-ico"><i class="fab fa-instagram"></i></div>
@@ -959,7 +1061,7 @@ Social
 </a>
 
 
-<!-- LinkedIn -->
+
 <a href="https://www.linkedin.com/in/bikash-talukder-6497633b8/"
 target="_blank" class="c-link">
 <div class="c-ico"><i class="fab fa-linkedin"></i></div>
@@ -971,8 +1073,9 @@ target="_blank" class="c-link">
 </a>
 
 
-<!-- Email -->
-<a href="mailto:bikashtalukder040@gmail.com" class="c-link">
+
+<a href="mailto:bikashtalukder040@gmail.com"
+class="c-link">
 <div class="c-ico"><i class="fas fa-envelope"></i></div>
 <div class="c-text">
 <span class="c-label">Email</span>
@@ -981,10 +1084,17 @@ target="_blank" class="c-link">
 <span class="c-arr">→</span>
 </a>
 
+
 </div>
 
+
+
 <div class="contact-art">
-LET'S<br>TALK<br>CODE
+
+LET'S<br>
+TALK<br>
+CODE
+
 </div>
   </div>
 </section>
