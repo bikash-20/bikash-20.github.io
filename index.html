@@ -1480,6 +1480,26 @@ function generateSmartReply(input) {
   }
 
   // ── NISHAT / CHOSEN SISTER ─────────────────────────────────────
+  // ── SUMA RANI / SUSEN / AUNT & UNCLE ──────────────────────────
+  if (/suma|suma rani|susen|medinova|uncle.*sylhet|sylhet.*uncle|aunt.*supportive/.test(q)) {
+    return "💙 Two more warm pillars in Bikash's extended family:<br><br>👩 <strong>Suma Rani Talukder</strong> — Bikash's aunty, a <strong>supportive and caring</strong> presence in his life. The kind of person who quietly shows up when it matters.<br><br>👨 <strong>Susen Talukder</strong> — Bikash's uncle, a true <strong>gentleman</strong>. He works at <strong>Medinova Medical, Sylhet</strong> — a man of dignity and professionalism who carries himself with quiet grace.<br><br>Together they are a family Bikash holds with real warmth and gratitude. 🙏";
+  }
+
+  // ── NIJHUM TALUKDER (Suma & Susen's son) ──────────────────────
+  if (/nijhum|mechanical engineer|english medium|art.*skill|skill.*art/.test(q)) {
+    return "🌱 <strong>Nijhum Talukder</strong> is the son of Suma Rani and Susen Talukder — and he is a young man growing into something remarkable.<br><br>He is studying at an <strong>English medium school and college</strong>, and is <strong>intellectually growing</strong> with every passing day. His ambition? To become a <strong>Mechanical Engineer</strong> — a goal he pursues with quiet determination.<br><br>🎨 Beyond academics, Nijhum has a <strong>great skill in art</strong> — a creative depth that sets him apart. A mind that thinks in both engineering and expression. Bikash's family clearly runs deep with talent. 💙";
+  }
+
+  // ── TITHI TALUKDER (Suma & Susen's daughter) ──────────────────
+  if (/tithi|dancer|singer.*student|student.*singer|wants.*doctor|future.*doctor/.test(q)) {
+    return "✨ <strong>Tithi Talukder</strong> is the daughter of Suma Rani and Susen Talukder — and she is, quite simply, extraordinary.<br><br>💃 <strong>Dancer</strong> — she moves with grace and passion<br>🎵 <strong>Singer</strong> — a voice that carries real feeling<br>📚 <strong>Brilliant student</strong> — academically sharp and driven<br>🩺 <strong>Future Doctor</strong> — her heart is set on medicine, and with her discipline, there's little doubt she'll get there<br><br>Tithi is the kind of young person who makes everyone around her believe in possibility. A true multi-talent. 🌸";
+  }
+
+  // ── BIDDHUT SARKER / DRISTY'S HUSBAND ─────────────────────────
+  if (/biddhut|sarker|dristy.*husband|sister.*husband|krishna|consciousness|spreading|madhyanagor.*spiritual|spiritual.*madhyanagor/.test(q)) {
+    return "🕉️ <strong>Biddhut Sarker</strong> is the husband of Bikash's sister, <strong>Dristy Talukder Rubi</strong> — making him Bikash's brother-in-law.<br><br>He is a <strong>teacher</strong> — and beyond the classroom, he dedicates himself to something far greater. He lives and works in a <strong>remote area of Madhyanagor Upazila</strong>, where he is actively <strong>spreading Krishna consciousness</strong> — bringing spiritual awareness and light to a community far from the city's reach.<br><br>He is known as a deeply <strong>calm person</strong> with a <strong>great reputation</strong> in his area. The kind of man who leads not by authority, but by character. A quiet force for good. 🙏";
+  }
+
   // ── JHUMA / DAMUDAR PRIYA ─────────────────────────────────────
   if (/jhuma|damudar|priya|cousin.*sylhet|sylhet.*cousin/.test(q)) {
     return "🌸 <strong>Jhuma Talukder</strong> is Bikash's cousin, living in <strong>Sylhet</strong>.<br><br>She has a daughter named <strong>Damudar Priya</strong> — and she is, by all accounts, absolutely adorable. What makes her extra special? She talks so <strong>maturely</strong> for her age that it catches everyone off guard 😂. The kind of little one who walks into a room and immediately has everyone smiling. A true gem of the family. 💛";
@@ -1487,12 +1507,12 @@ function generateSmartReply(input) {
 
   // ── DRISTY'S CHILD ────────────────────────────────────────────
   if (/dristy.*child|dristy.*son|dristy.*boy|rubi.*child|sister.*child|nephew/.test(q)) {
-    return "👶 Bikash's own sister <strong>Dristy Talukder Rubi</strong> has a baby boy — and he is every bit as wonderful as you'd hope. Described as <strong>cute, clever, and incredibly calm</strong> — he's the kind of child who makes you believe in magic. Bikash clearly has a soft spot for him. 💙";
+    return "👶 Bikash's sister <strong>Dristy Talukder Rubi</strong> has a baby boy — cute, clever, and incredibly calm. Her husband is <strong>Biddhut Sarker</strong>, a teacher spreading Krishna consciousness in Madhyanagor Upazila — a calm, respected man with a great reputation in his community. 💙";
   }
 
   // ── NISHAT / DRISTY / SISTERS ─────────────────────────────────
   if (/nishat|nisa|chosen|sister|dristy|rubi/.test(q)) {
-    return "👧 Bikash's sisters:<br><br>💙 <strong>Nishat Tasmin Nisa</strong> — a sister from another mother, one of his strongest pillars of support through his hardest times. A bond built not on blood alone, but on deep loyalty.<br><br>💜 <strong>Dristy Talukder Rubi</strong> — his own sister, equally cherished. She has a baby boy who is <strong>cute, clever, and the calmest little soul</strong> — a source of so much joy for the family. 🥰";
+    return "👧 Bikash's sisters:<br><br>💙 <strong>Nishat Tasmin Nisa</strong> — a sister from another mother, one of his strongest pillars of support through his hardest times. A bond built not on blood alone, but on deep loyalty.<br><br>💜 <strong>Dristy Talukder Rubi</strong> — his own sister, equally cherished. Married to <strong>Biddhut Sarker</strong> — a calm, respected teacher spreading Krishna consciousness in Madhyanagor. They have a baby boy who is cute, clever, and the calmest little soul. 🥰";
   }
 
   // ── ASMA / MONISHA / CALMEST PEOPLE ──────────────────────────
@@ -1502,7 +1522,7 @@ function generateSmartReply(input) {
 
   // ── FAMILY OVERVIEW ────────────────────────────────────────────
   if (/family|parent|relatives|support system/.test(q)) {
-    return "💙 <strong>Bikash's Family & Support System:</strong><br><br>👨 <strong>Father:</strong> Haridhan Talukder <em>(greatest inspiration)</em><br>👩 <strong>Mother:</strong> Shila Rani Talukder<br>🌟 <strong>Uncle:</strong> Aradhan Talukder <em>(greatest inspiration, passed away 2025)</em><br>🌸 <strong>Uncle's wife:</strong> Madhuri Rani Talukder <em>(Bikash's second mother, passed away 2025)</em><br>💛 <strong>Grandmother:</strong> Passed away — loved deeply, missed always<br><br>👦 <strong>Brothers:</strong><br>• Akash Talukder <em>(guardian, unpayable debt)</em><br>• Devarshi Srivas Dasa <em>(spiritual leader, mental support, world traveler)</em><br>• Taposh Ranjan Talukder <em>(US citizen, financial support)</em> — wife: Laxmi Das · child: Namananda<br>• Nijhum Talukder · Bappy Sarkar · Robin Sarkar<br><br>👧 <strong>Sisters:</strong><br>• Dristy Talukder Rubi <em>(has a cute, clever, calm baby boy)</em><br>• Nishat Tasmin Nisa <em>(chosen kinship, emotional pillar)</em><br><br>👩 <strong>Cousin:</strong> Jhuma Talukder <em>(lives in Sylhet)</em> — daughter: Damudar Priya <em>(adorably mature 😂)</em><br><br>Family is the compass that guides every decision Bikash makes. 🙏";
+    return "💙 <strong>Bikash's Family & Support System:</strong><br><br>👨 <strong>Father:</strong> Haridhan Talukder <em>(greatest inspiration)</em><br>👩 <strong>Mother:</strong> Shila Rani Talukder<br>🌟 <strong>Uncle:</strong> Aradhan Talukder <em>(passed away 2025)</em> · wife: Madhuri Rani <em>(second mother, passed away 2025)</em><br>👨‍⚕️ <strong>Uncle:</strong> Susen Talukder <em>(Medinova Medical, Sylhet)</em> · wife: Suma Rani Talukder <em>(supportive aunty)</em><br>— son: Nijhum Talukder <em>(English medium, aspiring engineer, artist)</em><br>— daughter: Tithi Talukder <em>(dancer, singer, brilliant student, future doctor)</em><br>💛 <strong>Grandmother:</strong> Passed away — loved deeply, missed always<br><br>👦 <strong>Brothers:</strong><br>• Akash Talukder <em>(guardian, unpayable debt)</em><br>• Devarshi Srivas Dasa <em>(spiritual leader, world traveler, mental support)</em><br>• Taposh Ranjan Talukder <em>(US citizen, financial support)</em> — wife: Laxmi Das · son: Namananda<br>• Nijhum Talukder · Bappy Sarkar · Robin Sarkar<br><br>👧 <strong>Sisters:</strong><br>• Dristy Talukder Rubi — husband: <strong>Biddhut Sarker</strong> <em>(teacher, spreading Krishna consciousness in Madhyanagor)</em> · baby boy<br>• Nishat Tasmin Nisa <em>(chosen kinship, emotional pillar)</em><br><br>👩 <strong>Cousin:</strong> Jhuma Talukder <em>(Sylhet)</em> — daughter: Damudar Priya <em>(adorably mature 😂)</em><br><br>Family is the compass that guides every decision Bikash makes. 🙏";
   }
 
   // ── BROTHERS ───────────────────────────────────────────────────
