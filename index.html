@@ -1444,14 +1444,14 @@ function generateSmartReply(input) {
     return "🌟 Bikash's uncle, <strong>Aradhan Talukder</strong>, is one of his two greatest inspirations alongside his father. He stood by Bikash through his hardest times with quiet, unwavering strength. Bikash credits both his father and uncle as the reason he survived his lowest points — a debt he may never be able to repay, but honours through every achievement. 🙏";
   }
 
-  // ── MOTHER ─────────────────────────────────────────────────────
-  if (/mother|mom|maa|mama|ma\b/.test(q)) {
-    return "👩 Bikash's mother is <strong>Shila Rani Talukder</strong> — deeply cherished and an irreplaceable part of his life and values.";
+  // ── GRANDMOTHER (must come BEFORE mother check) ────────────────
+  if (/grandm|grandmother|nani|dadi|granny|grand/.test(q)) {
+    return "🕊️ <strong>Bikash's grandmother</strong> holds a place in his heart that nothing else can fill.<br><br>She was the one who raised him, watched over him, and loved him with a kind of warmth that only a grandmother can give — completely, quietly, unconditionally. As a child, she was his whole world in Ramdigha. Her care shaped the gentleness behind his calm nature, the patience in the way he thinks, and the kindness he carries even when the world is hard.<br><br>She has passed away — and that loss is one Bikash carries with him every day. He loved her deeply. He misses her deeply. 💔<br><br>When he sits down to build something today — a project, a system, a piece of code — some part of that patience, that stillness, that love... it came from her. She may be gone, but she is woven into everything he does. 🌿<br><br><em>\"Some people leave this world but never really leave you.\"</em>";
   }
 
-  // ── GRANDMOTHER ────────────────────────────────────────────────
-  if (/grandm|nani|dadi|granny|grand/.test(q)) {
-    return "💛 Bikash's story begins with his <strong>grandmother's warmth</strong>. As a child, he was raised under her watchful, gentle care — she was the first person to teach him kindness and unconditional love.<br><br>Though she is no longer here, and he misses her deeply, her influence is the <em>\"quiet pulse\"</em> behind his calm nature. When Bikash builds something today, he carries the patience she gave him, all those years ago in the village. 🕊️";
+  // ── MOTHER ─────────────────────────────────────────────────────
+  if (/\bmother\b|mom\b|maa\b|mama\b/.test(q)) {
+    return "👩 Bikash's mother is <strong>Shila Rani Talukder</strong> — deeply cherished and an irreplaceable part of his life and values.";
   }
 
   // ── AKASH / BROTHER BOND ───────────────────────────────────────
