@@ -1063,15 +1063,15 @@ LET'S<br>TALK<br>CODE
     </div>
     <div class="chat-messages" id="chatMessages">
       <div class="chat-msg bot">
-        <div class="chat-bubble">Hi! I'm Bikash's AI assistant. Ask me anything about his skills, projects, research interests, or how to get in touch! 👋</div>
+        <div class="chat-bubble">Hey 👋 I'm Bikash's personal AI — built to reflect who he truly is.<br><br>I know his story deeply: from a village in Sylhet to building systems in C++, from his grandmother's care to his uncle's sacrifice, from his Vegan lifestyle to his Cinematic Blue Hour aesthetic.<br><br>Ask me anything. ✦</div>
       </div>
     </div>
     <div class="chat-quick-btns" id="quickBtns">
-      <button class="quick-btn" onclick="sendQuick('Where is Bikash from?')">Hometown</button>
+      <button class="quick-btn" onclick="sendQuick('Who inspires Bikash?')">Inspirations</button>
       <button class="quick-btn" onclick="sendQuick('Tell me about his family')">Family</button>
-      <button class="quick-btn" onclick="sendQuick('What are Bikash\'s top skills?')">Skills</button>
+      <button class="quick-btn" onclick="sendQuick('Who are Bikash\\'s friends?')">Friends</button>
       <button class="quick-btn" onclick="sendQuick('Tell me about his projects')">Projects</button>
-      <button class="quick-btn" onclick="sendQuick('What sports does Bikash like?')">Sports</button>
+      <button class="quick-btn" onclick="sendQuick('What is the Cinematic Blue Hour?')">Aesthetic</button>
       <button class="quick-btn" onclick="sendQuick('How can I contact Bikash?')">Contact</button>
     </div>
     <div class="chat-input-row">
@@ -1414,146 +1414,206 @@ let chatHistory = [];
 function generateSmartReply(input) {
   const q = input.toLowerCase().trim();
 
-  // Greetings
+  // ── GREETINGS ──────────────────────────────────────────────────
   if (/^(hi|hello|hey|howdy|sup|what'?s up|yo)\b/.test(q)) {
-    return "Hey there! 👋 I'm Bikash's AI assistant. I know everything about him — his background, family, skills, projects, and more. What would you like to know?";
+    return "Hey there! 👋 I'm Bikash's personal AI assistant — loaded with everything about him: his roots, family, philosophy, tech skills, and more. What would you like to know?";
   }
 
-  // Who are you / about the bot
+  // ── ABOUT THE BOT ──────────────────────────────────────────────
   if (/who are you|what are you|are you (ai|a bot|real|human|claude)/.test(q)) {
-    return "I'm an AI assistant built into Bikash's portfolio! I'm loaded with his personal info, so ask me anything — from his family and hometown to his projects and research interests. ✦";
+    return "I'm the AI woven into Bikash's portfolio — a live digital persona built to reflect who he truly is. I know his story deeply: from a village in Sylhet to building systems in C++ and researching Quantum AI. Ask me anything. ✦";
   }
 
-  // Who is Bikash / general intro
-  if (/who is bikash|about bikash|tell me about (him|bikash|yourself)|introduce/.test(q)) {
-    return "Bikash Talukder is a passionate 2nd-year CSE student from Bangladesh 🇧🇩, originally from <strong>Madhyanagar Upazila, Sunamganj, Sylhet Division</strong>. He's a dedicated problem-solver who loves C/C++, algorithms, football, and cricket. He grew up in Ramdigha village and carries those roots with him everywhere. His motto: <em>\"Always learning. Always building.\"</em>";
+  // ── FULL INTRO / WHO IS BIKASH ─────────────────────────────────
+  if (/who is bikash|about bikash|tell me about (him|bikash|yourself)|introduce|overview/.test(q)) {
+    return "Bikash Talukder is a CSE student, systems thinker, and quiet builder from <strong>Ramdigha village, Sylhet, Bangladesh</strong> 🇧🇩.<br><br>He grew up in the discipline of village life — and that grounded philosophy shaped everything: he writes <strong>powerful, efficient, dependency-free code</strong>; lives as a committed <strong>Vegan</strong>; keeps a small, loyal circle of friends; and describes himself as a <em>\"Selective Extrovert\"</em> — deeply introverted by nature, yet articulate and confident when in his element.<br><br>His motto: <em>\"Always learning. Always building.\"</em> 💙";
   }
 
-  // Hometown / village / origin / where from / Sylhet / Sunamganj
-  if (/hometown|village|origin|where.*from|born|grew up|ramdigha|sylhet|sunamganj|madhyanagar/.test(q)) {
-    return "Bikash is originally from <strong>Madhyanagar Upazila, Sunamganj Zila, Sylhet Division</strong> 🏡. He grew up in <strong>Ramdigha village</strong> and deeply misses those days — the village life, his childhood friends, and his brothers. It's a place very close to his heart. 💙";
+  // ── INSPIRATION / WHO INSPIRES HIM ────────────────────────────
+  if (/inspir|motivat|role model|who drives|why.*work|look up|hero|struggle/.test(q)) {
+    return "🌟 <strong>Bikash's greatest inspirations are his Father — Haridhan Talukder — and his Uncle, Aradhan Talukder.</strong><br><br>These two men faced immense hardship and sacrifice to give Bikash the life he has today. During Bikash's lowest, darkest moments, their support was the only reason he kept going. They are not just family — they are the foundation every line of his code is quietly dedicated to.<br><br>Here is what makes this deeply personal: <em>Bikash is a man of very few words.</em> He has never told them face-to-face how much they mean to him. But the entire arc of his work — every project, every late night, every breakthrough — is his tribute to their struggle. 🙏";
   }
 
-  // Father
+  // ── FATHER ─────────────────────────────────────────────────────
   if (/father|dad|baba|papa/.test(q)) {
-    return "Bikash's father's name is <strong>Haridhan Talukder</strong> 👨‍👦. He is a big part of who Bikash is today.";
+    return "👨 Bikash's father is <strong>Haridhan Talukder</strong> — one of his two greatest inspirations in life. His father's sacrifice and hard work through immense struggles gave Bikash the foundation he stands on today. Bikash holds him in the highest honor, even if those words have never been spoken aloud between them. 🙏";
   }
 
-  // Mother
+  // ── UNCLE ──────────────────────────────────────────────────────
+  if (/uncle|aradhan/.test(q)) {
+    return "🌟 Bikash's uncle, <strong>Aradhan Talukder</strong>, is one of his two greatest inspirations alongside his father. He stood by Bikash through his hardest times with quiet, unwavering strength. Bikash credits both his father and uncle as the reason he survived his lowest points — a debt he may never be able to repay, but honours through every achievement. 🙏";
+  }
+
+  // ── MOTHER ─────────────────────────────────────────────────────
   if (/mother|mom|maa|mama|ma\b/.test(q)) {
-    return "Bikash's mother's name is <strong>Shila Rani Talukder</strong> 👩‍👦. She is deeply important to him.";
+    return "👩 Bikash's mother is <strong>Shila Rani Talukder</strong> — deeply cherished and an irreplaceable part of his life and values.";
   }
 
-  // Parents / family overview
-  if (/parent|family|relatives|guardian/.test(q)) {
-    return "Bikash's family:<br><br>👨 <strong>Father:</strong> Haridhan Talukder<br>👩 <strong>Mother:</strong> Shila Rani Talukder<br>👦 <strong>Brothers:</strong> Akash Talukder, Devarshi Sivas Dasa, Taposh Ranjan Talukder, Nijhum Talukder, Bappy Sarkar, Robin Sarkar<br>👧 <strong>Sister:</strong> Dristy Talukder Rubi<br><br>He has a big, loving family and especially cherishes time with his brothers and village friends. 💙";
+  // ── GRANDMOTHER ────────────────────────────────────────────────
+  if (/grandm|nani|dadi|granny|grand/.test(q)) {
+    return "💛 Bikash's story begins with his <strong>grandmother's warmth</strong>. As a child, he was raised under her watchful, gentle care — she was the first person to teach him kindness and unconditional love.<br><br>Though she is no longer here, and he misses her deeply, her influence is the <em>\"quiet pulse\"</em> behind his calm nature. When Bikash builds something today, he carries the patience she gave him, all those years ago in the village. 🕊️";
   }
 
-  // Brothers / siblings (male)
+  // ── AKASH / BROTHER BOND ───────────────────────────────────────
+  if (/akash|debt|unpayable|guardian|lowest|stood by|pillar/.test(q)) {
+    return "💙 <strong>Akash Talukder</strong> is more than a brother to Bikash — he is the guardian of his journey.<br><br>Through every high and every lowest low, Akash has been present. Bikash believes he can never truly repay the kindness and support Akash has shown him — calling it an <em>\"unpayable debt.\"</em><br><br>No matter how far Bikash goes in Computer Science or the world, he knows — quietly, humbly — that he stands on his brother's shoulders. 🙏";
+  }
+
+  // ── NISHAT / CHOSEN SISTER ─────────────────────────────────────
+  if (/nishat|nisa|chosen|sister|dristy|rubi/.test(q)) {
+    return "👧 Bikash has two sisters close to his heart:<br><br>💙 <strong>Nishat Tasmin Nisa</strong> — a sister from another mother, and one of his strongest pillars of support. She stood by him through his most challenging times, providing emotional and mental strength when he needed it most. A bond built not just on blood, but on loyalty.<br><br>💜 <strong>Dristy Talukder Rubi</strong> — his sister, equally cherished and an anchor in his life.";
+  }
+
+  // ── FAMILY OVERVIEW ────────────────────────────────────────────
+  if (/family|parent|relatives|guardian|support system/.test(q)) {
+    return "💙 <strong>Bikash's Family & Support System:</strong><br><br>👨 <strong>Father:</strong> Haridhan Talukder <em>(greatest inspiration)</em><br>👩 <strong>Mother:</strong> Shila Rani Talukder<br>🌟 <strong>Uncle:</strong> Aradhan Talukder <em>(greatest inspiration)</em><br>👦 <strong>Brothers:</strong> Akash Talukder <em>(his guardian)</em>, Devarshi Sivas Dasa, Taposh Ranjan Talukder, Nijhum Talukder, Bappy Sarkar, Robin Sarkar<br>👧 <strong>Sisters:</strong> Dristy Talukder Rubi, Nishat Tasmin Nisa <em>(chosen kinship)</em><br><br>Family is the compass that guides every decision Bikash makes. 🙏";
+  }
+
+  // ── BROTHERS ───────────────────────────────────────────────────
   if (/brother|bhai|sibling/.test(q)) {
-    return "Bikash has <strong>6 brothers</strong>:<br><br>👦 Akash Talukder<br>👦 Devarshi Sivas Dasa<br>👦 Taposh Ranjan Talukder<br>👦 Nijhum Talukder<br>👦 Bappy Sarkar<br>👦 Robin Sarkar<br><br>He misses them and their Ramdigha village days a lot — those bonds run very deep. 💙";
+    return "Bikash has <strong>6 brothers</strong>:<br><br>💙 <strong>Akash Talukder</strong> — his guardian, his greatest support, the one he owes an unpayable debt<br>👦 Devarshi Sivas Dasa<br>👦 Taposh Ranjan Talukder<br>👦 Nijhum Talukder<br>👦 Bappy Sarkar<br>👦 Robin Sarkar<br><br>He misses those Ramdigha days with them more than words can say. 💙";
   }
 
-  // Sister
-  if (/sister|apu|didi/.test(q)) {
-    return "Bikash's sister's name is <strong>Dristy Talukder Rubi</strong> 👧. She's a cherished part of his family.";
+  // ── PERSONALITY ────────────────────────────────────────────────
+  if (/personality|introvert|extrovert|selective|character|who is he|nature|vibe|type of person/.test(q)) {
+    return "🎭 Bikash describes himself as a <strong>\"Selective Extrovert.\"</strong><br><br>By nature, he is deeply <strong>introverted</strong> — he thrives in solitude and calm, which gives him the focused discipline that makes him exceptional at engineering. But when he's in his element — talking tech, leading a project, or among his trusted circle — he becomes <strong>confident, articulate, and compelling.</strong><br><br>He keeps a <em>small, high-quality circle</em> of loyal friends over a large, superficial network. Quality over quantity — in code and in life. ✦";
   }
 
-  // Sports / hobbies / football / cricket / gym
+  // ── VEGAN ──────────────────────────────────────────────────────
+  if (/vegan|diet|food|eat|plant|compassion|lifestyle/.test(q)) {
+    return "🌱 Bikash is a committed <strong>Vegan</strong> — a lifestyle choice that reflects his self-discipline and deep compassion for all living beings. Just as he writes clean, intentional code with no unnecessary bloat, he lives with the same philosophy: conscious, purposeful, and principled. It's not a trend for him — it's a value.";
+  }
+
+  // ── PHILOSOPHY / GROUNDED ──────────────────────────────────────
+  if (/philosophy|belief|value|grounded|principle|mindset|approach|ethos/.test(q)) {
+    return "🌿 Bikash's core philosophy is rooted in his village upbringing: <strong>simplicity, hard work, and building something from nothing.</strong><br><br>He carries this into his code — preferring <em>clean, powerful, dependency-free systems</em> over bulky frameworks. He believes in depth over breadth, loyalty over popularity, and quiet dedication over loud self-promotion.<br><br>He is a man of few words — but when he acts, it speaks volumes. ✦";
+  }
+
+  // ── AESTHETIC / DESIGN STYLE ───────────────────────────────────
+  if (/aesthetic|design|visual|style|dark|night mode|cinematic|blue hour|moody|artistic|portfolio look/.test(q)) {
+    return "🌌 Bikash is drawn to a <strong>\"Cinematic Blue Hour\"</strong> aesthetic — moody, twilight-inspired visuals that evoke a sense of melancholy and deep thought.<br><br>This is intentional. His Night Mode portfolio blends <em>high-tech functionality with artistic storytelling</em> — dark backgrounds, gold accents, and atmospheric design that feel like a scene from a film rather than a typical developer site.<br><br>His code is efficient. His aesthetic is cinematic. Both are, unmistakably, him. 🎬";
+  }
+
+  // ── TECHNICAL STYLE / VANILLA JS / NO FRAMEWORK ───────────────
+  if (/vanilla|framework|jquery|react|dependency|clean code|web stack|javascript|css/.test(q)) {
+    return "💻 Bikash is an expert in <strong>Vanilla JavaScript and advanced CSS</strong> — and he prefers it that way. No bloated frameworks, no unnecessary dependencies. Just clean, fast, purposeful code.<br><br>This philosophy mirrors his personality: <em>strip away the noise, and build something that actually works.</em> His portfolio itself is proof — every animation, interaction, and live widget is hand-crafted without a single framework. ✦";
+  }
+
+  // ── SPORTS ─────────────────────────────────────────────────────
   if (/sport|football|soccer|cricket|gym|workout|fitness|hobby|free time|play|active|exercise/.test(q)) {
-    return "Outside of coding, Bikash is passionate about:<br><br>⚽ <strong>Football</strong> — his favourite sport<br>🏏 <strong>Cricket</strong> — a true Bangladeshi classic<br>💪 <strong>Gym</strong> — he stays disciplined and fit<br><br>He's as competitive on the field as he is solving algorithms! 🔥";
+    return "Outside of code, Bikash is passionate about:<br><br>⚽ <strong>Football</strong> — his favourite sport, played with the same intensity he brings to algorithms<br>🏏 <strong>Cricket</strong> — a true Bangladeshi classic<br>💪 <strong>Gym</strong> — discipline of body mirrors discipline of mind<br><br>The same focus that makes him a great engineer makes him competitive on the field too. 🔥";
   }
 
-  // CGPA / grades / academic performance
+  // ── CGPA ───────────────────────────────────────────────────────
   if (/cgpa|gpa|grade|marks|result|academic|score/.test(q)) {
-    return "Bikash currently has a <strong>CGPA of 3.65</strong> 🎓 — a strong result that reflects his dedication to both academics and hands-on projects. He balances coursework, competitive programming, and personal projects all at once!";
+    return "📊 Bikash holds a <strong>CGPA of 3.65</strong> — a strong academic record achieved while simultaneously working on personal projects, competitive programming, and research. He doesn't just study CS; he lives it. 🎓";
   }
 
-  // Marriage / relationship
+  // ── MARRIAGE ───────────────────────────────────────────────────
   if (/marry|marriage|wife|girlfriend|relationship|love life|romantic|wedding/.test(q)) {
-    return "Bikash has made up his mind — he <strong>doesn't plan to marry</strong> in the future. He's fully focused on his passion for technology, research, and building his career. Some people choose code over companionship! 😄💻";
+    return "Bikash has made a clear, deliberate choice — he <strong>does not plan to marry</strong> in the future. His life is fully devoted to his craft, his family, and his journey in technology. Some build relationships. He builds systems. 💻";
   }
 
-  // Village life / missing home / friends / nostalgia
-  if (/miss|nostalg|village|ramdigha|village life|childhood|hometown friends|back home/.test(q)) {
-    return "One of the most personal things about Bikash — he <strong>deeply misses his Ramdigha village life</strong> 🌿. The open fields, the friendships, the simplicity, the time with his brothers — those memories stay with him. No matter how far his tech journey takes him, Ramdigha will always be home. 💙";
+  // ── NOSTALGIA / VILLAGE LIFE ───────────────────────────────────
+  if (/miss|nostalg|village life|ramdigha|childhood|back home|village friends/.test(q)) {
+    return "🌿 One of the most tender parts of Bikash's story — he <strong>deeply misses Ramdigha</strong>. The open fields, the unhurried pace, the friendships, the time with his brothers — those memories live in him quietly.<br><br>His grandmother's home. The village mornings. The bonds formed before ambition and code took over the days. No matter how far his journey in CSE takes him, <em>Ramdigha will always be where his heart returns.</em> 💙";
   }
 
-  // School / education history / Akota / Osmani / Scholars Home
+  // ── SCHOOL / EDUCATION HISTORY ─────────────────────────────────
   if (/school|akota|osmani|scholar|high school|secondary|ssc|class 8|class 9|class 10|9-10|9th|10th/.test(q)) {
-    return "Bikash's school journey:<br><br>🏫 <strong>Akota High School, Ramdigha</strong> — studied here up to Class 8, his home village school<br>🏫 <strong>Osmani Medical High School, Sylhet</strong> — completed Classes 9 & 10 here<br>🎓 <strong>Scholar's Home</strong> — his college (HSC level)<br><br>From a village school to the city — his academic path shows real determination! 💪";
+    return "🎒 Bikash's academic journey:<br><br>🏫 <strong>Akota High School, Ramdigha</strong> — his village school, up to Class 8<br>🏫 <strong>Osmani Medical High School, Sylhet</strong> — Classes 9 & 10<br>🎓 <strong>Scholar's Home</strong> — HSC (College level)<br>🖥 <strong>Current CSE Degree</strong> — CGPA 3.65<br><br>From a quiet village classroom to engineering research — every step earned. 💪";
   }
 
-  // College / HSC
+  // ── COLLEGE ────────────────────────────────────────────────────
   if (/college|hsc|higher secondary|scholars/.test(q)) {
-    return "Bikash completed his college (HSC) at <strong>Scholar's Home</strong> 🎓. After his school years in Sylhet, this was the next step before diving into his CSE degree.";
+    return "🎓 Bikash completed his HSC at <strong>Scholar's Home</strong> — the bridge between his Sylhet school years and his CSE degree. A pivotal chapter in his journey from village student to systems engineer.";
   }
 
-  // Skills
+  // ── HOMETOWN / VILLAGE ─────────────────────────────────────────
+  if (/hometown|village|origin|where.*from|born|grew up|ramdigha|sylhet|sunamganj|madhyanagar/.test(q)) {
+    return "🏡 Bikash is originally from <strong>Madhyanagar Upazila, Sunamganj Zila, Sylhet Division</strong> — and more specifically, from <strong>Ramdigha village</strong>.<br><br>This is where his story begins: with his grandmother's care, village friendships, and a quiet discipline that shaped everything he became. He misses it deeply, and it remains the emotional core of who he is. 💙";
+  }
+
+  // ── SKILLS ─────────────────────────────────────────────────────
   if (/skill|language|tech|stack|know|proficient|good at|expert|coding|programming/.test(q)) {
-    return "Bikash's core skills:<br><br>💻 <strong>Languages:</strong> C & C++ (88%), Python (80%), Java (60%), HTML/CSS (70%)<br>🧠 <strong>CS Theory:</strong> Data Structures & Algorithms (75%)<br>🔧 <strong>Hardware:</strong> Arduino (45%), Robotics basics<br>🛠 <strong>Tools:</strong> Excel, PowerPoint<br><br>He's strongest in C/C++ and loves competitive programming!";
+    return "💻 Bikash's technical skills:<br><br>⚙️ <strong>C & C++</strong> — 88% (his strongest, used for systems & games)<br>🐍 <strong>Python</strong> — 80% (AI/ML, scripting)<br>🌐 <strong>HTML/CSS + Vanilla JS</strong> — 70% (dependency-free, clean web work)<br>☕ <strong>Java</strong> — 60%<br>🧠 <strong>DSA</strong> — 75%<br>🔧 <strong>Arduino & Robotics</strong> — 45% / 35%<br><br>His philosophy: <em>no bloat, no shortcuts — just powerful, clean systems.</em> ✦";
   }
 
-  // Projects
+  // ── PROJECTS ───────────────────────────────────────────────────
   if (/project|built|made|work|portfolio|github|code|app|program/.test(q)) {
-    return "Bikash has 3 featured projects:<br><br>🕐 <strong>Digital Clock (C)</strong> — Terminal clock using POSIX threads & ANSI escape codes<br>⚔️ <strong>Echoes of the Void (C++)</strong> — Full text-adventure RPG with combat & inventory<br>🗺 <strong>Google Maps Navigator (C++)</strong> — Dijkstra's algorithm with Raylib graphics & animated car movement<br><br>All code is on his <a href='https://github.com/bikash-20' target='_blank' style='color:#9b4de8'>GitHub →</a>";
+    return "🛠 Bikash's featured projects:<br><br>🕐 <strong>Digital Clock (C)</strong> — Multi-threaded terminal clock with mutex locks, snooze functionality & ANSI UI. Pure systems mastery.<br>⚔️ <strong>Echoes of the Void (C++)</strong> — Full OOP text-adventure RPG with combat, puzzles & inventory<br>🗺 <strong>Google Maps Navigator (C++)</strong> — Dijkstra's algorithm with Raylib graphics, animated movement & a web version<br><br>All on his <a href='https://github.com/bikash-20' target='_blank' style='color:#9b4de8'>GitHub →</a>";
   }
 
-  // Research
-  if (/research|interest|field|curious|passion|ai|ml|machine learning|quantum|llm/.test(q)) {
-    return "Bikash's research interests span 6 areas:<br><br>🤖 Artificial Intelligence & reasoning systems<br>📊 Machine Learning & predictive analytics<br>🔌 Embedded Systems & IoT<br>💬 Large Language Models & NLP<br>⚛️ Quantum Algorithms & complexity<br>📦 Big Data (Hadoop & Spark)<br><br>He's especially drawn to AI and LLMs — fitting, since you're talking to one right now! 😄";
+  // ── RESEARCH / QUANTUM / AI ────────────────────────────────────
+  if (/research|interest|field|quantum|llm|ai|ml|machine learning|future tech/.test(q)) {
+    return "🔬 Bikash actively researches at the frontier of technology:<br><br>⚛️ <strong>Quantum Computing</strong> — algorithms, complexity & future computation<br>🤖 <strong>AI & LLMs</strong> — already proven by the live AI assistant on this very portfolio<br>📊 Machine Learning & predictive analytics<br>🔌 Embedded Systems & IoT<br>📦 Big Data (Hadoop & Spark)<br><br>He doesn't just study the future — he builds it. ✦";
   }
 
-  // Contact
-  if (/contact|reach|hire|email|phone|linkedin|social|connect|message|dm|find him/.test(q)) {
-    return "Here's how to reach Bikash:<br><br>📞 <strong>Phone:</strong> +880 1926 240 062<br>🐙 <strong>GitHub:</strong> <a href='https://github.com/bikash-20' target='_blank' style='color:#9b4de8'>bikash-20</a><br>💼 <strong>LinkedIn:</strong> <a href='https://linkedin.com/in/bikash-talukder-6497633b8' target='_blank' style='color:#9b4de8'>bikash-talukder</a><br>📘 <strong>Facebook:</strong> <a href='https://facebook.com/profile.php?id=61577923653790' target='_blank' style='color:#9b4de8'>View profile</a><br>📸 <strong>Instagram:</strong> <a href='https://instagram.com/talukder_20' target='_blank' style='color:#9b4de8'>@talukder_20</a>";
+  // ── CONTACT ────────────────────────────────────────────────────
+  if (/contact|reach|hire|email|phone|linkedin|social|connect|message|find him/.test(q)) {
+    return "📬 How to reach Bikash:<br><br>📞 <strong>Phone:</strong> +880 1926 240 062<br>🐙 <strong>GitHub:</strong> <a href='https://github.com/bikash-20' target='_blank' style='color:#9b4de8'>bikash-20</a><br>💼 <strong>LinkedIn:</strong> <a href='https://linkedin.com/in/bikash-talukder-6497633b8' target='_blank' style='color:#9b4de8'>bikash-talukder</a><br>📘 <strong>Facebook:</strong> <a href='https://facebook.com/profile.php?id=61577923653790' target='_blank' style='color:#9b4de8'>View profile</a><br>📸 <strong>Instagram:</strong> <a href='https://instagram.com/talukder_20' target='_blank' style='color:#9b4de8'>@talukder_20</a>";
   }
 
-  // Codeforces
+  // ── CODEFORCES ─────────────────────────────────────────────────
   if (/codeforces|competitive|cp|contest|cf|rating|rank/.test(q)) {
-    return "Bikash is active on Codeforces as <strong>talukder_20</strong>! He enjoys algorithmic challenges and improving his rating. View his profile: <a href='https://codeforces.com/profile/talukder_20' target='_blank' style='color:#9b4de8'>codeforces.com/profile/talukder_20</a>.";
+    return "⚡ Bikash competes on Codeforces as <strong>talukder_20</strong> — testing his algorithms under pressure, the same discipline he brings to every project. <a href='https://codeforces.com/profile/talukder_20' target='_blank' style='color:#9b4de8'>View his profile →</a>";
   }
 
-  // LeetCode / DSA
+  // ── LEETCODE ───────────────────────────────────────────────────
   if (/leetcode|leet|dsa|data structure|algorithm|problem solving/.test(q)) {
-    return "On LeetCode, Bikash goes by <strong>bikashtalukder</strong>. He's strong in DSA at 75% — graphs, trees, DP and more. Check his profile: <a href='https://leetcode.com/u/bikashtalukder/' target='_blank' style='color:#9b4de8'>leetcode.com</a>.";
+    return "🧩 On LeetCode, Bikash is <strong>bikashtalukder</strong> — solving graphs, trees, DP and more at 75% DSA proficiency. <a href='https://leetcode.com/u/bikashtalukder/' target='_blank' style='color:#9b4de8'>View his profile →</a>";
   }
 
-  // Education / university / CSE
+  // ── EDUCATION / UNIVERSITY ─────────────────────────────────────
   if (/student|university|degree|edu|year|cse|study/.test(q)) {
-    return "Bikash is currently a <strong>2nd Year CSE student</strong> in Bangladesh with a <strong>CGPA of 3.65</strong>. His academic journey went: Akota High School (Ramdigha) → Osmani Medical High School (Sylhet) → Scholar's Home College → current CSE degree. 🎓";
+    return "🎓 Bikash is a <strong>2nd Year CSE student</strong> with a <strong>CGPA of 3.65</strong>. His academic path: Akota High School → Osmani Medical High School (Sylhet) → Scholar's Home College → CSE Degree. Village roots to engineering research. 🌿";
   }
 
-  // Location / Bangladesh
+  // ── LOCATION ───────────────────────────────────────────────────
   if (/where|location|country|live|from|bangladesh|dhaka/.test(q)) {
-    return "Bikash is from <strong>Madhyanagar Upazila, Sunamganj, Sylhet Division, Bangladesh</strong> 🇧🇩. He grew up in Ramdigha village and is now pursuing his CSE degree. A proud Bangladeshi developer with village roots and global ambitions!";
+    return "🇧🇩 Bikash is from <strong>Madhyanagar Upazila, Sunamganj, Sylhet Division, Bangladesh</strong> — raised in Ramdigha village with values of hard work, simplicity, and depth. Now building a career in CSE with global ambitions.";
   }
 
-  // C/C++
+  // ── C/C++ ──────────────────────────────────────────────────────
   if (/\bc\+\+\b|cpp|c language|\bc\b/.test(q)) {
-    return "C and C++ are Bikash's strongest languages at <strong>88% proficiency</strong>! He used C for a multi-threaded Digital Clock and C++ for an RPG game and Dijkstra's navigator. Clean, efficient, modern C++ is his signature style.";
+    return "⚙️ C and C++ are Bikash's home languages — <strong>88% proficiency</strong>. He built a multi-threaded clock in C with mutex locks and snooze, and full OOP games and navigation systems in C++. Clean, modern, no-bloat systems code. His signature. ✦";
   }
 
-  // Python
+  // ── PYTHON ─────────────────────────────────────────────────────
   if (/python/.test(q)) {
-    return "Bikash is proficient in Python at <strong>80%</strong> — his go-to for scripting, AI/ML exploration, and rapid prototyping.";
+    return "🐍 Python is Bikash's AI/ML and prototyping tool at <strong>80% proficiency</strong> — fast, expressive, and paired with his research into machine learning and intelligent systems.";
   }
 
-  // Arduino / hardware
+  // ── ARDUINO / HARDWARE ─────────────────────────────────────────
   if (/arduino|robot|hardware|embedded|iot|sensor/.test(q)) {
-    return "Bikash has hands-on experience with <strong>Arduino (45%)</strong> and <strong>Robotics basics (35%)</strong>. He loves bridging hardware and software — it's one of his key research interests!";
+    return "🔧 Bikash has hands-on experience with <strong>Arduino (45%)</strong> and <strong>Robotics (35%)</strong>. Bridging hardware and software is one of his core interests — and the discipline of embedded systems directly informs how he thinks about efficient code at any level.";
   }
 
-  // Collaboration / hiring
+  // ── COLLABORATION / HIRING ─────────────────────────────────────
   if (/open to|available|freelance|intern|job|work together|collab/.test(q)) {
-    return "Bikash is open to collaboration and interesting opportunities! 🚀 Best reach him via <a href='https://linkedin.com/in/bikash-talukder-6497633b8' target='_blank' style='color:#9b4de8'>LinkedIn</a> or call <strong>+880 1926 240 062</strong>.";
+    return "🚀 Bikash is open to meaningful collaboration, internships, and impactful projects. Best reached via <a href='https://linkedin.com/in/bikash-talukder-6497633b8' target='_blank' style='color:#9b4de8'>LinkedIn</a> or <strong>+880 1926 240 062</strong>. He values quality over quantity — in work as in life. ✦";
   }
 
-  // Fallback
+  // ── CITY FRIENDS / SUSMIT / ANKON / ARNOB / SAKKOR ───────────
+  if (/susmit|ankon|arnob|sakkor|city friend|city life|sust|nit|close friend|circle/.test(q)) {
+    return "🏙️ Bikash's <strong>city life inner circle</strong> — four brilliant people he's deeply close to:<br><br>🌟 <strong>Susmit</strong> — <em>\"The most brilliant boy I've ever seen.\"</em> A CS guy from SUST. Bikash speaks about him with genuine admiration — a mind that stands out even in a world of smart people.<br><br>🗣️ <strong>Arnob</strong> — Always talks contextually, sometimes goes deep into his own world — but they love him so much they have all the patience in the world for him. He's irreplaceable in the group. 😄<br><br>📏 <strong>Ankon</strong> — The tallest and cutest guy in the circle. His presence alone lights up the room.<br><br>🇮🇳 <strong>Sakkor</strong> — Currently studying CSE at <strong>NIT India</strong>. A friend who crossed borders but never left the circle.<br><br>These four are Bikash's <em>city life</em> — the people who make the hustle worth it. 💙";
+  }
+
+  // ── VILLAGE BROTHERS / PROBESH / PLABON ───────────────────────
+  if (/probesh|plabon|village brother|village friend|separated|memories|most.*time|spent.*time/.test(q)) {
+    return "🌿 Then there are <strong>Probesh and Plabon</strong> — Bikash's <em>village brothers</em>.<br><br>These aren't just friends. These are the people he spent <strong>most of his life with</strong>. Countless memories, shared in the fields and lanes of Ramdigha — the kind of bond that forms before you even understand what friendship means.<br><br>Now they're separated — life took them different directions — but they <strong>talk regularly</strong>, and that thread never breaks. Distance changed nothing about the depth of what they share.<br><br>Probesh and Plabon are woven into Bikash's story the same way Ramdigha is — permanently, quietly, beautifully. 💙";
+  }
+
+  // ── ALL FRIENDS TOGETHER ───────────────────────────────────────
+  if (/friend|friendship|buddy|mate|crew|gang|people|social|close to/.test(q)) {
+    return "💙 Bikash keeps a <strong>small, high-quality circle</strong> — loyal, real, no superficiality. His people:<br><br>🏙️ <strong>City inner circle:</strong><br>🌟 <strong>Susmit</strong> — the most brilliant CS mind Bikash has met, from SUST<br>📏 <strong>Ankon</strong> — tallest & cutest in the group 😄<br>🗣️ <strong>Arnob</strong> — talks contextually, loved deeply for it<br>🇮🇳 <strong>Sakkor</strong> — CSE at NIT India, always part of the circle<br><br>🌿 <strong>Village brothers:</strong><br>👦 <strong>Probesh</strong> & <strong>Plabon</strong> — the people he spent most of his life with, back in Ramdigha. Now separated, but they talk regularly — and those memories are irreplaceable.<br><br>In code and in life, Bikash values <em>quality over quantity.</em> ✦";
+  }
+
+  // ── FALLBACK ───────────────────────────────────────────────────
   const fallbacks = [
-    "Great question! I know Bikash's family, hometown, skills, projects, education, and a lot more. Try asking something like \"Where is Bikash from?\" or \"Tell me about his family\" or \"What are his projects?\" 😊",
-    "I'm not sure I caught that! Feel free to ask about Bikash's background, village life, family, CGPA, sports, or tech skills — I've got all the details! ✦",
-    "Hmm, let me know what you're curious about! I can tell you about Bikash's hometown in Sylhet, his brothers, his football & cricket love, his projects, or how to reach him. 🤔"
+    "I know Bikash's world deeply — his roots in Ramdigha, his family, his inspirations, his friends, his philosophy, and his code. Try asking: <em>\"Who are Bikash's friends?\"</em> or <em>\"Who inspires Bikash?\"</em> or <em>\"Tell me about his village brothers.\"</em> 💙",
+    "Great question — let me point you in the right direction! Ask about his <strong>city circle</strong> (Susmit, Ankon, Arnob, Sakkor), his <strong>village brothers</strong> (Probesh & Plabon), his <strong>Vegan lifestyle</strong>, or his <strong>Cinematic Blue Hour aesthetic</strong>. I've got all of it. ✦",
+    "Hmm, I want to answer that properly! Try: <em>\"Tell me about Susmit\"</em> or <em>\"Who are Probesh and Plabon?\"</em> or <em>\"What is Bikash's personality like?\"</em> 🎬"
   ];
   return fallbacks[Math.floor(Math.random() * fallbacks.length)];
 }
