@@ -1466,7 +1466,12 @@ function generateSmartReply(input) {
 
   // ── TAPOSH / FINANCIAL SUPPORT ────────────────────────────────
   if (/taposh|financial|money|support.*usa|usa.*support|lives.*usa/.test(q)) {
-    return "🇺🇸 <strong>Taposh Ranjan Talukder</strong> is one of Bikash's brothers currently living in the <strong>USA</strong>.<br><br>Taposh has been a quiet but powerful force behind Bikash's journey — providing <strong>financial support</strong> that has helped Bikash focus on his studies and pursue his goals without that weight on his shoulders.<br><br>In a family where sacrifice runs deep, Taposh's contribution is one more thread in the fabric of love and loyalty that holds Bikash's life together. 🙏";
+    return "🇺🇸 <strong>Taposh Ranjan Talukder</strong> is one of Bikash's brothers currently living in the <strong>USA</strong> as a citizen.<br><br>Taposh has been a quiet but powerful force behind Bikash's journey — providing <strong>financial support</strong> that has helped Bikash focus on his studies and pursue his goals without that weight on his shoulders.<br><br>He lives in the USA with his wife <strong>Laxmi Das</strong> and their child <strong>Ramananda</strong> — a beautiful family rooted in America. In a family where sacrifice runs deep, Taposh's contribution is one more thread in the fabric of love and loyalty that holds Bikash's life together. 🙏";
+  }
+
+  // ── LAXMI DAS / RAMANANDA ─────────────────────────────────────
+  if (/laxmi|ramananda|taposh.*wife|taposh.*child|taposh.*family|cousin.*wife/.test(q)) {
+    return "🌸 <strong>Laxmi Das</strong> is the wife of Bikash's brother <strong>Taposh Ranjan Talukder</strong> — making her Bikash's cousin sister-in-law and a cherished part of his extended family.<br><br>👶 They have a child named <strong>Ramananda</strong> — a little one carrying a beautiful name full of meaning.<br><br>🇺🇸 Laxmi, Taposh, and Ramananda are all <strong>US citizens</strong>, building their life together in America. Even across the ocean, they remain a warm and connected part of Bikash's family story. 💙";
   }
 
   // ── NISHAT / CHOSEN SISTER ─────────────────────────────────────
@@ -1476,7 +1481,7 @@ function generateSmartReply(input) {
 
   // ── FAMILY OVERVIEW ────────────────────────────────────────────
   if (/family|parent|relatives|support system/.test(q)) {
-    return "💙 <strong>Bikash's Family & Support System:</strong><br><br>👨 <strong>Father:</strong> Haridhan Talukder <em>(greatest inspiration)</em><br>👩 <strong>Mother:</strong> Shila Rani Talukder<br>🌟 <strong>Uncle:</strong> Aradhan Talukder <em>(greatest inspiration)</em><br>💛 <strong>Grandmother:</strong> Passed away — loved deeply, missed always<br><br>👦 <strong>Brothers:</strong><br>• Akash Talukder <em>(guardian, unpayable debt)</em><br>• Devarshi Srivas Dasa <em>(spiritual leader, mental support, world traveler)</em><br>• Taposh Ranjan Talukder <em>(lives in USA, financial support)</em><br>• Nijhum Talukder<br>• Bappy Sarkar<br>• Robin Sarkar<br><br>👧 <strong>Sisters:</strong> Dristy Talukder Rubi · Nishat Tasmin Nisa <em>(chosen kinship)</em><br><br>Family is the compass that guides every decision Bikash makes. 🙏";
+    return "💙 <strong>Bikash's Family & Support System:</strong><br><br>👨 <strong>Father:</strong> Haridhan Talukder <em>(greatest inspiration)</em><br>👩 <strong>Mother:</strong> Shila Rani Talukder<br>🌟 <strong>Uncle:</strong> Aradhan Talukder <em>(greatest inspiration)</em><br>💛 <strong>Grandmother:</strong> Passed away — loved deeply, missed always<br><br>👦 <strong>Brothers:</strong><br>• Akash Talukder <em>(guardian, unpayable debt)</em><br>• Devarshi Srivas Dasa <em>(spiritual leader, mental support, world traveler)</em><br>• Taposh Ranjan Talukder <em>(US citizen, financial support)</em> — wife: Laxmi Das · child: Ramananda<br>• Nijhum Talukder<br>• Bappy Sarkar<br>• Robin Sarkar<br><br>👧 <strong>Sisters:</strong> Dristy Talukder Rubi · Nishat Tasmin Nisa <em>(chosen kinship)</em><br><br>Family is the compass that guides every decision Bikash makes. 🙏";
   }
 
   // ── BROTHERS ───────────────────────────────────────────────────
