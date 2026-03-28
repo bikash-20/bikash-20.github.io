@@ -598,6 +598,7 @@ footer {
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#research">Research</a></li>
+    <li><a href="#dashboard">Dashboard</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -629,7 +630,7 @@ footer {
     </div>
     <div class="hero-contacts">
       <div class="hc-item"><div class="hc-ico">📞</div><span>+880 1926 240 062</span></div>
-      <div class="hc-item"><div class="hc-ico">✉️</div><a href="mailto:bikashtalukder040@gmail.com">bikashtalukder040@gmail.com</a></div>
+      <div class="hc-item"><div class="hc-ico">✉️</div><a href="/cdn-cgi/l/email-protection#74161d1f15071c001518011f101106444044341319151d185a171b19"><span class="__cf_email__" data-cfemail="1f7d76747e6c776b7e736a747b7a6d2f2b2f5f78727e7673317c7072">[email&#160;protected]</span></a></div>
     </div>
   </div>
 
@@ -972,7 +973,7 @@ target="_blank" class="c-link">
 
 
 <!-- Email -->
-<a href="mailto:bikashtalukder040@gmail.com" class="c-link">
+<a href="/cdn-cgi/l/email-protection#9ffdf6f4feecf7ebfef3eaf4fbfaedafabafdff8f2fef6f3b1fcf0f2" class="c-link">
 <div class="c-ico"><i class="fas fa-envelope"></i></div>
 <div class="c-text">
 <span class="c-label">Email</span>
@@ -989,13 +990,613 @@ LET'S<br>TALK<br>CODE
   </div>
 </section>
 
+
+<!-- LIVE DASHBOARD SECTION -->
+<div class="divider"></div>
+<section class="section dashboard-bg" id="dashboard">
+  <div class="sec-hdr">
+    <span class="sec-num">05 —</span>
+    <h2 class="sec-title">Live <span>Dashboard</span></h2>
+  </div>
+  <div class="dash-grid">
+    <!-- Weather Card -->
+    <div class="dash-card" id="weatherCard">
+      <div class="dash-icon">⛅</div>
+      <div class="dash-label">LIVE WEATHER · DHAKA</div>
+      <div class="dash-big" id="weatherTemp">—°C</div>
+      <div class="dash-sub" id="weatherDesc">Fetching weather data...</div>
+    </div>
+    <!-- Time Card -->
+    <div class="dash-card">
+      <div class="dash-icon">🕐</div>
+      <div class="dash-label">LOCAL TIME · BANGLADESH</div>
+      <div class="dash-big" id="localTime">--:--:--</div>
+      <div class="dash-sub" id="localDate">Loading...</div>
+    </div>
+    <!-- GitHub Card -->
+    <div class="dash-card">
+      <div class="dash-icon">🐙</div>
+      <div class="dash-label">GITHUB · BIKASH-20</div>
+      <div class="dash-big" id="ghRepos">—</div>
+      <div class="dash-sub"><a href="https://github.com/bikash-20" target="_blank" style="color:var(--gold);text-decoration:none;">github.com/bikash-20</a></div>
+    </div>
+    <!-- Codeforces Card -->
+    <div class="dash-card">
+      <div class="dash-icon">⚡</div>
+      <div class="dash-label">CODEFORCES · TALUKDER_20</div>
+      <div class="dash-big" id="cfRating">—</div>
+      <div class="dash-sub"><a href="https://codeforces.com/profile/talukder_20" target="_blank" style="color:var(--gold);text-decoration:none;">codeforces.com</a></div>
+    </div>
+    <!-- LeetCode Card -->
+    <div class="dash-card">
+      <div class="dash-icon">🧩</div>
+      <div class="dash-label">LEETCODE · BIKASHTALUKDER</div>
+      <div class="dash-big" id="lcSolved">—</div>
+      <div class="dash-sub"><a href="https://leetcode.com/u/bikashtalukder/" target="_blank" style="color:var(--gold);text-decoration:none;">leetcode.com</a></div>
+    </div>
+    <!-- Daily Quote Card -->
+    <div class="dash-card">
+      <div class="dash-icon">💡</div>
+      <div class="dash-label">DAILY DEV QUOTE</div>
+      <div class="dash-quote" id="devQuote">Loading inspiration...</div>
+    </div>
+  </div>
+</section>
+
+<!-- AI CHATBOT -->
+<div class="chat-fab" id="chatFab" title="Ask AI about Bikash">
+  <span class="chat-fab-icon">✦</span>
+  <span class="chat-fab-text">Ask AI about me</span>
+</div>
+
+<div class="chat-overlay" id="chatOverlay">
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-header">
+      <div class="chat-header-left">
+        <div class="chat-avatar">BT</div>
+        <div>
+          <div class="chat-title">Ask about Bikash</div>
+          <div class="chat-subtitle">Powered by Claude AI · Always online</div>
+        </div>
+      </div>
+      <button class="chat-close" id="chatClose">✕</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg bot">
+        <div class="chat-bubble">Hi! I'm Bikash's AI assistant. Ask me anything about his skills, projects, research interests, or how to get in touch! 👋</div>
+      </div>
+    </div>
+    <div class="chat-quick-btns" id="quickBtns">
+      <button class="quick-btn" onclick="sendQuick('What are Bikash\'s top skills?')">Top Skills</button>
+      <button class="quick-btn" onclick="sendQuick('Tell me about his projects')">Projects</button>
+      <button class="quick-btn" onclick="sendQuick('What is his research interest?')">Research</button>
+      <button class="quick-btn" onclick="sendQuick('How can I contact Bikash?')">Contact</button>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" class="chat-input" id="chatInput" placeholder="Ask anything about Bikash..." />
+      <button class="chat-send" id="chatSend">Send</button>
+    </div>
+  </div>
+</div>
+
+<style>
+/* ===== DASHBOARD ===== */
+.dashboard-bg { background: var(--dark2); }
+.dash-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+.dash-card {
+  background: rgba(240,242,245,0.03);
+  border: 1px solid rgba(147,112,219,0.2);
+  border-radius: 16px;
+  padding: 28px 26px;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+}
+.dash-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(147,112,219,0.05), transparent);
+  opacity: 0; transition: opacity .3s;
+}
+.dash-card:hover { border-color: rgba(147,112,219,0.5); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(147,112,219,0.12); }
+.dash-card:hover::before { opacity: 1; }
+.dash-icon { font-size: 36px; margin-bottom: 12px; }
+.dash-label {
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(147,112,219,0.8); font-weight: 700; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.dash-label::before {
+  content: '';
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(147,112,219,0.8);
+  box-shadow: 0 0 6px rgba(147,112,219,0.6);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.dash-big {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 38px; letter-spacing: 2px;
+  color: var(--white); line-height: 1;
+  margin-bottom: 8px;
+}
+.dash-sub { font-size: 13px; color: rgba(240,242,245,0.5); font-weight: 300; }
+.dash-quote {
+  font-size: 14px; color: rgba(240,242,245,0.75); font-weight: 300;
+  line-height: 1.6; font-style: italic; font-family: 'DM Serif Display', serif;
+}
+
+/* ===== CHATBOT ===== */
+.chat-fab {
+  position: fixed; bottom: 32px; right: 32px; z-index: 700;
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 22px;
+  background: linear-gradient(135deg, #6b35d9, #9b4de8);
+  border-radius: 100px;
+  color: white; font-size: 13px; font-weight: 700; letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(107,53,217,0.4);
+  transition: all .3s;
+  border: 1px solid rgba(255,255,255,0.15);
+  user-select: none;
+}
+.chat-fab:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(107,53,217,0.6); }
+.chat-fab-icon { font-size: 18px; animation: spin 8s linear infinite; display: inline-block; }
+@keyframes spin { from{transform:rotate(0)} to{transform:rotate(360deg)} }
+
+.chat-overlay {
+  position: fixed; inset: 0; z-index: 800;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  display: none; align-items: flex-end; justify-content: flex-end;
+  padding: 32px;
+}
+.chat-overlay.open { display: flex; }
+
+.chat-panel {
+  width: 420px; max-width: 95vw;
+  background: #13161A;
+  border: 1px solid rgba(147,112,219,0.3);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+  max-height: 80vh;
+}
+.chat-header {
+  padding: 18px 20px;
+  background: linear-gradient(135deg, rgba(107,53,217,0.3), rgba(155,77,232,0.2));
+  border-bottom: 1px solid rgba(147,112,219,0.2);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.chat-header-left { display: flex; align-items: center; gap: 12px; }
+.chat-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: linear-gradient(135deg, #6b35d9, #9b4de8);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 1px;
+  color: white;
+}
+.chat-title { font-size: 14px; font-weight: 700; color: var(--white); }
+.chat-subtitle { font-size: 10px; letter-spacing: 1px; color: rgba(147,112,219,0.8); text-transform: uppercase; }
+.chat-close {
+  background: none; border: none; color: rgba(240,242,245,0.4);
+  font-size: 16px; cursor: pointer; padding: 4px 8px; border-radius: 6px;
+  transition: all .2s;
+}
+.chat-close:hover { color: white; background: rgba(255,255,255,0.1); }
+
+.chat-messages {
+  flex: 1; overflow-y: auto; padding: 16px;
+  display: flex; flex-direction: column; gap: 12px;
+  scrollbar-width: thin; scrollbar-color: rgba(147,112,219,0.3) transparent;
+}
+.chat-msg { display: flex; }
+.chat-msg.user { justify-content: flex-end; }
+.chat-bubble {
+  max-width: 82%; padding: 10px 14px;
+  border-radius: 14px; font-size: 13px; line-height: 1.55;
+  font-weight: 400;
+}
+.chat-msg.bot .chat-bubble {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(240,242,245,0.85);
+  border-bottom-left-radius: 4px;
+}
+.chat-msg.user .chat-bubble {
+  background: linear-gradient(135deg, #6b35d9, #9b4de8);
+  color: white; border-bottom-right-radius: 4px;
+}
+.chat-typing {
+  display: flex; align-items: center; gap: 4px; padding: 8px 4px;
+}
+.chat-typing span {
+  width: 6px; height: 6px; background: rgba(147,112,219,0.7);
+  border-radius: 50%;
+  animation: typing .9s ease infinite;
+}
+.chat-typing span:nth-child(2){animation-delay:.2s}
+.chat-typing span:nth-child(3){animation-delay:.4s}
+@keyframes typing {0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)}}
+
+.chat-quick-btns {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 8px 16px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.quick-btn {
+  padding: 5px 12px;
+  background: rgba(147,112,219,0.1);
+  border: 1px solid rgba(147,112,219,0.25);
+  border-radius: 100px; color: rgba(147,112,219,0.9);
+  font-size: 11px; font-weight: 600; cursor: pointer;
+  transition: all .2s; letter-spacing: .5px;
+}
+.quick-btn:hover { background: rgba(147,112,219,0.25); border-color: rgba(147,112,219,0.6); color: white; }
+
+.chat-input-row {
+  display: flex; gap: 8px; padding: 12px 16px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+}
+.chat-input {
+  flex: 1; padding: 10px 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px; color: var(--white);
+  font-size: 13px; font-family: 'Manrope', sans-serif;
+  outline: none; transition: border-color .2s;
+}
+.chat-input:focus { border-color: rgba(147,112,219,0.5); }
+.chat-input::placeholder { color: rgba(240,242,245,0.3); }
+.chat-send {
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #6b35d9, #9b4de8);
+  border: none; border-radius: 10px;
+  color: white; font-size: 12px; font-weight: 700;
+  cursor: pointer; letter-spacing: 1px; transition: all .2s;
+}
+.chat-send:hover { opacity: .9; transform: translateY(-1px); }
+.chat-send:disabled { opacity: .4; cursor: default; transform: none; }
+</style>
+
+<script>
+// ===== LIVE WEATHER (OpenWeatherMap) =====
+async function loadWeather() {
+  try {
+    const r = await fetch('https://api.openweathermap.org/data/2.5/weather?q=Dhaka&units=metric&appid=106a68aba3e31a341a0ac9fc95c6ccd9');
+    const d = await r.json();
+    if (d.main) {
+      document.getElementById('weatherTemp').textContent = Math.round(d.main.temp) + '°C';
+      const desc = d.weather[0].description;
+      const feels = Math.round(d.main.feels_like);
+      const humidity = d.main.humidity;
+      document.getElementById('weatherDesc').textContent = desc.charAt(0).toUpperCase() + desc.slice(1) + ' · Feels ' + feels + '°C · Humidity ' + humidity + '%';
+      // Update icon based on condition
+      const iconMap = { '01d':'☀️','01n':'🌙','02d':'⛅','02n':'🌥','03d':'☁️','03n':'☁️','04d':'☁️','04n':'☁️','09d':'🌧','09n':'🌧','10d':'🌦','10n':'🌧','11d':'⛈','11n':'⛈','13d':'❄️','13n':'❄️','50d':'🌫','50n':'🌫' };
+      const ic = d.weather[0].icon;
+      document.querySelector('#weatherCard .dash-icon').textContent = iconMap[ic] || '🌡';
+    } else {
+      document.getElementById('weatherTemp').textContent = 'N/A';
+      document.getElementById('weatherDesc').textContent = 'API key activating (may take 10 min)';
+    }
+  } catch(e) {
+    document.getElementById('weatherTemp').textContent = '—';
+    document.getElementById('weatherDesc').textContent = 'Weather unavailable';
+  }
+}
+loadWeather();
+setInterval(loadWeather, 10 * 60 * 1000);
+
+// ===== LOCAL TIME =====
+function updateTime() {
+  const now = new Date();
+  const opts = { timeZone: 'Asia/Dhaka', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+  const dateOpts = { timeZone: 'Asia/Dhaka', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  document.getElementById('localTime').textContent = now.toLocaleTimeString('en-US', opts);
+  document.getElementById('localDate').textContent = now.toLocaleDateString('en-US', dateOpts);
+}
+updateTime();
+setInterval(updateTime, 1000);
+
+// ===== GITHUB =====
+async function loadGitHub() {
+  try {
+    const r = await fetch('https://api.github.com/users/bikash-20');
+    const d = await r.json();
+    document.getElementById('ghRepos').textContent = (d.public_repos || '—') + ' repos';
+  } catch(e) { document.getElementById('ghRepos').textContent = 'github.com/bikash-20'; }
+}
+loadGitHub();
+
+// ===== CODEFORCES =====
+async function loadCF() {
+  try {
+    const r = await fetch('https://codeforces.com/api/user.info?handles=talukder_20');
+    const d = await r.json();
+    if (d.status === 'OK') {
+      const u = d.result[0];
+      document.getElementById('cfRating').textContent = (u.rating || 'Unrated') + (u.rank ? ' · ' + u.rank : '');
+    }
+  } catch(e) { document.getElementById('cfRating').textContent = 'CF Profile'; }
+}
+loadCF();
+
+// ===== LEETCODE (via unofficial stats API) =====
+async function loadLeetCode() {
+  try {
+    const r = await fetch('https://leetcode-stats-api.herokuapp.com/bikashtalukder');
+    const d = await r.json();
+    if (d.totalSolved !== undefined) {
+      document.getElementById('lcSolved').textContent = d.totalSolved + ' solved';
+    } else {
+      document.getElementById('lcSolved').textContent = 'LC Profile';
+    }
+  } catch(e) { document.getElementById('lcSolved').textContent = 'LC Profile'; }
+}
+loadLeetCode();
+
+// ===== DEV QUOTE =====
+const fallbackQuotes = [
+  {"q":"First, solve the problem. Then, write the code.","a":"John Johnson"},
+  {"q":"Simplicity is the soul of efficiency.","a":"Austin Freeman"},
+  {"q":"Code is like humor. When you have to explain it, it\'s bad.","a":"Cory House"},
+  {"q":"In order to be irreplaceable, one must always be different.","a":"Coco Chanel"},
+  {"q":"The best way to predict the future is to invent it.","a":"Alan Kay"},
+];
+async function loadQuote() {
+  let q, a;
+  try {
+    const r = await fetch('https://programming-quotesapi.vercel.app/api/random');
+    const d = await r.json();
+    q = d.quote; a = d.author;
+  } catch(e) {
+    const fb = fallbackQuotes[Math.floor(Math.random()*fallbackQuotes.length)];
+    q = fb.q; a = fb.a;
+  }
+  document.getElementById('devQuote').innerHTML = '&ldquo;' + q + '&rdquo;<br><small style="font-style:normal;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-family:\'Manrope\',sans-serif;font-weight:700;">— ' + a + '</small>';
+}
+loadQuote();
+
+// ===== AI CHATBOT =====
+const BIKASH_SYSTEM = `You are an AI assistant for Bikash Talukder's personal portfolio website. Answer questions about Bikash in a friendly, concise, and professional tone. Here is everything you know about Bikash:
+
+NAME: Bikash Talukder
+LOCATION: Bangladesh
+STATUS: 2nd Year Computer Science & Engineering (CSE) student
+
+SKILLS:
+- Programming: C (88%), C++ (88%), Python (80%), Java (60%), HTML/CSS (70%)
+- CS Fundamentals: Data Structures & Algorithms (75%)
+- Hardware: Arduino (45%), Robotics Basics (35%)
+- Tools: Microsoft Excel, PowerPoint
+
+PROJECTS:
+1. Digital Clock (C) - Terminal-based clock using POSIX threads, mutex locks, ANSI escape codes. Runs on macOS & Linux. GitHub: github.com/bikash-20/C-project
+2. Echoes of the Void (C++) - Full text-adventure RPG with turn-based combat, puzzles, OOP design. GitHub: github.com/bikash-20/cpp-project
+3. Google Maps Navigator (C++ + HTML) - Navigation system using Dijkstra's algorithm with Raylib graphics, 15-node city graph, animated car movement, web version. GitHub: github.com/bikash-20/google-maps-navigator-DSA-project
+
+RESEARCH INTERESTS:
+- Artificial Intelligence & intelligent systems
+- Machine Learning & model optimization
+- Embedded Systems & IoT
+- Large Language Models & NLP
+- Quantum Algorithms & complexity theory
+- Big Data (Hadoop, Spark)
+
+COMPETITIVE PROGRAMMING:
+- Codeforces handle: talukder_20
+- LeetCode handle: bikashtalukder
+
+CONTACT:
+- Phone: +880 1926 240 062
+- GitHub: github.com/bikash-20
+- LinkedIn: linkedin.com/in/bikash-talukder-6497633b8
+- Facebook: facebook.com/profile.php?id=61577923653790
+- Instagram: instagram.com/talukder_20
+- Codeforces: codeforces.com/profile/talukder_20
+- LeetCode: leetcode.com/u/bikashtalukder
+
+PERSONALITY/BIO: Passionate, ambitious, curious problem-solver. Loves algorithms, bridges hardware and software. Motto: "Always learning. Always building."
+
+Keep responses concise (2-4 sentences max unless listing things). Be warm and helpful. If asked something not about Bikash, gently redirect to topics about him.`;
+
+let chatHistory = [];
+
+// ===== SMART LOCAL REPLY ENGINE =====
+function generateSmartReply(input) {
+  const q = input.toLowerCase().trim();
+
+  // Greetings
+  if (/^(hi|hello|hey|howdy|sup|what'?s up|yo)\b/.test(q)) {
+    return "Hey there! 👋 I'm Bikash's AI assistant. I know everything about him — his skills, projects, research, and how to get in touch. What would you like to know?";
+  }
+
+  // Who are you / about the bot
+  if (/who are you|what are you|are you (ai|a bot|real|human|claude)/.test(q)) {
+    return "I'm an AI assistant built into Bikash's portfolio! I'm powered by his personal data, so I can answer anything about his skills, projects, research interests, or contact info. Ask away! ✦";
+  }
+
+  // Name / who is Bikash
+  if (/who is bikash|about bikash|tell me about (him|bikash|yourself)|introduce/.test(q)) {
+    return "Bikash Talukder is a passionate 2nd-year CSE student from Bangladesh 🇧🇩. He's a dedicated problem-solver who loves C/C++, Python, algorithms, and building real-world projects. His motto: <em>\"Always learning. Always building.\"</em> He bridges hardware and software — from terminal apps and RPGs in C++ to Arduino robotics.";
+  }
+
+  // Skills
+  if (/skill|language|tech|stack|know|proficient|good at|expert|coding|programming/.test(q)) {
+    return "Bikash's core skills:<br><br>💻 <strong>Languages:</strong> C & C++ (88%), Python (80%), Java (60%), HTML/CSS (70%)<br>🧠 <strong>CS Theory:</strong> Data Structures & Algorithms (75%)<br>🔧 <strong>Hardware:</strong> Arduino (45%), Robotics basics<br>🛠 <strong>Tools:</strong> Excel, PowerPoint<br><br>He's strongest in C/C++ and loves competitive programming!";
+  }
+
+  // Projects
+  if (/project|built|made|work|portfolio|github|code|app|program/.test(q)) {
+    return "Bikash has 3 featured projects:<br><br>🕐 <strong>Digital Clock (C)</strong> — Terminal clock using POSIX threads & ANSI escape codes<br>⚔️ <strong>Echoes of the Void (C++)</strong> — Full text-adventure RPG with combat & inventory<br>🗺 <strong>Google Maps Navigator (C++)</strong> — Dijkstra's algorithm with Raylib graphics, animated car movement, and a web version<br><br>All code is on his <a href='https://github.com/bikash-20' target='_blank' style='color:#9b4de8'>GitHub →</a>";
+  }
+
+  // Research
+  if (/research|interest|study|topic|field|curious|passion|ai|ml|machine learning|quantum|llm/.test(q)) {
+    return "Bikash's research interests span 6 areas:<br><br>🤖 Artificial Intelligence & reasoning systems<br>📊 Machine Learning & predictive analytics<br>🔌 Embedded Systems & IoT<br>💬 Large Language Models & NLP<br>⚛️ Quantum Algorithms & complexity<br>📦 Big Data (Hadoop & Spark)<br><br>He's especially drawn to AI and LLMs — fitting, since you're talking to one right now! 😄";
+  }
+
+  // Contact / hire
+  if (/contact|reach|hire|email|phone|linkedin|social|connect|message|dm|find him/.test(q)) {
+    return "Here's how to reach Bikash:<br><br>📞 <strong>Phone:</strong> +880 1926 240 062<br>🐙 <strong>GitHub:</strong> <a href='https://github.com/bikash-20' target='_blank' style='color:#9b4de8'>bikash-20</a><br>💼 <strong>LinkedIn:</strong> <a href='https://linkedin.com/in/bikash-talukder-6497633b8' target='_blank' style='color:#9b4de8'>bikash-talukder</a><br>📘 <strong>Facebook:</strong> <a href='https://facebook.com/profile.php?id=61577923653790' target='_blank' style='color:#9b4de8'>View profile</a><br>📸 <strong>Instagram:</strong> <a href='https://instagram.com/talukder_20' target='_blank' style='color:#9b4de8'>@talukder_20</a>";
+  }
+
+  // Codeforces / competitive programming
+  if (/codeforces|competitive|cp|contest|cf|rating|rank/.test(q)) {
+    return "Bikash is active on Codeforces as <strong>talukder_20</strong>! He enjoys solving algorithmic challenges and improving his competitive programming rating. You can view his profile at <a href='https://codeforces.com/profile/talukder_20' target='_blank' style='color:#9b4de8'>codeforces.com/profile/talukder_20</a>.";
+  }
+
+  // LeetCode / DSA
+  if (/leetcode|leet|dsa|data structure|algorithm|problem solving/.test(q)) {
+    return "On LeetCode, Bikash goes by <strong>bikashtalukder</strong>. He's strong in DSA with a 75% proficiency — he's solved problems involving graphs, trees, dynamic programming, and more. Check his profile: <a href='https://leetcode.com/u/bikashtalukder/' target='_blank' style='color:#9b4de8'>leetcode.com</a>.";
+  }
+
+  // Education / student / university
+  if (/student|university|college|degree|edu|year|cse|study/.test(q)) {
+    return "Bikash is currently a <strong>2nd Year Computer Science & Engineering (CSE)</strong> student in Bangladesh. He's deeply passionate about both the theoretical and practical sides of CS — from algorithms to embedded systems to AI research.";
+  }
+
+  // Location / country
+  if (/where|location|country|live|from|bangladesh|dhaka/.test(q)) {
+    return "Bikash is based in <strong>Bangladesh 🇧🇩</strong>. He's a proud Bangladeshi developer working hard to make an impact in the global tech scene!";
+  }
+
+  // C or C++ specifically
+  if (/\bc\+\+\b|cpp|c language|\bc\b/.test(q)) {
+    return "C and C++ are Bikash's strongest languages — he's at <strong>88% proficiency</strong>! He's used C for systems-level work (like his multi-threaded Digital Clock) and C++ for OOP projects like his RPG game and Dijkstra navigator. He writes modern, efficient C++ code.";
+  }
+
+  // Python
+  if (/python/.test(q)) {
+    return "Bikash is proficient in Python at <strong>80%</strong>. He uses it for scripting, data work, and exploring AI/ML concepts. Python is his go-to for rapid prototyping and algorithm exploration.";
+  }
+
+  // Arduino / robotics / hardware
+  if (/arduino|robot|hardware|embedded|iot|sensor/.test(q)) {
+    return "Bikash has hands-on experience with <strong>Arduino (45%)</strong> and <strong>Robotics basics (35%)</strong>. He loves bridging the hardware-software gap and exploring embedded systems — it's one of his key research interests too!";
+  }
+
+  // Hire / collaboration
+  if (/open to|available|freelance|intern|job|work together|collab/.test(q)) {
+    return "Bikash is open to collaboration, internships, and interesting projects! 🚀 If you want to work together or discuss an opportunity, the best way is through his <a href='https://linkedin.com/in/bikash-talukder-6497633b8' target='_blank' style='color:#9b4de8'>LinkedIn</a> or by calling <strong>+880 1926 240 062</strong>.";
+  }
+
+  // Fun / hobbies
+  if (/hobby|fun|free time|like|enjoy|outside|besides|personal/.test(q)) {
+    return "Beyond coding, Bikash loves tinkering with Arduino, exploring robotics, and solving competitive programming problems for fun. He's the kind of developer who codes because they genuinely love it — not just for grades! 🔧";
+  }
+
+  // Fallback
+  const fallbacks = [
+    "Great question! I know Bikash's skills, projects, research interests, and contact info inside out. Could you be a bit more specific? For example: \"What are his top projects?\" or \"How can I contact him?\"",
+    "Hmm, I want to make sure I answer that well! I'm best at questions about Bikash's skills, his projects, research interests, or how to get in touch with him. Try one of those! 😊",
+    "I'm not sure I caught that! Ask me about Bikash's coding skills, his C++ projects, his research interests, or how to reach him — I've got all the details! ✦"
+  ];
+  return fallbacks[Math.floor(Math.random() * fallbacks.length)];
+}
+
+const chatFab = document.getElementById('chatFab');
+const chatOverlay = document.getElementById('chatOverlay');
+const chatClose = document.getElementById('chatClose');
+const chatMessages = document.getElementById('chatMessages');
+const chatInput = document.getElementById('chatInput');
+const chatSend = document.getElementById('chatSend');
+const quickBtns = document.getElementById('quickBtns');
+
+chatFab.addEventListener('click', () => {
+  chatOverlay.classList.add('open');
+  chatInput.focus();
+});
+chatClose.addEventListener('click', () => chatOverlay.classList.remove('open'));
+chatOverlay.addEventListener('click', (e) => { if(e.target === chatOverlay) chatOverlay.classList.remove('open'); });
+
+chatSend.addEventListener('click', sendMessage);
+chatInput.addEventListener('keydown', (e) => { if(e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); } });
+
+function sendQuick(text) {
+  chatInput.value = text;
+  sendMessage();
+}
+
+function addMsg(role, text) {
+  const div = document.createElement('div');
+  div.className = 'chat-msg ' + role;
+  const bubble = document.createElement('div');
+  bubble.className = 'chat-bubble';
+  bubble.innerHTML = text.replace(/\n/g, '<br>');
+  div.appendChild(bubble);
+  chatMessages.appendChild(div);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+  return bubble;
+}
+
+function showTyping() {
+  const div = document.createElement('div');
+  div.className = 'chat-msg bot';
+  div.id = 'typingIndicator';
+  div.innerHTML = '<div class="chat-bubble"><div class="chat-typing"><span></span><span></span><span></span></div></div>';
+  chatMessages.appendChild(div);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function removeTyping() {
+  const t = document.getElementById('typingIndicator');
+  if (t) t.remove();
+}
+
+async function sendMessage() {
+  const text = chatInput.value.trim();
+  if (!text) return;
+  
+  chatInput.value = '';
+  chatSend.disabled = true;
+  quickBtns.style.display = 'none';
+  
+  addMsg('user', text);
+  chatHistory.push({ role: 'user', content: text });
+  
+  showTyping();
+
+  // Generate smart reply from local knowledge engine
+  // (Direct Anthropic API calls are blocked by CORS in browsers without a backend)
+  setTimeout(() => {
+    removeTyping();
+    const smartReply = generateSmartReply(text);
+    addMsg('bot', smartReply);
+    chatHistory.push({ role: 'assistant', content: smartReply });
+    if (chatHistory.length > 20) chatHistory = chatHistory.slice(-20);
+    chatSend.disabled = false;
+  }, 700 + Math.random() * 500);
+}
+
+// ===== CUSTOM CURSOR FIX =====
+const cur2 = document.getElementById('cur');
+const curR2 = document.getElementById('curR');
+if (cur2 && curR2) {
+  // Make sure they start visible
+  cur2.style.opacity = '0';
+  curR2.style.opacity = '0';
+  document.addEventListener('mousemove', () => {
+    cur2.style.opacity = '1';
+    curR2.style.opacity = '1';
+  }, { once: true });
+}
+</script>
+
+
 <!-- FOOTER -->
 <footer>
   <div class="f-left">BT<span> · Portfolio v7</span></div>
   <div class="f-right">CSE Student · Bangladesh · 2025</div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Cursor
 const cur=document.getElementById('cur'),curR=document.getElementById('curR');
 let mx=0,my=0,rx=0,ry=0;
@@ -1067,12 +1668,10 @@ document.querySelectorAll('section[id]').forEach(sec=>{
           a.style.color = active ? 'var(--gold)' : '';
           a.style.borderColor = active ? 'var(--gold)' : '';
           a.style.background = active ? 'rgba(201,168,76,0.12)' : '';
-          a.style.boxShadow = active ? '0 0 14px rgba(201,168,76,0.3), inset 0 0 10px rgba(201,168,76,0.05)' : '';
-          a.style.textShadow = active ? '0 0 12px rgba(201,168,76,0.4)' : '';
         });
       }
     });
-  },{threshold:.4}).observe(sec);
+  }, {threshold:0.3});
 });
 </script>
 </body>
