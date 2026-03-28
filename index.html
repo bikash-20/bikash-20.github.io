@@ -1067,9 +1067,11 @@ LET'S<br>TALK<br>CODE
       </div>
     </div>
     <div class="chat-quick-btns" id="quickBtns">
-      <button class="quick-btn" onclick="sendQuick('What are Bikash\'s top skills?')">Top Skills</button>
+      <button class="quick-btn" onclick="sendQuick('Where is Bikash from?')">Hometown</button>
+      <button class="quick-btn" onclick="sendQuick('Tell me about his family')">Family</button>
+      <button class="quick-btn" onclick="sendQuick('What are Bikash\'s top skills?')">Skills</button>
       <button class="quick-btn" onclick="sendQuick('Tell me about his projects')">Projects</button>
-      <button class="quick-btn" onclick="sendQuick('What is his research interest?')">Research</button>
+      <button class="quick-btn" onclick="sendQuick('What sports does Bikash like?')">Sports</button>
       <button class="quick-btn" onclick="sendQuick('How can I contact Bikash?')">Contact</button>
     </div>
     <div class="chat-input-row">
@@ -1414,17 +1416,77 @@ function generateSmartReply(input) {
 
   // Greetings
   if (/^(hi|hello|hey|howdy|sup|what'?s up|yo)\b/.test(q)) {
-    return "Hey there! 👋 I'm Bikash's AI assistant. I know everything about him — his skills, projects, research, and how to get in touch. What would you like to know?";
+    return "Hey there! 👋 I'm Bikash's AI assistant. I know everything about him — his background, family, skills, projects, and more. What would you like to know?";
   }
 
   // Who are you / about the bot
   if (/who are you|what are you|are you (ai|a bot|real|human|claude)/.test(q)) {
-    return "I'm an AI assistant built into Bikash's portfolio! I'm powered by his personal data, so I can answer anything about his skills, projects, research interests, or contact info. Ask away! ✦";
+    return "I'm an AI assistant built into Bikash's portfolio! I'm loaded with his personal info, so ask me anything — from his family and hometown to his projects and research interests. ✦";
   }
 
-  // Name / who is Bikash
+  // Who is Bikash / general intro
   if (/who is bikash|about bikash|tell me about (him|bikash|yourself)|introduce/.test(q)) {
-    return "Bikash Talukder is a passionate 2nd-year CSE student from Bangladesh 🇧🇩. He's a dedicated problem-solver who loves C/C++, Python, algorithms, and building real-world projects. His motto: <em>\"Always learning. Always building.\"</em> He bridges hardware and software — from terminal apps and RPGs in C++ to Arduino robotics.";
+    return "Bikash Talukder is a passionate 2nd-year CSE student from Bangladesh 🇧🇩, originally from <strong>Madhyanagar Upazila, Sunamganj, Sylhet Division</strong>. He's a dedicated problem-solver who loves C/C++, algorithms, football, and cricket. He grew up in Ramdigha village and carries those roots with him everywhere. His motto: <em>\"Always learning. Always building.\"</em>";
+  }
+
+  // Hometown / village / origin / where from / Sylhet / Sunamganj
+  if (/hometown|village|origin|where.*from|born|grew up|ramdigha|sylhet|sunamganj|madhyanagar/.test(q)) {
+    return "Bikash is originally from <strong>Madhyanagar Upazila, Sunamganj Zila, Sylhet Division</strong> 🏡. He grew up in <strong>Ramdigha village</strong> and deeply misses those days — the village life, his childhood friends, and his brothers. It's a place very close to his heart. 💙";
+  }
+
+  // Father
+  if (/father|dad|baba|papa/.test(q)) {
+    return "Bikash's father's name is <strong>Haridhan Talukder</strong> 👨‍👦. He is a big part of who Bikash is today.";
+  }
+
+  // Mother
+  if (/mother|mom|maa|mama|ma\b/.test(q)) {
+    return "Bikash's mother's name is <strong>Shila Rani Talukder</strong> 👩‍👦. She is deeply important to him.";
+  }
+
+  // Parents / family overview
+  if (/parent|family|relatives|guardian/.test(q)) {
+    return "Bikash's family:<br><br>👨 <strong>Father:</strong> Haridhan Talukder<br>👩 <strong>Mother:</strong> Shila Rani Talukder<br>👦 <strong>Brothers:</strong> Akash Talukder, Devarshi Sivas Dasa, Taposh Ranjan Talukder, Nijhum Talukder, Bappy Sarkar, Robin Sarkar<br>👧 <strong>Sister:</strong> Dristy Talukder Rubi<br><br>He has a big, loving family and especially cherishes time with his brothers and village friends. 💙";
+  }
+
+  // Brothers / siblings (male)
+  if (/brother|bhai|sibling/.test(q)) {
+    return "Bikash has <strong>6 brothers</strong>:<br><br>👦 Akash Talukder<br>👦 Devarshi Sivas Dasa<br>👦 Taposh Ranjan Talukder<br>👦 Nijhum Talukder<br>👦 Bappy Sarkar<br>👦 Robin Sarkar<br><br>He misses them and their Ramdigha village days a lot — those bonds run very deep. 💙";
+  }
+
+  // Sister
+  if (/sister|apu|didi/.test(q)) {
+    return "Bikash's sister's name is <strong>Dristy Talukder Rubi</strong> 👧. She's a cherished part of his family.";
+  }
+
+  // Sports / hobbies / football / cricket / gym
+  if (/sport|football|soccer|cricket|gym|workout|fitness|hobby|free time|play|active|exercise/.test(q)) {
+    return "Outside of coding, Bikash is passionate about:<br><br>⚽ <strong>Football</strong> — his favourite sport<br>🏏 <strong>Cricket</strong> — a true Bangladeshi classic<br>💪 <strong>Gym</strong> — he stays disciplined and fit<br><br>He's as competitive on the field as he is solving algorithms! 🔥";
+  }
+
+  // CGPA / grades / academic performance
+  if (/cgpa|gpa|grade|marks|result|academic|score/.test(q)) {
+    return "Bikash currently has a <strong>CGPA of 3.65</strong> 🎓 — a strong result that reflects his dedication to both academics and hands-on projects. He balances coursework, competitive programming, and personal projects all at once!";
+  }
+
+  // Marriage / relationship
+  if (/marry|marriage|wife|girlfriend|relationship|love life|romantic|wedding/.test(q)) {
+    return "Bikash has made up his mind — he <strong>doesn't plan to marry</strong> in the future. He's fully focused on his passion for technology, research, and building his career. Some people choose code over companionship! 😄💻";
+  }
+
+  // Village life / missing home / friends / nostalgia
+  if (/miss|nostalg|village|ramdigha|village life|childhood|hometown friends|back home/.test(q)) {
+    return "One of the most personal things about Bikash — he <strong>deeply misses his Ramdigha village life</strong> 🌿. The open fields, the friendships, the simplicity, the time with his brothers — those memories stay with him. No matter how far his tech journey takes him, Ramdigha will always be home. 💙";
+  }
+
+  // School / education history / Akota / Osmani / Scholars Home
+  if (/school|akota|osmani|scholar|high school|secondary|ssc|class 8|class 9|class 10|9-10|9th|10th/.test(q)) {
+    return "Bikash's school journey:<br><br>🏫 <strong>Akota High School, Ramdigha</strong> — studied here up to Class 8, his home village school<br>🏫 <strong>Osmani Medical High School, Sylhet</strong> — completed Classes 9 & 10 here<br>🎓 <strong>Scholar's Home</strong> — his college (HSC level)<br><br>From a village school to the city — his academic path shows real determination! 💪";
+  }
+
+  // College / HSC
+  if (/college|hsc|higher secondary|scholars/.test(q)) {
+    return "Bikash completed his college (HSC) at <strong>Scholar's Home</strong> 🎓. After his school years in Sylhet, this was the next step before diving into his CSE degree.";
   }
 
   // Skills
@@ -1434,69 +1496,64 @@ function generateSmartReply(input) {
 
   // Projects
   if (/project|built|made|work|portfolio|github|code|app|program/.test(q)) {
-    return "Bikash has 3 featured projects:<br><br>🕐 <strong>Digital Clock (C)</strong> — Terminal clock using POSIX threads & ANSI escape codes<br>⚔️ <strong>Echoes of the Void (C++)</strong> — Full text-adventure RPG with combat & inventory<br>🗺 <strong>Google Maps Navigator (C++)</strong> — Dijkstra's algorithm with Raylib graphics, animated car movement, and a web version<br><br>All code is on his <a href='https://github.com/bikash-20' target='_blank' style='color:#9b4de8'>GitHub →</a>";
+    return "Bikash has 3 featured projects:<br><br>🕐 <strong>Digital Clock (C)</strong> — Terminal clock using POSIX threads & ANSI escape codes<br>⚔️ <strong>Echoes of the Void (C++)</strong> — Full text-adventure RPG with combat & inventory<br>🗺 <strong>Google Maps Navigator (C++)</strong> — Dijkstra's algorithm with Raylib graphics & animated car movement<br><br>All code is on his <a href='https://github.com/bikash-20' target='_blank' style='color:#9b4de8'>GitHub →</a>";
   }
 
   // Research
-  if (/research|interest|study|topic|field|curious|passion|ai|ml|machine learning|quantum|llm/.test(q)) {
+  if (/research|interest|field|curious|passion|ai|ml|machine learning|quantum|llm/.test(q)) {
     return "Bikash's research interests span 6 areas:<br><br>🤖 Artificial Intelligence & reasoning systems<br>📊 Machine Learning & predictive analytics<br>🔌 Embedded Systems & IoT<br>💬 Large Language Models & NLP<br>⚛️ Quantum Algorithms & complexity<br>📦 Big Data (Hadoop & Spark)<br><br>He's especially drawn to AI and LLMs — fitting, since you're talking to one right now! 😄";
   }
 
-  // Contact / hire
+  // Contact
   if (/contact|reach|hire|email|phone|linkedin|social|connect|message|dm|find him/.test(q)) {
     return "Here's how to reach Bikash:<br><br>📞 <strong>Phone:</strong> +880 1926 240 062<br>🐙 <strong>GitHub:</strong> <a href='https://github.com/bikash-20' target='_blank' style='color:#9b4de8'>bikash-20</a><br>💼 <strong>LinkedIn:</strong> <a href='https://linkedin.com/in/bikash-talukder-6497633b8' target='_blank' style='color:#9b4de8'>bikash-talukder</a><br>📘 <strong>Facebook:</strong> <a href='https://facebook.com/profile.php?id=61577923653790' target='_blank' style='color:#9b4de8'>View profile</a><br>📸 <strong>Instagram:</strong> <a href='https://instagram.com/talukder_20' target='_blank' style='color:#9b4de8'>@talukder_20</a>";
   }
 
-  // Codeforces / competitive programming
+  // Codeforces
   if (/codeforces|competitive|cp|contest|cf|rating|rank/.test(q)) {
-    return "Bikash is active on Codeforces as <strong>talukder_20</strong>! He enjoys solving algorithmic challenges and improving his competitive programming rating. You can view his profile at <a href='https://codeforces.com/profile/talukder_20' target='_blank' style='color:#9b4de8'>codeforces.com/profile/talukder_20</a>.";
+    return "Bikash is active on Codeforces as <strong>talukder_20</strong>! He enjoys algorithmic challenges and improving his rating. View his profile: <a href='https://codeforces.com/profile/talukder_20' target='_blank' style='color:#9b4de8'>codeforces.com/profile/talukder_20</a>.";
   }
 
   // LeetCode / DSA
   if (/leetcode|leet|dsa|data structure|algorithm|problem solving/.test(q)) {
-    return "On LeetCode, Bikash goes by <strong>bikashtalukder</strong>. He's strong in DSA with a 75% proficiency — he's solved problems involving graphs, trees, dynamic programming, and more. Check his profile: <a href='https://leetcode.com/u/bikashtalukder/' target='_blank' style='color:#9b4de8'>leetcode.com</a>.";
+    return "On LeetCode, Bikash goes by <strong>bikashtalukder</strong>. He's strong in DSA at 75% — graphs, trees, DP and more. Check his profile: <a href='https://leetcode.com/u/bikashtalukder/' target='_blank' style='color:#9b4de8'>leetcode.com</a>.";
   }
 
-  // Education / student / university
-  if (/student|university|college|degree|edu|year|cse|study/.test(q)) {
-    return "Bikash is currently a <strong>2nd Year Computer Science & Engineering (CSE)</strong> student in Bangladesh. He's deeply passionate about both the theoretical and practical sides of CS — from algorithms to embedded systems to AI research.";
+  // Education / university / CSE
+  if (/student|university|degree|edu|year|cse|study/.test(q)) {
+    return "Bikash is currently a <strong>2nd Year CSE student</strong> in Bangladesh with a <strong>CGPA of 3.65</strong>. His academic journey went: Akota High School (Ramdigha) → Osmani Medical High School (Sylhet) → Scholar's Home College → current CSE degree. 🎓";
   }
 
-  // Location / country
+  // Location / Bangladesh
   if (/where|location|country|live|from|bangladesh|dhaka/.test(q)) {
-    return "Bikash is based in <strong>Bangladesh 🇧🇩</strong>. He's a proud Bangladeshi developer working hard to make an impact in the global tech scene!";
+    return "Bikash is from <strong>Madhyanagar Upazila, Sunamganj, Sylhet Division, Bangladesh</strong> 🇧🇩. He grew up in Ramdigha village and is now pursuing his CSE degree. A proud Bangladeshi developer with village roots and global ambitions!";
   }
 
-  // C or C++ specifically
+  // C/C++
   if (/\bc\+\+\b|cpp|c language|\bc\b/.test(q)) {
-    return "C and C++ are Bikash's strongest languages — he's at <strong>88% proficiency</strong>! He's used C for systems-level work (like his multi-threaded Digital Clock) and C++ for OOP projects like his RPG game and Dijkstra navigator. He writes modern, efficient C++ code.";
+    return "C and C++ are Bikash's strongest languages at <strong>88% proficiency</strong>! He used C for a multi-threaded Digital Clock and C++ for an RPG game and Dijkstra's navigator. Clean, efficient, modern C++ is his signature style.";
   }
 
   // Python
   if (/python/.test(q)) {
-    return "Bikash is proficient in Python at <strong>80%</strong>. He uses it for scripting, data work, and exploring AI/ML concepts. Python is his go-to for rapid prototyping and algorithm exploration.";
+    return "Bikash is proficient in Python at <strong>80%</strong> — his go-to for scripting, AI/ML exploration, and rapid prototyping.";
   }
 
-  // Arduino / robotics / hardware
+  // Arduino / hardware
   if (/arduino|robot|hardware|embedded|iot|sensor/.test(q)) {
-    return "Bikash has hands-on experience with <strong>Arduino (45%)</strong> and <strong>Robotics basics (35%)</strong>. He loves bridging the hardware-software gap and exploring embedded systems — it's one of his key research interests too!";
+    return "Bikash has hands-on experience with <strong>Arduino (45%)</strong> and <strong>Robotics basics (35%)</strong>. He loves bridging hardware and software — it's one of his key research interests!";
   }
 
-  // Hire / collaboration
+  // Collaboration / hiring
   if (/open to|available|freelance|intern|job|work together|collab/.test(q)) {
-    return "Bikash is open to collaboration, internships, and interesting projects! 🚀 If you want to work together or discuss an opportunity, the best way is through his <a href='https://linkedin.com/in/bikash-talukder-6497633b8' target='_blank' style='color:#9b4de8'>LinkedIn</a> or by calling <strong>+880 1926 240 062</strong>.";
-  }
-
-  // Fun / hobbies
-  if (/hobby|fun|free time|like|enjoy|outside|besides|personal/.test(q)) {
-    return "Beyond coding, Bikash loves tinkering with Arduino, exploring robotics, and solving competitive programming problems for fun. He's the kind of developer who codes because they genuinely love it — not just for grades! 🔧";
+    return "Bikash is open to collaboration and interesting opportunities! 🚀 Best reach him via <a href='https://linkedin.com/in/bikash-talukder-6497633b8' target='_blank' style='color:#9b4de8'>LinkedIn</a> or call <strong>+880 1926 240 062</strong>.";
   }
 
   // Fallback
   const fallbacks = [
-    "Great question! I know Bikash's skills, projects, research interests, and contact info inside out. Could you be a bit more specific? For example: \"What are his top projects?\" or \"How can I contact him?\"",
-    "Hmm, I want to make sure I answer that well! I'm best at questions about Bikash's skills, his projects, research interests, or how to get in touch with him. Try one of those! 😊",
-    "I'm not sure I caught that! Ask me about Bikash's coding skills, his C++ projects, his research interests, or how to reach him — I've got all the details! ✦"
+    "Great question! I know Bikash's family, hometown, skills, projects, education, and a lot more. Try asking something like \"Where is Bikash from?\" or \"Tell me about his family\" or \"What are his projects?\" 😊",
+    "I'm not sure I caught that! Feel free to ask about Bikash's background, village life, family, CGPA, sports, or tech skills — I've got all the details! ✦",
+    "Hmm, let me know what you're curious about! I can tell you about Bikash's hometown in Sylhet, his brothers, his football & cricket love, his projects, or how to reach him. 🤔"
   ];
   return fallbacks[Math.floor(Math.random() * fallbacks.length)];
 }
