@@ -1640,16 +1640,36 @@ function generateSmartReply(input) {
     return "🌿 Then there are <strong>Probesh and Plabon</strong> — Bikash's <em>village brothers</em>.<br><br>These aren't just friends. These are the people he spent <strong>most of his life with</strong>. Countless memories, shared in the fields and lanes of Ramdigha — the kind of bond that forms before you even understand what friendship means.<br><br>Now they're separated — life took them different directions — but they <strong>talk regularly</strong>, and that thread never breaks. Distance changed nothing about the depth of what they share.<br><br>Probesh and Plabon are woven into Bikash's story the same way Ramdigha is — permanently, quietly, beautifully. 💙";
   }
 
+  // ── MITHU ROY / SENIOR DADA ───────────────────────────────────
+  if (/mithu|mithu roy|senior dada|dada|sylhet agricultural|agricultural university/.test(q)) {
+    return "🎓 <strong>Mithu Roy</strong> — Bikash describes him as the most <strong>mature senior Dada</strong> he has ever met, and that says a lot coming from someone who values depth over everything.<br><br>Mithu is a rare blend of three things that rarely come together: <strong>fun, knowledge, and wisdom</strong>. He knows how to make you laugh, how to teach you something, and how to give you advice that actually lands — all in the same conversation.<br><br>He completed his degree from <strong>Sylhet Agricultural University</strong>. A senior who genuinely shapes the people around him. Bikash holds him in real regard. 🙏";
+  }
+
+  // ── SCHOOL FRIENDS / HARIDHAN / KRIPASHISH / PRANTO ──────────
+  if (/kripashish|pranto|school friend|class.*8|akota.*friend|ramdigha.*friend|childhood friend/.test(q)) {
+    return "🏫 From his days at <strong>Akota High School, Ramdigha</strong> — back in the village, up to Class 8 — Bikash has three friends who have stayed with him ever since:<br><br>👦 <strong>Haridhan Talukder</strong><br>👦 <strong>Kripashish Talukder</strong><br>👦 <strong>Pranto Talukder</strong><br><br>These friendships were forged in childhood — in classrooms, in the village lanes, in the simple, unhurried days of growing up in Ramdigha. Life has moved on, but these three are <strong>still friends</strong> with Bikash today. Some bonds just don't break — and these are that kind. 💙";
+  }
+
+  // ── PRIOBROTO DAS DHRUVO / FUNNIEST GUY ──────────────────────
+  if (/priobroto|dhruvo|funny|funniest|chill guy|chill.*university/.test(q)) {
+    return "😂 <strong>Priobroto Das Dhruvo</strong> — the <em>funniest, chillest guy</em> in Bikash's university circle.<br><br>Every crew needs that one person who makes everything lighter just by being there — and Dhruvo is exactly that. His energy is effortless, his humour is natural, and he has a way of making even the heaviest days feel manageable.<br><br>In Bikash's world of deep focus and quiet intensity, Dhruvo is the perfect counterbalance. Pure good vibes. 😄✦";
+  }
+
+  // ── ANIDRA PAUL / AI PROJECT / MENTAL SUPPORT ─────────────────
+  if (/anidra|anidra paul|ai project|big.*project|project.*ai|mental support.*friend|support.*mentally/.test(q)) {
+    return "🤝 <strong>Anidra Paul</strong> is one of those people who shows up — not just in the good moments, but in the hard ones too.<br><br>He is a <strong>consistent mental support</strong> for Bikash — someone who listens, encourages, and keeps Bikash grounded when things get difficult.<br><br>🚀 But beyond the emotional bond, they are building something together: the two of them are set to <strong>collaborate on a big AI project</strong>. Two minds aligned on a mission to build something meaningful in the world of artificial intelligence.<br><br>Anidra is not just a friend — he's a future co-builder. Watch this space. ✦";
+  }
+
   // ── ALL FRIENDS TOGETHER ───────────────────────────────────────
   if (/friend|friendship|buddy|mate|crew|gang|people|social|close to/.test(q)) {
-    return "💙 Bikash keeps a <strong>small, high-quality circle</strong> — loyal, real, no superficiality. His people:<br><br>🏙️ <strong>City inner circle:</strong><br>🌟 <strong>Susmit</strong> — the most brilliant CS mind Bikash has met, from SUST<br>📏 <strong>Ankon</strong> — tallest & cutest in the group 😄<br>🗣️ <strong>Arnob</strong> — talks contextually, loved deeply for it<br>🇮🇳 <strong>Sakkor</strong> — CSE at NIT India, always part of the circle<br><br>🌿 <strong>Village brothers:</strong><br>👦 <strong>Probesh</strong> & <strong>Plabon</strong> — the people he spent most of his life with, back in Ramdigha. Now separated, but they talk regularly — and those memories are irreplaceable.<br><br>In code and in life, Bikash values <em>quality over quantity.</em> ✦";
+    return "💙 Bikash keeps a <strong>small, high-quality circle</strong> — loyal, real, no superficiality. His people:<br><br>🏙️ <strong>City inner circle:</strong><br>🌟 Susmit — most brilliant CS mind, SUST<br>📏 Ankon — tallest & cutest 😄<br>🗣️ Arnob — talks contextually, loved for it<br>🇮🇳 Sakkor — CSE at NIT India<br><br>🎓 <strong>Senior Dada:</strong><br>🙏 Mithu Roy — mature, fun, knowledgeable, Sylhet Agricultural University<br><br>🏫 <strong>School friends (Akota, Ramdigha, still close):</strong><br>👦 Haridhan Talukder · Kripashish Talukder · Pranto Talukder<br><br>🌿 <strong>Village brothers:</strong><br>👦 Probesh & Plabon — spent most of his life with them, still talk regularly<br><br>🎓 <strong>University circle:</strong><br>😂 Priobroto Das Dhruvo — funniest, chillest guy<br>🕊️ Asma — calmest person in university<br>🌸 Monisha — equally calm and grounded<br>🤝 Anidra Paul — mental support & future AI project co-builder<br><br>In code and in life, Bikash values <em>quality over quantity.</em> ✦";
   }
 
   // ── FALLBACK ───────────────────────────────────────────────────
   const fallbacks = [
-    "I know Bikash's world deeply — his roots in Ramdigha, his family, his inspirations, his friends, his philosophy, and his code. Try asking: <em>\"Who are Bikash's friends?\"</em> or <em>\"Who inspires Bikash?\"</em> or <em>\"Tell me about his village brothers.\"</em> 💙",
-    "Great question — let me point you in the right direction! Ask about his <strong>city circle</strong> (Susmit, Ankon, Arnob, Sakkor), his <strong>village brothers</strong> (Probesh & Plabon), his <strong>Vegan lifestyle</strong>, or his <strong>Cinematic Blue Hour aesthetic</strong>. I've got all of it. ✦",
-    "Hmm, I want to answer that properly! Try: <em>\"Tell me about Susmit\"</em> or <em>\"Who are Probesh and Plabon?\"</em> or <em>\"What is Bikash's personality like?\"</em> 🎬"
+    "I know Bikash's world deeply — his roots, family, friends, inspirations, philosophy, and code. Try: <em>\"Who is Mithu Roy?\"</em> or <em>\"Tell me about Anidra Paul\"</em> or <em>\"Who are his school friends?\"</em> 💙",
+    "Ask me anything! His <strong>city circle</strong> (Susmit, Ankon, Arnob, Sakkor), <strong>senior Dada Mithu Roy</strong>, <strong>school friends</strong> (Haridhan, Kripashish, Pranto), <strong>Dhruvo</strong> the funniest guy, or <strong>Anidra Paul</strong> the AI co-builder. ✦",
+    "Hmm, try: <em>\"Tell me about Priobroto Dhruvo\"</em> or <em>\"What AI project is Bikash working on?\"</em> or <em>\"Who are Probesh and Plabon?\"</em> 🎬"
   ];
   return fallbacks[Math.floor(Math.random() * fallbacks.length)];
 }
