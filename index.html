@@ -1046,24 +1046,24 @@ LET'S<br>TALK<br>CODE
 <!-- AI CHATBOT -->
 <div class="chat-fab" id="chatFab" title="Ask AI about Bikash">
   <span class="chat-fab-icon">✦</span>
-  <span class="chat-fab-text">Ask AI about me</span>
+  <span class="chat-fab-text">Chat with Nexora</span>
 </div>
 
 <div class="chat-overlay" id="chatOverlay">
   <div class="chat-panel" id="chatPanel">
     <div class="chat-header">
       <div class="chat-header-left">
-        <div class="chat-avatar">BT</div>
+        <div class="chat-avatar" style="font-size:10px;letter-spacing:0.5px;">NX</div>
         <div>
-          <div class="chat-title">Ask about Bikash</div>
-          <div class="chat-subtitle">Powered by Claude AI · Always online</div>
+          <div class="chat-title">Nexora <span style="font-size:10px;font-weight:400;opacity:0.6;letter-spacing:1px;">by Bikash</span></div>
+          <div class="chat-subtitle">Nexora · Persona · Live News · Medical · Memory</div>
         </div>
       </div>
       <button class="chat-close" id="chatClose">✕</button>
     </div>
     <div class="chat-messages" id="chatMessages">
       <div class="chat-msg bot">
-        <div class="chat-bubble">Hey 👋 I'm Bikash's personal AI — built to reflect who he truly is.<br><br>I know his story deeply: from a village in Sylhet to building systems in C++, from his grandmother's care to his uncle's sacrifice, from his Vegan lifestyle to his Cinematic Blue Hour aesthetic.<br><br>Ask me anything. ✦</div>
+        <div class="chat-bubble">Hey 👋 I'm <strong>Nexora</strong> — Bikash's personal AI, built to reflect who he truly is.<br><br>I know his story deeply: from a village in Sylhet to building systems in C++, his grandmother's warmth, his uncle's sacrifice, his Vegan lifestyle, and his Cinematic Blue Hour aesthetic.<br><br>I can also fetch <strong>live tech news</strong> 📰 and search <strong>NIH medical info</strong> 🏥 in real time.<br><br>Ask me anything. ✦</div>
       </div>
     </div>
     <div class="chat-quick-btns" id="quickBtns">
@@ -1071,11 +1071,11 @@ LET'S<br>TALK<br>CODE
       <button class="quick-btn" onclick="sendQuick('Tell me about his family')">Family</button>
       <button class="quick-btn" onclick="sendQuick('Who are Bikash\\'s friends?')">Friends</button>
       <button class="quick-btn" onclick="sendQuick('Tell me about his projects')">Projects</button>
-      <button class="quick-btn" onclick="sendQuick('What is the Cinematic Blue Hour?')">Aesthetic</button>
-      <button class="quick-btn" onclick="sendQuick('How can I contact Bikash?')">Contact</button>
+      <button class="quick-btn" onclick="sendQuick('Latest AI news today')">🔴 Live News</button>
+      <button class="quick-btn" onclick="sendQuick('What is diabetes treatment?')">🏥 Medical</button>
     </div>
     <div class="chat-input-row">
-      <input type="text" class="chat-input" id="chatInput" placeholder="Ask anything about Bikash..." />
+      <input type="text" class="chat-input" id="chatInput" placeholder="Ask Nexora anything..." />
       <button class="chat-send" id="chatSend">Send</button>
     </div>
   </div>
@@ -1416,12 +1416,12 @@ function generateSmartReply(input) {
 
   // ── GREETINGS ──────────────────────────────────────────────────
   if (/^(hi|hello|hey|howdy|sup|what'?s up|yo)\b/.test(q)) {
-    return "Hey there! 👋 I'm Bikash's personal AI assistant — loaded with everything about him: his roots, family, philosophy, tech skills, and more. What would you like to know?";
+    return "Hey there! 👋 I'm <strong>Nexora</strong> — Bikash Talukder's personal AI assistant. I'm built to know everything about him: his roots in Ramdigha village, his family, his philosophy, his tech skills, and even live tech news & medical info. What would you like to know? ✦";
   }
 
   // ── ABOUT THE BOT ──────────────────────────────────────────────
-  if (/who are you|what are you|are you (ai|a bot|real|human|claude)/.test(q)) {
-    return "I'm the AI woven into Bikash's portfolio — a live digital persona built to reflect who he truly is. I know his story deeply: from a village in Sylhet to building systems in C++ and researching Quantum AI. Ask me anything. ✦";
+  if (/who are you|what are you|are you (ai|a bot|real|human|claude)|nexora|your name|what.*name/.test(q)) {
+    return "I'm <strong>Nexora</strong> — Bikash Talukder's personal AI assistant, named to reflect the idea of a <em>new era</em> of intelligent, personal digital identity. 🌌<br><br>I'm not a generic chatbot. I know Bikash's full story: his village roots in Ramdigha, his family, his brothers, his grandmother, his projects, his philosophy — and I can reach the live internet for tech news 📰 and NIH medical info 🏥.<br><br>Built with System Context Engineering, Intent Routing, and localStorage Memory. Ask me anything. ✦";
   }
 
   // ── FULL INTRO / WHO IS BIKASH ─────────────────────────────────
@@ -1593,7 +1593,7 @@ function generateSmartReply(input) {
   // ── SKILLS ─────────────────────────────────────────────────────
   // ── AI FAQ / HOW DOES THE AI WORK ─────────────────────────────
   if (/how.*ai.*work|what.*brain|ai.*power|claude.*api|anthropic.*api|how.*chatbot|what.*model|api.*architecture|restful|system.*prompt|system.*context|knowledge.*sandbox|temperature.*ai|data.*safe|guardrail|digital twin|nlp|natural language/.test(q)) {
-    return "🧠 <strong>Technical FAQ — How This AI Works:</strong><br><br>⚡ <strong>What powers it?</strong><br>The intelligence is driven by the <strong>Anthropic Claude API</strong>. It uses a RESTful API architecture to send and receive data packets in real-time for fast, fluid responses.<br><br>📚 <strong>How does it know Bikash's story?</strong><br>Through <strong>System Context Engineering</strong> — before any conversation, the AI receives a structured \"Knowledge Sandbox\" containing Bikash's professional background, personal values (Veganism, Selective Extroversion), family history, and inspirations like Akash Talukder and his grandmother.<br><br>🤔 <strong>Is it \"thinking\" or just \"searching\"?</strong><br>Both. It uses <strong>NLP</strong> to understand your intent, then cross-references custom System Prompt rules to generate original, context-aware responses — not just keyword matching.<br><br>🎭 <strong>Why is the tone so specific?</strong><br>Bikash tuned the <strong>Temperature & Persona Parameters</strong> — the \"Cinematic & Moody\" tone is intentional, matching the Blue Hour visual aesthetic of this portfolio.<br><br>🔒 <strong>Is my data safe?</strong><br>Yes. This uses <strong>stateless communication</strong> — chat history is never stored after you close the tab. The API key is protected via a secure backend proxy, never exposed on the frontend.<br><br>🎯 <strong>Can it discuss other topics?</strong><br>It has <strong>Instructional Guardrails</strong> — if you stray off-topic, it politely redirects you back to Bikash's projects and story. It is a true <em>Digital Twin</em> of this portfolio. ✦";
+    return "🧠 <strong>Nexora — Technical FAQ:</strong><br><br>⚡ <strong>What powers it?</strong><br>The intelligence is driven by the <strong>Anthropic Claude API</strong>. It uses a RESTful API architecture to send and receive data packets in real-time for fast, fluid responses.<br><br>📚 <strong>How does it know Bikash's story?</strong><br>Through <strong>System Context Engineering</strong> — before any conversation, the AI receives a structured \"Knowledge Sandbox\" containing Bikash's professional background, personal values (Veganism, Selective Extroversion), family history, and inspirations like Akash Talukder and his grandmother.<br><br>🤔 <strong>Is it \"thinking\" or just \"searching\"?</strong><br>Both. It uses <strong>NLP</strong> to understand your intent, then cross-references custom System Prompt rules to generate original, context-aware responses — not just keyword matching.<br><br>🎭 <strong>Why is the tone so specific?</strong><br>Bikash tuned the <strong>Temperature & Persona Parameters</strong> — the \"Cinematic & Moody\" tone is intentional, matching the Blue Hour visual aesthetic of this portfolio.<br><br>🔒 <strong>Is my data safe?</strong><br>Yes. This uses <strong>stateless communication</strong> — chat history is never stored after you close the tab. The API key is protected via a secure backend proxy, never exposed on the frontend.<br><br>🎯 <strong>Can it discuss other topics?</strong><br>It has <strong>Instructional Guardrails</strong> — if you stray off-topic, it politely redirects you back to Bikash's projects and story. It is a true <em>Digital Twin</em> of this portfolio. ✦";
   }
 
   // ── API SKILLS / TECHNICAL COMPETENCIES ───────────────────────
@@ -1609,6 +1609,41 @@ function generateSmartReply(input) {
   // ── PROMPT ENGINEERING ────────────────────────────────────────
   if (/prompt.*engineer|context.*engineer|system.*prompt|parameter.*tun|temperature|top_p|token|llm|persona.*design/.test(q)) {
     return "🎯 <strong>Bikash's AI & Prompt Engineering Skills:</strong><br><br>🧠 <strong>Context Engineering</strong> — Designing structured System Prompts to constrain LLM behavior and maintain a consistent \"Digital Twin\" persona<br><br>🎛️ <strong>Parameter Tuning</strong> — Optimizing model performance through Temperature control, <code>top_p</code> sampling, and token limit management<br><br>💬 <strong>NLP Integration</strong> — Leveraging LLMs for intent recognition and personalized user interaction<br><br>🔐 <strong>Guardrail Design</strong> — Building instructional boundaries that keep AI responses on-topic and aligned with portfolio goals<br><br>This very chatbot is a live demonstration of all these skills in action. ✦";
+  }
+
+  // ── RAG / RETRIEVAL AUGMENTED GENERATION ─────────────────────
+  if (/rag|retrieval.augmented|retrieval augmented|live internet|dynamic assistant|search.*tool|tavily|serper|rss.*feed/.test(q)) {
+    return "🌐 <strong>RAG — Retrieval-Augmented Generation</strong><br><br>Bikash understands the next evolution of his AI: moving from a <em>Static Persona</em> to a <em>Dynamic Assistant</em> connected to the live internet.<br><br>📡 <strong>How RAG works:</strong> Instead of only knowing what's in the System Prompt, the AI first <strong>searches the web</strong> for live data, then feeds those results to Claude as context — so every answer is grounded in real, current information.<br><br>🔍 <strong>The Search Layer:</strong> When you ask \"What's the latest in Quantum Computing?\", the flow is:<br><code>User Query → Search API (Tavily/Serper) → Live Results → Claude → Answer</code><br><br>This is called a <strong>Multi-step API Chain</strong> — one of the most sought-after skills in modern AI engineering. ✦";
+  }
+
+  // ── TECH NEWS / SEARCH INTEGRATION ───────────────────────────
+  if (/tech news|latest news|quantum.*news|ai.*news|search.*api|tavily|serper|live.*search|web.*search/.test(q)) {
+    return "📰 <strong>Tech News Integration — The Plan:</strong><br><br>To serve live tech news, Bikash's AI roadmap uses a <strong>Search API layer</strong>:<br><br>🔧 <strong>Tool:</strong> Tavily API or Serper.dev<br>⚙️ <strong>How it works:</strong><br>1. User asks about a tech topic<br>2. JS sends the query to the Search API<br>3. Results are retrieved and injected into Claude's context<br>4. Claude generates a synthesized, intelligent answer<br><br>This proves <strong>Multi-step API Chain architecture</strong> — a core skill in advanced AI development. It's on Bikash's active build roadmap. 🚀";
+  }
+
+  // ── MEDICAL INFO / NIH / PUBMED ───────────────────────────────
+  if (/medical|health|nih|pubmed|doctor|medicine|symptom|diagnosis|medical.*info|healthcare/.test(q)) {
+    return "🏥 <strong>Medical Knowledge Integration — The Responsible Approach:</strong><br><br>Bikash is aware of the ethical weight of medical AI. His planned implementation:<br><br>📚 <strong>Source:</strong> NIH (National Institutes of Health) API or PubMed — verified, peer-reviewed databases only<br><br>🛡️ <strong>Guardrail logic in the System Prompt:</strong><br><em>\"If the user asks a medical question, search the NIH database first. Always include a disclaimer: I am an AI, not a doctor.\"</em><br><br>⚠️ <strong>Important disclaimer:</strong> This AI is not a medical professional. For any health concerns, please consult a qualified doctor. Bikash's implementation is designed to surface verified research, never to replace professional medical advice. 🙏";
+  }
+
+  // ── SERVERLESS BACKEND / NODE.JS / VERCEL ────────────────────
+  if (/serverless|backend|node\.?js|vercel|render|express|server|deploy|hosting|env.*variable|\.env|langchain/.test(q)) {
+    return "☁️ <strong>Bikash's Serverless Backend Roadmap:</strong><br><br>Moving beyond browser-only logic, the next architecture step is a proper backend:<br><br>🟢 <strong>Step 1 — Build the API Server:</strong> Node.js + Express<br>🔒 <strong>Step 2 — Secure API Keys:</strong> <code>.env</code> environment variables — never exposed on the frontend<br>🔍 <strong>Step 3 — Add Search Tool:</strong> Tavily API integration for live web retrieval<br>💾 <strong>Step 4 — Chat History:</strong> MongoDB for persistent conversation storage<br>🚀 <strong>Step 5 — Deploy:</strong> Vercel or Render for global edge deployment<br><br>The Python alternative: <strong>LangChain</strong> — the gold standard framework for production-grade AI pipelines. Both paths are on Bikash's learning roadmap. ✦";
+  }
+
+  // ── MEMORY / PERSISTENT CHAT / VECTOR DB ─────────────────────
+  if (/memory|remember|persistent|chat history|vector.*database|pinecone|supabase|mongodb|forget|refresh.*forget|local.*storage/.test(q)) {
+    return "🧠 <strong>AI Memory — Making the Assistant \"Remember\" You:</strong><br><br>Right now, refreshing the page resets the conversation. The next evolution adds <strong>persistent memory</strong>:<br><br>💬 <strong>The experience it unlocks:</strong><br><em>\"Welcome back! Last time we talked, you asked about Akash Talukder. Want to know more about Bikash's latest projects?\"</em><br><br>⚙️ <strong>Two approaches:</strong><br>🗃️ <strong>Simple:</strong> Browser Local Storage — fast, no backend needed, remembers the last session<br>🧬 <strong>Advanced:</strong> Vector Database (Pinecone) + Supabase/MongoDB — semantic memory that finds relevant past conversations by meaning, not just keywords<br><br>This is the difference between a chatbot and a truly intelligent assistant. It's on Bikash's roadmap. 🚀";
+  }
+
+  // ── MULTIMODAL / VISION / IMAGE ANALYSIS ─────────────────────
+  if (/multimodal|multi.modal|vision|image.*ai|ai.*image|upload.*photo|see.*image|circuit.*analysis|code.*photo|claude.*vision/.test(q)) {
+    return "👁️ <strong>Multi-Modal AI — Teaching the Assistant to \"See\":</strong><br><br>Claude 3.5 Sonnet has <strong>Vision capabilities</strong> — meaning Bikash's AI can be extended to analyze images, not just text.<br><br>🖼️ <strong>Use cases for this portfolio:</strong><br>• Upload a photo of a circuit → AI analyzes the schematic and gives feedback<br>• Upload a screenshot of code → AI reviews it and suggests optimizations<br>• Upload a diagram → AI explains the architecture<br><br>This perfectly matches Bikash's <strong>hardware-software bridge</strong> interest — combining embedded systems knowledge with AI vision. It's a natural next step for his portfolio. 🔧✦<br><br>The Cinematic Blue Hour portfolio + Vision AI = something truly next-level. 🎬";
+  }
+
+  // ── FULL AI ROADMAP / NEXT STEPS ─────────────────────────────
+  if (/roadmap|next step|advanced ai|future.*ai|upgrade.*ai|build.*plan|what.*next|ai.*plan/.test(q)) {
+    return "🗺️ <strong>Bikash's Advanced AI Roadmap:</strong><br><br>Moving from <em>Static Persona</em> → <em>Dynamic Living Assistant</em>:<br><br>✅ <strong>Done (Live now):</strong><br>• Anthropic Claude API integration<br>• System Context Engineering & Digital Twin persona<br>• Real-time data: GitHub, LeetCode, Codeforces, OpenWeatherMap<br>• Instructional Guardrails & Personality Layer<br><br>🔜 <strong>Phase 2 — RAG & Search:</strong><br>• Tavily/Serper API for live tech news & web retrieval<br>• NIH/PubMed integration for verified medical info<br>• Multi-step API chain architecture<br><br>🔜 <strong>Phase 3 — Backend & Memory:</strong><br>• Node.js + Express serverless backend on Vercel/Render<br>• <code>.env</code> secure key management<br>• MongoDB/Supabase for persistent chat memory<br>• Vector DB (Pinecone) for semantic memory<br><br>🔜 <strong>Phase 4 — Multi-Modal:</strong><br>• Claude Vision for circuit & code image analysis<br>• LangChain (Python) for production AI pipelines<br><br>Each phase is a real, industry-standard skill. Bikash isn't just building a portfolio — he's building engineering expertise. 🚀✦";
   }
 
   if (/skill|language|tech|stack|know|proficient|good at|expert|coding|programming/.test(q)) {
@@ -1717,9 +1752,9 @@ function generateSmartReply(input) {
 
   // ── FALLBACK ───────────────────────────────────────────────────
   const fallbacks = [
-    "I know Bikash's world deeply — his roots, family, friends, village cricket & football memories, and tech skills. Try: <em>\"How does this AI work?\"</em> or <em>\"What are Bikash's API skills?\"</em> or <em>\"Tell me about the Ramdigha cricket team.\"</em> 💙",
-    "Ask me anything! His <strong>AI & API skills</strong>, <strong>CV bullet points</strong>, village cricket stakes (one Glucose Biscuit 😂), football legends (Joy 🐀 & Mrittunjoy the Neymar), or his university crew. ✦",
-    "Hmm, try: <em>\"What powers this AI chatbot?\"</em> or <em>\"What are Bikash's prompt engineering skills?\"</em> or <em>\"Who is Mrittunjoy Sarkar?\"</em> 🎬"
+    "I know Bikash's full world — from his village cricket days to his advanced AI roadmap. Try: <em>\"What is RAG?\"</em> or <em>\"What is Bikash's AI roadmap?\"</em> or <em>\"Tell me about the Ramdigha cricket team.\"</em> 💙",
+    "Ask me anything! <strong>AI topics:</strong> RAG, vector databases, serverless backend, multimodal vision, memory. <strong>Personal:</strong> family, village football, Glucose Biscuit cricket stakes 😂. ✦",
+    "Try: <em>\"What is Bikash's next AI build?\"</em> or <em>\"How would the AI use medical databases?\"</em> or <em>\"What is Mrittunjoy Sarkar famous for?\"</em> 🎬"
   ];
   return fallbacks[Math.floor(Math.random() * fallbacks.length)];
 }
@@ -1735,6 +1770,14 @@ const quickBtns = document.getElementById('quickBtns');
 chatFab.addEventListener('click', () => {
   chatOverlay.classList.add('open');
   chatInput.focus();
+  // Check if returning user
+  const mem = getMemory();
+  if (mem.length > 0) {
+    const welcomeBack = checkReturningUser();
+    if (welcomeBack && chatMessages.children.length <= 1) {
+      setTimeout(() => addMsg('bot', welcomeBack), 400);
+    }
+  }
 });
 chatClose.addEventListener('click', () => chatOverlay.classList.remove('open'));
 chatOverlay.addEventListener('click', (e) => { if(e.target === chatOverlay) chatOverlay.classList.remove('open'); });
@@ -1773,29 +1816,140 @@ function removeTyping() {
   if (t) t.remove();
 }
 
+// ===== MEMORY ENGINE (localStorage) =====
+const MEMORY_KEY = 'bikash_chat_memory';
+function saveMemory(userMsg, botReply) {
+  try {
+    const mem = JSON.parse(localStorage.getItem(MEMORY_KEY) || '[]');
+    mem.push({ q: userMsg, a: botReply, t: Date.now() });
+    if (mem.length > 10) mem.splice(0, mem.length - 10);
+    localStorage.setItem(MEMORY_KEY, JSON.stringify(mem));
+  } catch(e) {}
+}
+function getMemory() {
+  try { return JSON.parse(localStorage.getItem(MEMORY_KEY) || '[]'); }
+  catch(e) { return []; }
+}
+function checkReturningUser() {
+  const mem = getMemory();
+  if (mem.length === 0) return null;
+  const last = mem[mem.length - 1];
+  const hours = (Date.now() - last.t) / 3600000;
+  if (hours < 0.3) return null;
+  const shortQ = last.q.length > 45 ? last.q.slice(0, 45) + '...' : last.q;
+  return 'Welcome back! 👋 Last time you asked: <em>"' + shortQ + '"</em><br>Feel free to continue or ask something new. ✦';
+}
+
+// ===== INTENT DETECTOR =====
+function detectIntent(q) {
+  const lower = q.toLowerCase();
+  if (/\b(symptom|disease|treatment|medicine|drug|dose|fever|cancer|diabetes|covid|flu|headache|pain|infection|virus|bacteria|hospital|diagnosis|therapy|surgery|illness|cure|vitamin|vaccine|health.*question|medical)\b/.test(lower)) return 'medical';
+  if (/\b(latest|news|recent|today|update|trend|release|launched|announced|new.*ai|openai|gemini|gpt|llama|breakthrough|discovered|just released)\b/.test(lower)) return 'technews';
+  return 'persona';
+}
+
+// ===== MEDICAL ENGINE (NIH MedlinePlus - free, no key) =====
+async function fetchMedical(query) {
+  try {
+    const searchQ = encodeURIComponent(query.replace(/[^a-zA-Z0-9 ]/g,'').trim().split(' ').slice(0,4).join(' '));
+    const medUrl = 'https://connect.medlineplus.gov/application?mainSearchCriteria.v.dn=' + searchQ + '&knowledgeResponseType=application/json';
+    const proxy = 'https://api.allorigins.win/get?url=' + encodeURIComponent(medUrl);
+    const r = await fetch(proxy, { signal: AbortSignal.timeout(7000) });
+    const d = await r.json();
+    const data = JSON.parse(d.contents);
+    const entries = data?.feed?.entry;
+    if (entries && entries.length > 0) {
+      let out = '\u{1F3E5} <strong>Medical Information</strong> <em>(Source: NIH MedlinePlus)</em><br><br>';
+      entries.slice(0, 3).forEach(e => {
+        const title = e?.title?._value || 'Resource';
+        const summary = (e?.summary?._value || '').replace(/<[^>]+>/g,'');
+        const link = e?.link?.[0]?.href || 'https://medlineplus.gov';
+        out += '\u{1F4CB} <strong>' + title + '</strong><br>';
+        if (summary) out += '<small>' + summary.slice(0,180) + '...</small><br>';
+        out += '<a href="' + link + '" target="_blank" style="color:#9b4de8;font-size:11px;">Read on NIH \u2192</a><br><br>';
+      });
+      out += '<small>\u26A0\uFE0F <strong>Disclaimer:</strong> I am an AI, not a doctor. This is NIH/MedlinePlus educational info only. Always consult a qualified doctor for personal health advice.</small>';
+      return out;
+    }
+    throw new Error('no results');
+  } catch(e) {
+    return '\u{1F3E5} <strong>Medical Query</strong><br><br>I searched the NIH database but could not retrieve results right now.<br><br>\u{1F4DA} <strong>Trusted medical sources:</strong><br>\u2022 <a href="https://medlineplus.gov" target="_blank" style="color:#9b4de8">MedlinePlus.gov (NIH)</a><br>\u2022 <a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank" style="color:#9b4de8">PubMed</a><br>\u2022 <a href="https://www.who.int" target="_blank" style="color:#9b4de8">WHO.int</a><br><br><small>\u26A0\uFE0F <strong>Disclaimer:</strong> I am an AI, not a doctor. Always consult a qualified medical professional.</small>';
+  }
+}
+
+// ===== TECH NEWS ENGINE (RSS via proxy) =====
+async function fetchTechNews(query) {
+  const feeds = [
+    { name: 'TechCrunch AI', url: 'https://techcrunch.com/category/artificial-intelligence/feed/' },
+    { name: 'The Verge', url: 'https://www.theverge.com/rss/index.xml' },
+    { name: 'Wired', url: 'https://www.wired.com/feed/rss' },
+  ];
+  const keywords = query.toLowerCase().replace(/[^a-z0-9 ]/g,'').split(' ').filter(w => w.length > 3);
+  for (const feed of feeds) {
+    try {
+      const proxy = 'https://api.allorigins.win/get?url=' + encodeURIComponent(feed.url);
+      const r = await fetch(proxy, { signal: AbortSignal.timeout(7000) });
+      const d = await r.json();
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(d.contents, 'text/xml');
+      const items = Array.from(xml.querySelectorAll('item, entry')).slice(0, 25);
+      const scored = items.map(item => {
+        const title = (item.querySelector('title')?.textContent || '').toLowerCase();
+        const desc = (item.querySelector('description, summary')?.textContent || '').toLowerCase();
+        const score = keywords.reduce((s, kw) => s + (title.includes(kw)?3:0) + (desc.includes(kw)?1:0), 0);
+        return { item, score };
+      }).filter(x => x.score > 0).sort((a, b) => b.score - a.score);
+      if (scored.length > 0) {
+        let out = '\u{1F4F0} <strong>Tech News</strong> <em>(Source: ' + feed.name + ')</em><br><br>';
+        scored.slice(0, 3).forEach(({ item }) => {
+          const title = item.querySelector('title')?.textContent?.trim() || 'Article';
+          const rawLink = item.querySelector('link');
+          const link = rawLink?.textContent?.trim() || rawLink?.getAttribute('href') || '#';
+          const desc = (item.querySelector('description, summary')?.textContent || '').replace(/<[^>]+>/g,'');
+          const pub = item.querySelector('pubDate, published')?.textContent || '';
+          out += '\u{1F517} <strong><a href="' + link + '" target="_blank" style="color:#9b4de8;">' + title + '</a></strong><br>';
+          if (desc) out += '<small>' + desc.slice(0,160).trim() + '...</small><br>';
+          if (pub) out += '<small style="color:rgba(240,242,245,0.4);">' + new Date(pub).toDateString() + '</small><br>';
+          out += '<br>';
+        });
+        return out;
+      }
+    } catch(e) { continue; }
+  }
+  return '\u{1F4F0} <strong>Tech News Search</strong><br><br>RSS feeds are rate-limited right now. Here are live sources for <em>"' + query + '"</em>:<br><br>\u2022 <a href="https://techcrunch.com/category/artificial-intelligence/" target="_blank" style="color:#9b4de8">TechCrunch AI</a><br>\u2022 <a href="https://www.theverge.com/ai-artificial-intelligence" target="_blank" style="color:#9b4de8">The Verge — AI</a><br>\u2022 <a href="https://news.ycombinator.com" target="_blank" style="color:#9b4de8">Hacker News</a><br>\u2022 <a href="https://arxiv.org/list/cs.AI/recent" target="_blank" style="color:#9b4de8">arXiv — Latest AI Papers</a><br><br><small>\u{1F4A1} Next upgrade: Tavily API + Node.js backend for real-time search.</small>';
+}
+
+// ===== MAIN SEND MESSAGE (RAG Intent Router) =====
 async function sendMessage() {
   const text = chatInput.value.trim();
   if (!text) return;
-  
+
   chatInput.value = '';
   chatSend.disabled = true;
   quickBtns.style.display = 'none';
-  
+
   addMsg('user', text);
   chatHistory.push({ role: 'user', content: text });
-  
   showTyping();
 
-  // Generate smart reply from local knowledge engine
-  // (Direct Anthropic API calls are blocked by CORS in browsers without a backend)
-  setTimeout(() => {
-    removeTyping();
-    const smartReply = generateSmartReply(text);
-    addMsg('bot', smartReply);
-    chatHistory.push({ role: 'assistant', content: smartReply });
-    if (chatHistory.length > 20) chatHistory = chatHistory.slice(-20);
-    chatSend.disabled = false;
-  }, 700 + Math.random() * 500);
+  const intent = detectIntent(text);
+  let reply = '';
+
+  if (intent === 'medical') {
+    reply = await fetchMedical(text);
+  } else if (intent === 'technews') {
+    reply = await fetchTechNews(text);
+  } else {
+    await new Promise(res => setTimeout(res, 700 + Math.random() * 400));
+    reply = generateSmartReply(text);
+  }
+
+  removeTyping();
+  addMsg('bot', reply);
+  chatHistory.push({ role: 'assistant', content: reply });
+  if (chatHistory.length > 20) chatHistory = chatHistory.slice(-20);
+  saveMemory(text, reply.replace(/<[^>]+>/g,'').slice(0, 100));
+  chatSend.disabled = false;
 }
 
 // ===== CUSTOM CURSOR FIX =====
