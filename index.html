@@ -1271,21 +1271,26 @@ LET'S<br>TALK<br>CODE
 // ===== LIVE WEATHER (OpenWeatherMap) =====
 async function loadWeather() {
   try {
-    const r = await fetch('https://api.openweathermap.org/data/2.5/weather?q=Dhaka&units=metric&appid=106a68aba3e31a341a0ac9fc95c6ccd9');
+    const r = await fetch('https://api.openweathermap.org/data/2.5/weather?q=Dhaka&units=metric&appid=21399a227abcc2dacc3f26fc39d69a3e');
     const d = await r.json();
     if (d.main) {
-      document.getElementById('weatherTemp').textContent = Math.round(d.main.temp) + '°C';
-      const desc = d.weather[0].description;
+      const temp = Math.round(d.main.temp);
       const feels = Math.round(d.main.feels_like);
       const humidity = d.main.humidity;
-      document.getElementById('weatherDesc').textContent = desc.charAt(0).toUpperCase() + desc.slice(1) + ' · Feels ' + feels + '°C · Humidity ' + humidity + '%';
-      // Update icon based on condition
+      const windSpeed = d.wind ? Math.round(d.wind.speed * 3.6) : '—';
+      const desc = d.weather[0].description;
       const iconMap = { '01d':'☀️','01n':'🌙','02d':'⛅','02n':'🌥','03d':'☁️','03n':'☁️','04d':'☁️','04n':'☁️','09d':'🌧','09n':'🌧','10d':'🌦','10n':'🌧','11d':'⛈','11n':'⛈','13d':'❄️','13n':'❄️','50d':'🌫','50n':'🌫' };
       const ic = d.weather[0].icon;
-      document.querySelector('#weatherCard .dash-icon').textContent = iconMap[ic] || '🌡';
+      const icon = iconMap[ic] || '🌡';
+      document.getElementById('weatherTemp').textContent = temp + '°C';
+      document.getElementById('weatherDesc').textContent = icon + ' ' + desc.charAt(0).toUpperCase() + desc.slice(1) + ' · Feels ' + feels + '°C · 💧 ' + humidity + '% · 💨 ' + windSpeed + 'km/h';
+      const iconEl = document.querySelector('#weatherCard .dash-icon');
+      if (iconEl) iconEl.textContent = icon;
+      // Store globally for Nexora chat
+      window._weatherData = { temp, feels, humidity, windSpeed, desc: desc.charAt(0).toUpperCase() + desc.slice(1), icon };
     } else {
       document.getElementById('weatherTemp').textContent = 'N/A';
-      document.getElementById('weatherDesc').textContent = 'API key activating (may take 10 min)';
+      document.getElementById('weatherDesc').textContent = 'API key activating — try again in a few minutes';
     }
   } catch(e) {
     document.getElementById('weatherTemp').textContent = '—';
@@ -1898,6 +1903,8 @@ function detectIntent(q) {
   if (/\b(sin|cos|tan|log|ln|abs)\s*\(/.test(lower)) return 'calc';
   // Unit converter
   if (/\b(convert|in meters|in km|in miles|in kg|in lbs|in celsius|in fahrenheit|in feet|in inches|in liters|to meters|to km|to miles|to kg|to lbs|to celsius|to fahrenheit|to feet|to inches)\b/.test(lower)) return 'convert';
+  // Weather — live API
+  if (/\b(weather|temperature|forecast|rain|sunny|humid|wind|hot|cold|climate|sky|storm|cloudy|dhaka.*weather|weather.*dhaka|outside|temperature.*today)\b/.test(lower)) return 'weather';
   // Time / date
   if (/\b(what time|current time|what date|today|day of week|what day)\b/.test(lower) && !/\b(latest|news|today.*news)\b/.test(lower)) return 'time';
   // Medical
@@ -1905,6 +1912,35 @@ function detectIntent(q) {
   // Tech news
   if (/\b(latest|news|recent|update|trend|release|launched|announced|new.*ai|openai|gemini|gpt|llama|breakthrough|discovered|just released)\b/.test(lower)) return 'technews';
   return 'persona';
+}
+
+// ===== WEATHER ENGINE (live OpenWeatherMap) =====
+async function weatherEngine() {
+  // Use cached data if available (loaded by dashboard)
+  if (window._weatherData) {
+    const w = window._weatherData;
+    return `${w.icon} <strong>Live Weather — Dhaka, Bangladesh</strong><br><br>🌡️ <strong>Temperature:</strong> ${w.temp}°C (Feels like ${w.feels}°C)<br>☁️ <strong>Condition:</strong> ${w.desc}<br>💧 <strong>Humidity:</strong> ${w.humidity}%<br>💨 <strong>Wind Speed:</strong> ${w.windSpeed} km/h<br><br><small style="opacity:0.5">⏱ Updated every 10 minutes · Source: OpenWeatherMap</small>`;
+  }
+  // Fresh fetch if cache not ready
+  try {
+    const r = await fetch('https://api.openweathermap.org/data/2.5/weather?q=Dhaka&units=metric&appid=21399a227abcc2dacc3f26fc39d69a3e');
+    const d = await r.json();
+    if (d.main) {
+      const temp = Math.round(d.main.temp);
+      const feels = Math.round(d.main.feels_like);
+      const humidity = d.main.humidity;
+      const windSpeed = d.wind ? Math.round(d.wind.speed * 3.6) : '—';
+      const desc = d.weather[0].description;
+      const iconMap = { '01d':'☀️','01n':'🌙','02d':'⛅','02n':'🌥','03d':'☁️','03n':'☁️','04d':'☁️','04n':'☁️','09d':'🌧','09n':'🌧','10d':'🌦','10n':'🌧','11d':'⛈','11n':'⛈','13d':'❄️','13n':'❄️','50d':'🌫','50n':'🌫' };
+      const icon = iconMap[d.weather[0].icon] || '🌡';
+      const descCap = desc.charAt(0).toUpperCase() + desc.slice(1);
+      window._weatherData = { temp, feels, humidity, windSpeed, desc: descCap, icon };
+      return `${icon} <strong>Live Weather — Dhaka, Bangladesh</strong><br><br>🌡️ <strong>Temperature:</strong> ${temp}°C (Feels like ${feels}°C)<br>☁️ <strong>Condition:</strong> ${descCap}<br>💧 <strong>Humidity:</strong> ${humidity}%<br>💨 <strong>Wind Speed:</strong> ${windSpeed} km/h<br><br><small style="opacity:0.5">⏱ Live data · Source: OpenWeatherMap ✦</small>`;
+    }
+    return '🌡 Weather data is loading. Please check the dashboard card at the top of the page! ✦';
+  } catch(e) {
+    return '🌧 I tried to check Dhaka\'s sky but the weather station is unreachable right now. Check the dashboard for live weather! ✦';
+  }
 }
 
 // ===== CALCULATOR ENGINE =====
@@ -2044,6 +2080,8 @@ async function sendMessage() {
   } else if (intent === 'convert') {
     await new Promise(res => setTimeout(res, 300));
     reply = convertEngine(text);
+  } else if (intent === 'weather') {
+    reply = await weatherEngine();
   } else if (intent === 'time') {
     await new Promise(res => setTimeout(res, 200));
     reply = timeEngine();
@@ -2149,7 +2187,19 @@ async function sendMessage() {
   const intent = detectIntent(text);
   let reply = '';
 
-  if (intent === 'medical') {
+  if (intent === 'calc') {
+    await new Promise(res => setTimeout(res, 300));
+    reply = calcEngine(text);
+    if (!reply) reply = generateSmartReply(text);
+  } else if (intent === 'convert') {
+    await new Promise(res => setTimeout(res, 300));
+    reply = convertEngine(text);
+  } else if (intent === 'weather') {
+    reply = await weatherEngine();
+  } else if (intent === 'time') {
+    await new Promise(res => setTimeout(res, 200));
+    reply = timeEngine();
+  } else if (intent === 'medical') {
     reply = await fetchMedical(text);
   } else if (intent === 'technews') {
     reply = await fetchTechNews(text);
