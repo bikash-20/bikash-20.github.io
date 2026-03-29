@@ -1271,7 +1271,7 @@ LET'S<br>TALK<br>CODE
 // ===== LIVE WEATHER (OpenWeatherMap) =====
 async function loadWeather() {
   try {
-    const r = await fetch('https://api.openweathermap.org/data/2.5/weather?q=Dhaka&units=metric&appid=21399a227abcc2dacc3f26fc39d69a3e');
+    const r = await fetch('https://api.openweathermap.org/data/2.5/weather?q=Dhaka&units=metric&appid=1926c1f86c487b32de625363a6372de0');
     const d = await r.json();
     if (d.main) {
       const temp = Math.round(d.main.temp);
@@ -1797,9 +1797,35 @@ function generateSmartReply(input) {
     return "🤝 <strong>Anidra Paul</strong> is one of those people who shows up — not just in the good moments, but in the hard ones too.<br><br>He is a <strong>consistent mental support</strong> for Bikash — someone who listens, encourages, and keeps Bikash grounded when things get difficult.<br><br>🚀 But beyond the emotional bond, they are building something together: the two of them are set to <strong>collaborate on a big AI project</strong>. Two minds aligned on a mission to build something meaningful in the world of artificial intelligence.<br><br>Anidra is not just a friend — he's a future co-builder. Watch this space. ✦";
   }
 
+
+  // ── JABEL ALVI ────────────────────────────────────────────────
+  if (/jabel|jabel alvi|alvi/.test(q)) {
+    return "💙 <strong>Jabel Alvi</strong> — a name that holds a quiet, special place in Bikash's heart.<br><br>They were close for a certain time at university — the kind of closeness where you share <em>everything</em>. Bikash spent most of his time with him, and those days carry a warmth that doesn't fade easily.<br><br>Right now, Jabel is preparing himself to go <strong>abroad</strong> — stepping into a new chapter of his life. The paths have separated, but the bond doesn't need proximity to stay real.<br><br><em>\"He was close to me for a certain time — but he will stay in my heart forever.\"</em> 💙";
+  }
+
+  // ── MAHDIN / ROBOTICS ─────────────────────────────────────────
+  if (/mahdin/.test(q)) {
+    return "🤖 <strong>Mahdin</strong> is Bikash's university classmate and a passionate <strong>robotics enthusiast</strong>. While Bikash dives deep into algorithms and AI, Mahdin brings the hardware energy — the kind of person who sees a problem and immediately thinks about how to build a machine to solve it.<br><br>Two people from the same class, two different approaches to technology — both brilliant. 🔧✦";
+  }
+
+  // ── TAHZIB EBAD / DEVELOPER ───────────────────────────────────
+  if (/tahzib|ebad/.test(q)) {
+    return "💻 <strong>Tahzib Ebad</strong> — Bikash describes him simply as a <em>\"such a talented person.\"</em> That's high praise coming from someone who doesn't use words loosely.<br><br>Tahzib is also a <strong>developer</strong>, bringing real technical skill to whatever he builds. The kind of person who makes you want to work harder just by existing in your orbit. A talented presence in Bikash's university life. ✦";
+  }
+
+  // ── ARMAN UDDIN ───────────────────────────────────────────────
+  if (/arman|arman uddin/.test(q)) {
+    return "🌟 <strong>Arman Uddin</strong> — Bikash has shared a lot with him, and Arman is someone genuinely impressive.<br><br>He holds a <strong>CGPA of 3.95</strong> — one of the highest in the class. But beyond grades, he has something rarer: a strong command of both <strong>business and technology</strong>. That combination — technical depth plus business thinking — is what separates good developers from great ones.<br><br>A brilliant mind and a great person to have in your circle at Metropolitan University. 💙";
+  }
+
+  // ── SRIJON PAUL ───────────────────────────────────────────────
+  if (/srijon/.test(q)) {
+    return "😻 <strong>Srijon Paul</strong> — the cute boy of the group and, let's just say, the unofficial <em>girls' crush</em> of the university circle 😄💫<br><br>Beyond the charm, he's a genuine part of Bikash's university life and someone Bikash holds warmly. Some people just make a group more fun — and Srijon is exactly that. ✦";
+  }
+
   // ── ALL FRIENDS TOGETHER ───────────────────────────────────────
   if (/friend|friendship|buddy|mate|crew|gang|people|social|close to/.test(q)) {
-    return "💙 Bikash keeps a <strong>small, high-quality circle</strong> — loyal, real, no superficiality. His people:<br><br>🏙️ <strong>City inner circle:</strong><br>🌟 Susmit · 📏 Ankon · 🗣️ Arnob · 🇮🇳 Sakkor (NIT India)<br><br>🎓 <strong>Senior Dada:</strong> Mithu Roy — Sylhet Agricultural University<br><br>🏫 <strong>School friends (Akota, still close):</strong><br>Haridhan · Kripashish · Pranto Talukder<br><br>🌿 <strong>Village brothers:</strong> Probesh & Plabon<br><br>🏏 <strong>Ramdigha cricket legends:</strong><br>Swapan Sarkar · Subir Talukder · Tapan Sarkar (all-rounder & Swapan's brother) — stakes: one Glucose Biscuit 😂<br><br>⚽ <strong>Ramdigha football icons:</strong><br>Joy Sarkar (goalkeeper 🐀😂) · Mrittunjoy Sarkar (jersey #10, the Neymar of Ramdigha 🇧🇷)<br><br>🎓 <strong>University circle:</strong><br>😂 Dhruvo · 🕊️ Asma · 🌸 Monisha · 🤝 Anidra Paul (AI co-builder)<br><br>In code and in life, Bikash values <em>quality over quantity.</em> ✦";
+    return "💙 Bikash keeps a <strong>small, high-quality circle</strong> — loyal, real, no superficiality. His people:<br><br>🏙️ <strong>City inner circle:</strong><br>🌟 Susmit · 📏 Ankon · 🗣️ Arnob · 🇮🇳 Sakkor (NIT India)<br><br>🎓 <strong>Senior Dada:</strong> Mithu Roy — Sylhet Agricultural University<br><br>🏫 <strong>School friends (Akota, still close):</strong><br>Haridhan · Kripashish · Pranto Talukder<br><br>🌿 <strong>Village brothers:</strong> Probesh & Plabon<br><br>🏏 <strong>Ramdigha cricket legends:</strong><br>Swapan Sarkar · Subir Talukder · Tapan Sarkar (all-rounder & Swapan's brother) — stakes: one Glucose Biscuit 😂<br><br>⚽ <strong>Ramdigha football icons:</strong><br>Joy Sarkar (goalkeeper 🐀😂) · Mrittunjoy Sarkar (jersey #10, the Neymar of Ramdigha 🇧🇷)<br><br>🎓 <strong>University circle:</strong><br>😂 Dhruvo · 🕊️ Asma · 🌸 Monisha · 🤝 Anidra Paul (AI co-builder) · 💙 Jabel Alvi (going abroad) · 🤖 Mahdin (robotics) · 💻 Tahzib Ebad (developer) · 🌟 Arman Uddin (CGPA 3.95) · 😻 Srijon Paul<br><br>In code and in life, Bikash values <em>quality over quantity.</em> ✦";
   }
 
   // ── FALLBACK ───────────────────────────────────────────────────
@@ -1902,7 +1928,7 @@ async function weatherEngine() {
   }
   // Fresh fetch if cache not ready
   try {
-    const r = await fetch('https://api.openweathermap.org/data/2.5/weather?q=Dhaka&units=metric&appid=21399a227abcc2dacc3f26fc39d69a3e');
+    const r = await fetch('https://api.openweathermap.org/data/2.5/weather?q=Dhaka&units=metric&appid=1926c1f86c487b32de625363a6372de0');
     const d = await r.json();
     if (d.main) {
       const temp = Math.round(d.main.temp);
