@@ -1434,6 +1434,48 @@ function generateSmartReply(input) {
     return "🌿 <strong>Sylhet</strong> — a peaceful city full of nature, culture, and spirit. Bikash's home city, and one of the most beautiful in Bangladesh.<br><br>📍 <strong>Location:</strong> Northeast Bangladesh, close to India's Meghalaya state — surrounded by hills, rivers, and haors.<br><br>🌄 <strong>Natural Beauty:</strong><br>• <strong>Tea Gardens</strong> — Sylhet is the heart of Bangladesh's tea industry. Sreemangal is the \"Tea Capital\" 🌱<br>• <strong>Jaflong</strong> — stones, river, and hills from India<br>• <strong>Ratargul Swamp Forest</strong> — the only freshwater swamp forest in Bangladesh<br>• <strong>Bisnakandi</strong> — crystal clear water + mountain views<br>• <strong>Tanguar Haor</strong> — completely flooded in monsoon, breathtakingly beautiful 🌧️<br><br>🕌 <strong>Spiritual Heart:</strong><br>• Hazrat Shah Jalal Mazar — one of the most important Islamic sites in Bangladesh<br>• Hazrat Shah Paran Mazar — another deeply respected shrine<br><br>🍲 <strong>Food:</strong> Shatkora beef 🍛, fresh river fish 🐟, Seven-layer tea ☕<br><br>🗣️ <strong>People:</strong> Sylheti dialect, large UK diaspora 🇬🇧, friendly and culturally rich<br><br>🌦️ <strong>Weather:</strong> One of the wettest regions in Bangladesh — cool, green, and lush<br><br>❤️ Sylhet is not just a city — it's a feeling. Calm, natural, spiritual, and perfect for a student who loves both code and peace. ✦";
   }
 
+  // ── BODY COUNT / FUNNY DEFLECTION ────────────────────────────
+  if (/body count|how many.*girls|how many.*guys|how many.*dated|relationship.*count|ex.*count/.test(q)) {
+    const jokes = [
+      "😂 \"Why? Trying to compare or just insecure?\"",
+      "😄 \"Don't worry, you're not on the list.\"",
+      "💀 \"Less than your assumptions, more than your standards.\""
+    ];
+    return jokes[Math.floor(Math.random() * jokes.length)];
+  }
+
+
+  // ── SUST ──────────────────────────────────────────────────────
+  if (/\bsust\b|shahjalal|kumargaon/.test(q)) {
+    return "🎓 <strong>Shahjalal University of Science and Technology (SUST)</strong><br><br>One of the most respected public universities in Bangladesh — and Bikash's friend Susmit studies here!<br><br>📍 <strong>Location:</strong> Kumargaon, Sylhet · <strong>Est:</strong> 1986 · First university in Bangladesh to introduce the semester system.<br><br>🏫 <strong>Key Schools:</strong><br>• <strong>Applied Sciences & Technology</strong> — CSE, SWE, EEE, Civil, Chemical, Mechanical Engineering<br>• <strong>Physical Sciences</strong> — Physics, Chemistry, Mathematics, Statistics<br>• <strong>Life Sciences</strong> — Biotech, Forestry, Food Engineering & Tea Technology 🌱<br>• <strong>Social Sciences</strong> — Economics, Sociology, Political Studies<br>• <strong>Business</strong> — BBA/MBA<br>• <strong>Arts & Humanities</strong> — English, Bangla<br><br>💻 <strong>Why SUST stands out:</strong><br>• 🔥 CSE & SWE are among the top in Bangladesh<br>• Strong ICPC & competitive programming culture<br>• Better research opportunities than most universities<br>• Many graduates at top global tech companies<br><br>🌳 Green, peaceful campus with hills, tea gardens, and a seriously academic vibe. ✦";
+  }
+
+  // ── METROPOLITAN UNIVERSITY ───────────────────────────────────
+  if (/metropolitan university|\bmetropolitan\b|\bmu\b|bateshwar/.test(q)) {
+    return "🎓 <strong>Metropolitan University (MU)</strong> — Bikash's university! 🙌<br><br>📍 <strong>Location:</strong> Bateshwar, Sylhet · <strong>Est:</strong> 2003 · <strong>Type:</strong> Private (UGC approved) · Permanent charter received in 2024.<br><br>🏫 <strong>Schools & Programs:</strong><br>• <strong>Science & Technology</strong> — CSE, SWE, EEE, Data Science · <em>Bikash's department!</em><br>• <strong>Business & Economics</strong> — BBA, Economics<br>• <strong>Law & Justice</strong> — LLB<br>• <strong>Humanities</strong> — English<br><br>🎓 <strong>Degrees:</strong> BSc, BBA, BA, LLB (undergrad) · MBA, MA, MSc, LLM (postgrad) · Short courses in Android Dev & Microcontrollers<br><br>💻 <strong>Strengths:</strong><br>• Strong in CSE & Software Engineering<br>• Practical learning — projects, programming contests<br>• Industry-focused skills<br>• Green, calm campus in Bateshwar 🌿<br><br>🏆 <strong>Honest ranking for CSE in Sylhet:</strong><br>🥇 SUST — top tier, most competitive<br>🥈 <strong>MU — best private option</strong> (skill depends on you 💪)<br>🥉 LU — decent, less active coding culture<br><br>💣 Brutal truth: University gives you the platform — but your skill depends on YOU. A hardworking MU student can absolutely beat an average SUST student. Bikash is proof. 🔥";
+  }
+
+  // ── LEADING UNIVERSITY ────────────────────────────────────────
+  if (/leading university|\bleading uni|\blu\b/.test(q)) {
+    return "🎓 <strong>Leading University (LU)</strong> — one of the older private universities in Sylhet.<br><br>📍 <strong>Location:</strong> Sylhet · <strong>Type:</strong> Private university<br><br>🏫 <strong>Programs:</strong> Engineering (CSE, EEE), Business (BBA/MBA), Law, English<br><br>✔️ <strong>Strengths:</strong> Stable faculty, experienced institution, structured learning environment, good for students who want calm consistency<br><br>❗ <strong>Honest weakness:</strong> Less active coding culture compared to MU; fewer high-level competitive programmers<br><br>🏆 <strong>CSE Ranking in Sylhet (brutally honest):</strong><br>🥇 SUST — top tier 🔥<br>🥈 MU — best private, self-driven 💪<br>🥉 <strong>LU — good degree, but grind alone for top-level coding 📉</strong><br><br>💡 Remember: No matter which university, DSA + real projects + Codeforces consistency will take you further than your institution's name ever will. ✦";
+  }
+
+  // ── MC COLLEGE ────────────────────────────────────────────────
+  if (/mc college|\bmc\b.*college|murari chand|tilagor/.test(q)) {
+    return "🎓 <strong>Murari Chand College (MC College)</strong> — one of the oldest and most prestigious colleges in Bangladesh.<br><br>📍 <strong>Location:</strong> Tilagor, Sylhet · <strong>Est:</strong> 1892 · <strong>Type:</strong> Government · Affiliated with National University<br><br>🏛️ <strong>History:</strong> Started 1892, became a first-grade college in 1916. Historically one of the best colleges in the entire subcontinent.<br><br>🎓 <strong>Programs:</strong><br>• HSC — Science group (very competitive in Sylhet)<br>• Undergraduate Honours — Bangla, English, Philosophy, History, Economics, Physics, Chemistry, Mathematics, Zoology, Botany, Sociology, Statistics & more (15+ subjects)<br>• Postgraduate — 16+ Master's programs<br><br>🌳 <strong>Campus:</strong> Beautiful green campus — hills, large field, calm environment. Many say it has a \"classic university vibe.\"<br><br>💪 <strong>Strengths:</strong> Exceptional academic reputation, highly competitive HSC students, strong board results, large alumni network (ministers, scholars, leaders)<br><br>❗ <strong>Honest note:</strong> Not focused on modern tech like CSE — it's a traditional college. Self-study is essential. ✦";
+  }
+
+  // ── JALALABAD CANTONMENT SCHOOL ───────────────────────────────
+  if (/jalalabad|jcpsc|cantonment school|cantonment college/.test(q)) {
+    return "🎓 <strong>Jalalabad Cantonment Public School and College (JCPSC)</strong><br><br>📍 <strong>Location:</strong> Boteshor, Sylhet Sadar — inside Jalalabad Cantonment · <strong>Est:</strong> 4 July 1999<br>📋 <strong>EIIN:</strong> 130459 · <strong>Managed by:</strong> Bangladesh Army · <strong>Motto:</strong> <em>\"জ্ঞানে আলোকিত\"</em> — Enlighten with knowledge<br><br>🏫 <strong>Academic Structure:</strong><br>• School — Class 1 to 10 (Science, Business, Arts; English version available in classes 6–10)<br>• College — HSC with Science, Commerce, and Arts streams<br><br>🏆 <strong>Recognition:</strong><br>• Awarded <strong>\"Best Institution\"</strong> by the President of Bangladesh in 2004<br>• Consistently ranked among the top cantonment schools in Bangladesh<br><br>🏟️ <strong>Facilities:</strong> 1,000-seat auditorium · Football, cricket, basketball, volleyball, table tennis, badminton, handball ✦";
+  }
+
+  // ── SCHOLARS HOME ─────────────────────────────────────────────
+  if (/scholars.?home|scholarshome|hafiz mazumdar/.test(q)) {
+    return "🎓 <strong>Scholarshome Sylhet</strong> — Bikash's college! 🙌<br><br>A well-known English-medium school and college network in Sylhet, set up under the <strong>Hafiz Mazumdar Trust</strong>.<br><br>📚 <strong>What it is:</strong> English-medium institution following the national curriculum, from playgroup right up to HSC (Class XII). Prepares students for SFC, JSC, SSC, and HSC under the Sylhet Education Board.<br><br>🏫 <strong>Campuses:</strong> Six campuses across Sylhet city — Shahi Eidgah, Pathantula, Mejortila, Shibganj, Electric Supply Road, South Surma. Also a separate <strong>Scholarshome Girls' School and College</strong> in Pathantula.<br><br>⭐ <strong>Strengths:</strong><br>• Strong academics + extra-curricular balance<br>• Science clubs, debate, arts, music, drama, scouting<br>• Graduate/postgraduate qualified teachers with regular training<br>• Positioned as one of the <strong>top English-medium schools in Sylhet</strong><br><br>This is where Bikash completed his HSC — a chapter he carries with pride. 💙 ✦";
+  }
+
+
   // ── INSPIRATION / WHO INSPIRES HIM ────────────────────────────
   if (/inspir|motivat|role model|who drives|why.*work|look up|hero|struggle/.test(q)) {
     return "🌟 <strong>Bikash's greatest inspirations are his Father — Haridhan Talukder — and his Uncle, Aradhan Talukder.</strong><br><br>These two men faced immense hardship and sacrifice to give Bikash the life he has today. During Bikash's lowest, darkest moments, their support was the only reason he kept going. They are not just family — they are the foundation every line of his code is quietly dedicated to.<br><br>Here is what makes this deeply personal: <em>Bikash is a man of very few words.</em> He has never told them face-to-face how much they mean to him. But the entire arc of his work — every project, every late night, every breakthrough — is his tribute to their struggle.<br><br>💔 Aradhan Talukder and his wife <strong>Madhuri Rani Talukder</strong> — who was like a second mother to Bikash — both <strong>passed away in 2025</strong>. The grief of losing them is immeasurable. But Bikash carries them forward in everything he builds. 🙏";
@@ -1586,7 +1628,7 @@ function generateSmartReply(input) {
   }
 
   // ── COLLEGE ────────────────────────────────────────────────────
-  if (/college|hsc|higher secondary|scholars/.test(q)) {
+  if (/\bcollege\b|\bhsc\b|higher secondary/.test(q)) {
     return "🎓 Bikash completed his HSC at <strong>Scholar's Home</strong> — the bridge between his Sylhet school years and his CSE degree. A pivotal chapter in his journey from village student to systems engineer.";
   }
 
@@ -1711,7 +1753,7 @@ function generateSmartReply(input) {
   }
 
   // ── CITY FRIENDS / SUSMIT / ANKON / ARNOB / SAKKOR ───────────
-  if (/susmit|ankon|arnob|sakkor|city friend|city life|sust|nit|close friend|circle/.test(q)) {
+  if (/susmit|ankon|arnob|sakkor|city friend|city life|nit india|close friend|city circle/.test(q)) {
     return "🏙️ Bikash's <strong>city life inner circle</strong> — four brilliant people he's deeply close to:<br><br>🌟 <strong>Susmit</strong> — <em>\"The most brilliant boy I've ever seen.\"</em> A CS guy from SUST. Bikash speaks about him with genuine admiration — a mind that stands out even in a world of smart people.<br><br>🗣️ <strong>Arnob</strong> — Always talks contextually, sometimes goes deep into his own world — but they love him so much they have all the patience in the world for him. He's irreplaceable in the group. 😄<br><br>📏 <strong>Ankon</strong> — The tallest and cutest guy in the circle. His presence alone lights up the room.<br><br>🇮🇳 <strong>Sakkor</strong> — Currently studying CSE at <strong>NIT India</strong>. A friend who crossed borders but never left the circle.<br><br>These four are Bikash's <em>city life</em> — the people who make the hustle worth it. 💙";
   }
 
@@ -1753,47 +1795,6 @@ function generateSmartReply(input) {
   // ── ALL FRIENDS TOGETHER ───────────────────────────────────────
   if (/friend|friendship|buddy|mate|crew|gang|people|social|close to/.test(q)) {
     return "💙 Bikash keeps a <strong>small, high-quality circle</strong> — loyal, real, no superficiality. His people:<br><br>🏙️ <strong>City inner circle:</strong><br>🌟 Susmit · 📏 Ankon · 🗣️ Arnob · 🇮🇳 Sakkor (NIT India)<br><br>🎓 <strong>Senior Dada:</strong> Mithu Roy — Sylhet Agricultural University<br><br>🏫 <strong>School friends (Akota, still close):</strong><br>Haridhan · Kripashish · Pranto Talukder<br><br>🌿 <strong>Village brothers:</strong> Probesh & Plabon<br><br>🏏 <strong>Ramdigha cricket legends:</strong><br>Swapan Sarkar · Subir Talukder · Tapan Sarkar (all-rounder & Swapan's brother) — stakes: one Glucose Biscuit 😂<br><br>⚽ <strong>Ramdigha football icons:</strong><br>Joy Sarkar (goalkeeper 🐀😂) · Mrittunjoy Sarkar (jersey #10, the Neymar of Ramdigha 🇧🇷)<br><br>🎓 <strong>University circle:</strong><br>😂 Dhruvo · 🕊️ Asma · 🌸 Monisha · 🤝 Anidra Paul (AI co-builder)<br><br>In code and in life, Bikash values <em>quality over quantity.</em> ✦";
-  }
-
-  // ── BODY COUNT / FUNNY DEFLECTION ────────────────────────────
-  if (/body count|how many.*girls|how many.*guys|how many.*dated|relationship.*count|ex.*count/.test(q)) {
-    const jokes = [
-      "😂 \"Why? Trying to compare or just insecure?\"",
-      "😄 \"Don't worry, you're not on the list.\"",
-      "💀 \"Less than your assumptions, more than your standards.\""
-    ];
-    return jokes[Math.floor(Math.random() * jokes.length)];
-  }
-
-
-  // ── SUST ──────────────────────────────────────────────────────
-  if (/\bsust\b|shahjalal university|shahjalal.*science|kumargaon/.test(q)) {
-    return "🎓 <strong>Shahjalal University of Science and Technology (SUST)</strong><br><br>One of the most respected public universities in Bangladesh — and Bikash's friend Susmit studies here!<br><br>📍 <strong>Location:</strong> Kumargaon, Sylhet · <strong>Est:</strong> 1986 · First university in Bangladesh to introduce the semester system.<br><br>🏫 <strong>Key Schools:</strong><br>• <strong>Applied Sciences & Technology</strong> — CSE, SWE, EEE, Civil, Chemical, Mechanical Engineering<br>• <strong>Physical Sciences</strong> — Physics, Chemistry, Mathematics, Statistics<br>• <strong>Life Sciences</strong> — Biotech, Forestry, Food Engineering & Tea Technology 🌱<br>• <strong>Social Sciences</strong> — Economics, Sociology, Political Studies<br>• <strong>Business</strong> — BBA/MBA<br>• <strong>Arts & Humanities</strong> — English, Bangla<br><br>💻 <strong>Why SUST stands out:</strong><br>• 🔥 CSE & SWE are among the top in Bangladesh<br>• Strong ICPC & competitive programming culture<br>• Better research opportunities than most universities<br>• Many graduates at top global tech companies<br><br>🌳 Green, peaceful campus with hills, tea gardens, and a seriously academic vibe. ✦";
-  }
-
-  // ── METROPOLITAN UNIVERSITY ───────────────────────────────────
-  if (/metropolitan university|\bmu\b.*university|bateshwar.*university|bikash.*university|your university/.test(q)) {
-    return "🎓 <strong>Metropolitan University (MU)</strong> — Bikash's university! 🙌<br><br>📍 <strong>Location:</strong> Bateshwar, Sylhet · <strong>Est:</strong> 2003 · <strong>Type:</strong> Private (UGC approved) · Permanent charter received in 2024.<br><br>🏫 <strong>Schools & Programs:</strong><br>• <strong>Science & Technology</strong> — CSE, SWE, EEE, Data Science · <em>Bikash's department!</em><br>• <strong>Business & Economics</strong> — BBA, Economics<br>• <strong>Law & Justice</strong> — LLB<br>• <strong>Humanities</strong> — English<br><br>🎓 <strong>Degrees:</strong> BSc, BBA, BA, LLB (undergrad) · MBA, MA, MSc, LLM (postgrad) · Short courses in Android Dev & Microcontrollers<br><br>💻 <strong>Strengths:</strong><br>• Strong in CSE & Software Engineering<br>• Practical learning — projects, programming contests<br>• Industry-focused skills<br>• Green, calm campus in Bateshwar 🌿<br><br>🏆 <strong>Honest ranking for CSE in Sylhet:</strong><br>🥇 SUST — top tier, most competitive<br>🥈 <strong>MU — best private option</strong> (skill depends on you 💪)<br>🥉 LU — decent, less active coding culture<br><br>💣 Brutal truth: University gives you the platform — but your skill depends on YOU. A hardworking MU student can absolutely beat an average SUST student. Bikash is proof. 🔥";
-  }
-
-  // ── LEADING UNIVERSITY ────────────────────────────────────────
-  if (/leading university|\blu\b.*sylhet|sylhet.*leading university/.test(q)) {
-    return "🎓 <strong>Leading University (LU)</strong> — one of the older private universities in Sylhet.<br><br>📍 <strong>Location:</strong> Sylhet · <strong>Type:</strong> Private university<br><br>🏫 <strong>Programs:</strong> Engineering (CSE, EEE), Business (BBA/MBA), Law, English<br><br>✔️ <strong>Strengths:</strong> Stable faculty, experienced institution, structured learning environment, good for students who want calm consistency<br><br>❗ <strong>Honest weakness:</strong> Less active coding culture compared to MU; fewer high-level competitive programmers<br><br>🏆 <strong>CSE Ranking in Sylhet (brutally honest):</strong><br>🥇 SUST — top tier 🔥<br>🥈 MU — best private, self-driven 💪<br>🥉 <strong>LU — good degree, but grind alone for top-level coding 📉</strong><br><br>💡 Remember: No matter which university, DSA + real projects + Codeforces consistency will take you further than your institution's name ever will. ✦";
-  }
-
-  // ── MC COLLEGE ────────────────────────────────────────────────
-  if (/mc college|murari chand|tilagor/.test(q)) {
-    return "🎓 <strong>Murari Chand College (MC College)</strong> — one of the oldest and most prestigious colleges in Bangladesh.<br><br>📍 <strong>Location:</strong> Tilagor, Sylhet · <strong>Est:</strong> 1892 · <strong>Type:</strong> Government · Affiliated with National University<br><br>🏛️ <strong>History:</strong> Started 1892, became a first-grade college in 1916. Historically one of the best colleges in the entire subcontinent.<br><br>🎓 <strong>Programs:</strong><br>• HSC — Science group (very competitive in Sylhet)<br>• Undergraduate Honours — Bangla, English, Philosophy, History, Economics, Physics, Chemistry, Mathematics, Zoology, Botany, Sociology, Statistics & more (15+ subjects)<br>• Postgraduate — 16+ Master's programs<br><br>🌳 <strong>Campus:</strong> Beautiful green campus — hills, large field, calm environment. Many say it has a \"classic university vibe.\"<br><br>💪 <strong>Strengths:</strong> Exceptional academic reputation, highly competitive HSC students, strong board results, large alumni network (ministers, scholars, leaders)<br><br>❗ <strong>Honest note:</strong> Not focused on modern tech like CSE — it's a traditional college. Self-study is essential. ✦";
-  }
-
-  // ── JALALABAD CANTONMENT SCHOOL ───────────────────────────────
-  if (/jalalabad|jcpsc|cantonment.*school|cantonment.*college|boteshor.*school/.test(q)) {
-    return "🎓 <strong>Jalalabad Cantonment Public School and College (JCPSC)</strong><br><br>📍 <strong>Location:</strong> Boteshor, Sylhet Sadar — inside Jalalabad Cantonment · <strong>Est:</strong> 4 July 1999<br>📋 <strong>EIIN:</strong> 130459 · <strong>Managed by:</strong> Bangladesh Army · <strong>Motto:</strong> <em>\"জ্ঞানে আলোকিত\"</em> — Enlighten with knowledge<br><br>🏫 <strong>Academic Structure:</strong><br>• School — Class 1 to 10 (Science, Business, Arts; English version available in classes 6–10)<br>• College — HSC with Science, Commerce, and Arts streams<br><br>🏆 <strong>Recognition:</strong><br>• Awarded <strong>\"Best Institution\"</strong> by the President of Bangladesh in 2004<br>• Consistently ranked among the top cantonment schools in Bangladesh<br><br>🏟️ <strong>Facilities:</strong> 1,000-seat auditorium · Football, cricket, basketball, volleyball, table tennis, badminton, handball ✦";
-  }
-
-  // ── SCHOLARS HOME ─────────────────────────────────────────────
-  if (/scholars.?home|scholarshome|hafiz mazumdar|pathantula.*school/.test(q)) {
-    return "🎓 <strong>Scholarshome Sylhet</strong> — Bikash's college! 🙌<br><br>A well-known English-medium school and college network in Sylhet, set up under the <strong>Hafiz Mazumdar Trust</strong>.<br><br>📚 <strong>What it is:</strong> English-medium institution following the national curriculum, from playgroup right up to HSC (Class XII). Prepares students for SFC, JSC, SSC, and HSC under the Sylhet Education Board.<br><br>🏫 <strong>Campuses:</strong> Six campuses across Sylhet city — Shahi Eidgah, Pathantula, Mejortila, Shibganj, Electric Supply Road, South Surma. Also a separate <strong>Scholarshome Girls' School and College</strong> in Pathantula.<br><br>⭐ <strong>Strengths:</strong><br>• Strong academics + extra-curricular balance<br>• Science clubs, debate, arts, music, drama, scouting<br>• Graduate/postgraduate qualified teachers with regular training<br>• Positioned as one of the <strong>top English-medium schools in Sylhet</strong><br><br>This is where Bikash completed his HSC — a chapter he carries with pride. 💙 ✦";
   }
 
   // ── FALLBACK ───────────────────────────────────────────────────
