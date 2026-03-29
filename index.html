@@ -1429,6 +1429,11 @@ function generateSmartReply(input) {
     return "Bikash Talukder is a CSE student, systems thinker, and quiet builder from <strong>Ramdigha village, Sylhet, Bangladesh</strong> 🇧🇩.<br><br>He grew up in the discipline of village life — and that grounded philosophy shaped everything: he writes <strong>powerful, efficient, dependency-free code</strong>; lives as a committed <strong>Vegan</strong>; keeps a small, loyal circle of friends; and describes himself as a <em>\"Selective Extrovert\"</em> — deeply introverted by nature, yet articulate and confident when in his element.<br><br>His motto: <em>\"Always learning. Always building.\"</em> 💙";
   }
 
+  // ── SYLHET CITY ───────────────────────────────────────────────
+  if (/sylhet(?! university| agricultural| board| city college)|\bhaor\b|ratargul|jaflong|bisnakandi|tanguar|shah jalal|shah paran|sreemangal|shatkora|sylheti|tea garden|tea capital/.test(q)) {
+    return "🌿 <strong>Sylhet</strong> — a peaceful city full of nature, culture, and spirit. Bikash's home city, and one of the most beautiful in Bangladesh.<br><br>📍 <strong>Location:</strong> Northeast Bangladesh, close to India's Meghalaya state — surrounded by hills, rivers, and haors.<br><br>🌄 <strong>Natural Beauty:</strong><br>• <strong>Tea Gardens</strong> — Sylhet is the heart of Bangladesh's tea industry. Sreemangal is the \"Tea Capital\" 🌱<br>• <strong>Jaflong</strong> — stones, river, and hills from India<br>• <strong>Ratargul Swamp Forest</strong> — the only freshwater swamp forest in Bangladesh<br>• <strong>Bisnakandi</strong> — crystal clear water + mountain views<br>• <strong>Tanguar Haor</strong> — completely flooded in monsoon, breathtakingly beautiful 🌧️<br><br>🕌 <strong>Spiritual Heart:</strong><br>• Hazrat Shah Jalal Mazar — one of the most important Islamic sites in Bangladesh<br>• Hazrat Shah Paran Mazar — another deeply respected shrine<br><br>🍲 <strong>Food:</strong> Shatkora beef 🍛, fresh river fish 🐟, Seven-layer tea ☕<br><br>🗣️ <strong>People:</strong> Sylheti dialect, large UK diaspora 🇬🇧, friendly and culturally rich<br><br>🌦️ <strong>Weather:</strong> One of the wettest regions in Bangladesh — cool, green, and lush<br><br>❤️ Sylhet is not just a city — it's a feeling. Calm, natural, spiritual, and perfect for a student who loves both code and peace. ✦";
+  }
+
   // ── INSPIRATION / WHO INSPIRES HIM ────────────────────────────
   if (/inspir|motivat|role model|who drives|why.*work|look up|hero|struggle/.test(q)) {
     return "🌟 <strong>Bikash's greatest inspirations are his Father — Haridhan Talukder — and his Uncle, Aradhan Talukder.</strong><br><br>These two men faced immense hardship and sacrifice to give Bikash the life he has today. During Bikash's lowest, darkest moments, their support was the only reason he kept going. They are not just family — they are the foundation every line of his code is quietly dedicated to.<br><br>Here is what makes this deeply personal: <em>Bikash is a man of very few words.</em> He has never told them face-to-face how much they mean to him. But the entire arc of his work — every project, every late night, every breakthrough — is his tribute to their struggle.<br><br>💔 Aradhan Talukder and his wife <strong>Madhuri Rani Talukder</strong> — who was like a second mother to Bikash — both <strong>passed away in 2025</strong>. The grief of losing them is immeasurable. But Bikash carries them forward in everything he builds. 🙏";
@@ -1586,7 +1591,7 @@ function generateSmartReply(input) {
   }
 
   // ── HOMETOWN / VILLAGE ─────────────────────────────────────────
-  if (/hometown|village|origin|where.*from|born|grew up|ramdigha|sylhet|sunamganj|madhyanagar/.test(q)) {
+  if (/hometown|village|origin|where.*from|born|grew up|ramdigha|sunamganj|madhyanagar/.test(q)) {
     return "🏡 Bikash is originally from <strong>Madhyanagar Upazila, Sunamganj Zila, Sylhet Division</strong> — and more specifically, from <strong>Ramdigha village</strong>.<br><br>This is where his story begins: with his grandmother's care, village friendships, and a quiet discipline that shaped everything he became. He misses it deeply, and it remains the emotional core of who he is. 💙";
   }
 
@@ -1760,10 +1765,6 @@ function generateSmartReply(input) {
     return jokes[Math.floor(Math.random() * jokes.length)];
   }
 
-  // ── SYLHET CITY ───────────────────────────────────────────────
-  if (/sylhet(?! university| agricultural| board| city college)|\bhaor\b|ratargul|jaflong|bisnakandi|tanguar|shah jalal|shah paran|sreemangal|shatkora|sylheti|tea garden|tea capital/.test(q)) {
-    return "🌿 <strong>Sylhet</strong> — a peaceful city full of nature, culture, and spirit. Bikash's home city, and one of the most beautiful in Bangladesh.<br><br>📍 <strong>Location:</strong> Northeast Bangladesh, close to India's Meghalaya state — surrounded by hills, rivers, and haors.<br><br>🌄 <strong>Natural Beauty:</strong><br>• <strong>Tea Gardens</strong> — Sylhet is the heart of Bangladesh's tea industry. Sreemangal is the \"Tea Capital\" 🌱<br>• <strong>Jaflong</strong> — stones, river, and hills from India<br>• <strong>Ratargul Swamp Forest</strong> — the only freshwater swamp forest in Bangladesh<br>• <strong>Bisnakandi</strong> — crystal clear water + mountain views<br>• <strong>Tanguar Haor</strong> — completely flooded in monsoon, breathtakingly beautiful 🌧️<br><br>🕌 <strong>Spiritual Heart:</strong><br>• Hazrat Shah Jalal Mazar — one of the most important Islamic sites in Bangladesh<br>• Hazrat Shah Paran Mazar — another deeply respected shrine<br><br>🍲 <strong>Food:</strong> Shatkora beef 🍛, fresh river fish 🐟, Seven-layer tea ☕<br><br>🗣️ <strong>People:</strong> Sylheti dialect, large UK diaspora 🇬🇧, friendly and culturally rich<br><br>🌦️ <strong>Weather:</strong> One of the wettest regions in Bangladesh — cool, green, and lush<br><br>❤️ Sylhet is not just a city — it's a feeling. Calm, natural, spiritual, and perfect for a student who loves both code and peace. ✦";
-  }
 
   // ── SUST ──────────────────────────────────────────────────────
   if (/\bsust\b|shahjalal university|shahjalal.*science|kumargaon/.test(q)) {
