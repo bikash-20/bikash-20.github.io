@@ -1067,11 +1067,11 @@ LET'S<br>TALK<br>CODE
       </div>
     </div>
     <div class="chat-quick-btns" id="quickBtns">
+      <button class="quick-btn" onclick="sendQuick('Why is Bikash a vegetarian?')">🌱 Why Vegetarian?</button>
       <button class="quick-btn" onclick="sendQuick('Who inspires Bikash?')">About Bikash</button>
       <button class="quick-btn" onclick="sendQuick('245 * 378')">🧮 Calculator</button>
       <button class="quick-btn" onclick="sendQuick('100 USD to BDT')">💱 Currency</button>
       <button class="quick-btn" onclick="sendQuick('check password MyPass@2025!')">🔐 Password</button>
-      <button class="quick-btn" onclick="sendQuick('count: The quick brown fox jumps over the lazy dog')">📝 Word Count</button>
       <button class="quick-btn" onclick="sendQuick('Latest AI news today')">📰 Live News</button>
     </div>
     <div class="chat-input-row">
@@ -1588,8 +1588,8 @@ function generateSmartReply(input) {
   }
 
   // ── VEGAN ──────────────────────────────────────────────────────
-  if (/vegan|diet|food|eat|plant|compassion|lifestyle/.test(q)) {
-    return "🌱 Bikash is a committed <strong>Vegan</strong> — a lifestyle choice that reflects his self-discipline and deep compassion for all living beings. Just as he writes clean, intentional code with no unnecessary bloat, he lives with the same philosophy: conscious, purposeful, and principled. It's not a trend for him — it's a value.";
+  if (/vegan|vegetarian|diet|food|eat|plant|why.*vegetarian|why.*vegan|why.*not.*meat|no.*meat|tapasya|tapayssa|krishna.*food|bhagavad|shastro|gita.*food|lord.*krishna.*eat/.test(q)) {
+    return "🌱 <strong>Why is Bikash a Vegetarian?</strong><br><br>This is one of the most deeply personal and thoughtful aspects of Bikash's life. His answer comes from three layers — ethics, consciousness, and spiritual devotion.<br><br>🐾 <strong>The Ethical Foundation</strong><br>Bikash believes that <em>killing an animal is not a fair way to live</em> — especially when we have an abundance of other resources. Yes, plants also have life. But there is a crucial difference: animals possess <strong>consciousness, emotion, and the capacity to feel pain</strong> in a way that plants do not. Choosing plants over animals is therefore the more compassionate and reasoned choice.<br><br>🕉️ <strong>The Spiritual Dimension — Lord Krishna & the Bhagavad Gita</strong><br>For Bikash, vegetarianism is not just ethics — it is <strong>devotion</strong>. In the Bhagavad Gita, Lord Krishna himself says:<br><br><em>\"If one offers Me with love and devotion a leaf, a flower, fruit, or water, I will accept it.\"</em><br><br>This is the divine permission Bikash lives by. Lord Krishna — the <strong>Supreme Personality of Godhead</strong> — accepts only pure vegetarian offerings. When food is offered to Him first, He accepts the life of the plant and takes its soul to Him. There is no sin in this offering — only grace.<br><br>By eating only what can be offered to Krishna, Bikash aligns his daily life with devotion. He is not satisfying his own appetite — he is <strong>satisfying the Supreme Personality of Godhead</strong>. And that, for Bikash, is enough.<br><br>🔥 <strong>The Philosophy of Tapasya</strong><br>At the deepest level, Bikash's vegetarianism reflects his core life philosophy:<br><br><em>\"Life means sacrifice for others — not for my own happiness.\"</em><br><br>This is called <strong>Tapasya</strong> — voluntary austerity, the willingness to give up personal comfort for a higher purpose. Every meal is a small act of tapasya. A quiet, daily sacrifice in service of consciousness, compassion, and the divine.<br><br>In short: Bikash doesn't just avoid meat. He has chosen a way of eating that is ethical, conscious, spiritually aligned, and devoted. It is one of the most complete expressions of who he is. 🙏🌿";
   }
 
   // ── PHILOSOPHY / GROUNDED ──────────────────────────────────────
