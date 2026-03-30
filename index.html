@@ -1067,11 +1067,11 @@ LET'S<br>TALK<br>CODE
       </div>
     </div>
     <div class="chat-quick-btns" id="quickBtns">
-      <button class="quick-btn" onclick="sendQuick('Why is Bikash a vegetarian?')">🌱 Why Vegetarian?</button>
-      <button class="quick-btn" onclick="sendQuick('What is the tech behind this AI?')">⚙️ Tech Behind</button>
       <button class="quick-btn" onclick="sendQuick('Who inspires Bikash?')">About Bikash</button>
       <button class="quick-btn" onclick="sendQuick('245 * 378')">🧮 Calculator</button>
       <button class="quick-btn" onclick="sendQuick('100 USD to BDT')">💱 Currency</button>
+      <button class="quick-btn" onclick="sendQuick('check password MyPass@2025!')">🔐 Password</button>
+      <button class="quick-btn" onclick="sendQuick('count: The quick brown fox jumps over the lazy dog')">📝 Word Count</button>
       <button class="quick-btn" onclick="sendQuick('Latest AI news today')">📰 Live News</button>
     </div>
     <div class="chat-input-row">
@@ -1271,7 +1271,7 @@ LET'S<br>TALK<br>CODE
 // ===== LIVE WEATHER (OpenWeatherMap) =====
 async function loadWeather() {
   try {
-    const r = await fetch('https://api.openweathermap.org/data/2.5/weather?q=Dhaka&units=metric&appid=1926c1f86c487b32de625363a6372de0');
+    const r = await fetch('https://api.openweathermap.org/data/2.5/weather?q=Dhaka&units=metric&appid=21399a227abcc2dacc3f26fc39d69a3e');
     const d = await r.json();
     if (d.main) {
       const temp = Math.round(d.main.temp);
@@ -1588,8 +1588,8 @@ function generateSmartReply(input) {
   }
 
   // ── VEGAN ──────────────────────────────────────────────────────
-  if (/vegan|vegetarian|diet|food|eat|plant|why.*vegetarian|why.*vegan|why.*not.*meat|no.*meat|tapasya|tapayssa|krishna.*food|bhagavad|shastro|gita.*food|lord.*krishna.*eat/.test(q)) {
-    return "🌱 <strong>Why is Bikash a Vegetarian?</strong><br><br>This is one of the most deeply personal and thoughtful aspects of Bikash's life. His answer comes from three layers — ethics, consciousness, and spiritual devotion.<br><br>🐾 <strong>The Ethical Foundation</strong><br>Bikash believes that <em>killing an animal is not a fair way to live</em> — especially when we have an abundance of other resources. Yes, plants also have life. But there is a crucial difference: animals possess <strong>consciousness, emotion, and the capacity to feel pain</strong> in a way that plants do not. Choosing plants over animals is therefore the more compassionate and reasoned choice.<br><br>🕉️ <strong>The Spiritual Dimension — Lord Krishna & the Bhagavad Gita</strong><br>For Bikash, vegetarianism is not just ethics — it is <strong>devotion</strong>. In the Bhagavad Gita, Lord Krishna himself says:<br><br><em>\"If one offers Me with love and devotion a leaf, a flower, fruit, or water, I will accept it.\"</em><br><br>This is the divine permission Bikash lives by. Lord Krishna — the <strong>Supreme Personality of Godhead</strong> — accepts only pure vegetarian offerings. When food is offered to Him first, He accepts the life of the plant and takes its soul to Him. There is no sin in this offering — only grace.<br><br>By eating only what can be offered to Krishna, Bikash aligns his daily life with devotion. He is not satisfying his own appetite — he is <strong>satisfying the Supreme Personality of Godhead</strong>. And that, for Bikash, is enough.<br><br>🔥 <strong>The Philosophy of Tapasya</strong><br>At the deepest level, Bikash's vegetarianism reflects his core life philosophy:<br><br><em>\"Life means sacrifice for others — not for my own happiness.\"</em><br><br>This is called <strong>Tapasya</strong> — voluntary austerity, the willingness to give up personal comfort for a higher purpose. Every meal is a small act of tapasya. A quiet, daily sacrifice in service of consciousness, compassion, and the divine.<br><br>In short: Bikash doesn't just avoid meat. He has chosen a way of eating that is ethical, conscious, spiritually aligned, and devoted. It is one of the most complete expressions of who he is. 🙏🌿";
+  if (/vegan|diet|food|eat|plant|compassion|lifestyle/.test(q)) {
+    return "🌱 Bikash is a committed <strong>Vegan</strong> — a lifestyle choice that reflects his self-discipline and deep compassion for all living beings. Just as he writes clean, intentional code with no unnecessary bloat, he lives with the same philosophy: conscious, purposeful, and principled. It's not a trend for him — it's a value.";
   }
 
   // ── PHILOSOPHY / GROUNDED ──────────────────────────────────────
@@ -1643,12 +1643,8 @@ function generateSmartReply(input) {
   }
 
   // ── SKILLS ─────────────────────────────────────────────────────
-  // ── TECH BEHIND THIS AI (NEXORA) ────────────────────────────────
-  if (/tech behind|how.*built|how.*made|how.*nexora|nexora.*built|technology.*behind|what.*powers|how.*ai.*work|what.*brain|ai.*power|claude.*api|anthropic.*api|how.*chatbot|what.*model|api.*architecture|restful|system.*prompt|system.*context|knowledge.*sandbox|temperature.*ai|data.*safe|guardrail|digital twin|nlp|natural language|what is nexora|nexora.*tech|tech.*nexora|architecture.*nexora|nexora.*architecture/.test(q)) {
-    return "⚙️ <strong>The Tech Behind Nexora</strong><br><br>Nexora is Bikash Talukder's handcrafted AI assistant, built entirely in <strong>Vanilla JavaScript</strong> with zero external frameworks. Here is every layer of the stack:<br><br>━━━━━━━━━━━━━━━━━━<br>🧠 <strong>1. AI Brain — Anthropic Claude API</strong><br>━━━━━━━━━━━━━━━━━━<br>• <strong>Model:</strong> Claude (by Anthropic) via RESTful API<br>• <strong>Architecture:</strong> System Context Engineering — a structured \"Knowledge Sandbox\" is injected before every conversation, containing Bikash's full personal, academic, and technical biography<br>• <strong>Persona:</strong> Temperature & tone parameters are tuned to match the Cinematic Blue Hour aesthetic — professional yet deeply personal<br>• <strong>Memory:</strong> <code>localStorage</code> stores the last 10 conversations so returning visitors get a personalised greeting<br><br>━━━━━━━━━━━━━━━━━━<br>🔀 <strong>2. Intent Router (RAG-style)</strong><br>━━━━━━━━━━━━━━━━━━<br>Every message is classified before a response is generated. The router detects:<br>• 🧮 <strong>Calculator</strong> — math expressions evaluated via sandboxed <code>Function()</code><br>• 💱 <strong>Currency</strong> — live rates via ExchangeRate-API with flag CDN<br>• 📐 <strong>Unit Converter</strong> — temperature, length, weight, volume, data<br>• 🔐 <strong>Password Checker</strong> — regex-based 5-criteria strength analyser<br>• 📝 <strong>Word Counter</strong> — words, chars, sentences, reading time<br>• 📰 <strong>Tech News</strong> — RSS feeds from TechCrunch, The Verge, Wired via allorigins proxy<br>• 🏥 <strong>Medical Info</strong> — NIH MedlinePlus free API (no key needed)<br>• 🕐 <strong>Time</strong> — live Bangladesh/Dhaka time<br>• 💬 <strong>Persona</strong> — Bikash's knowledge base (700+ lines of pattern-matched responses)<br><br>━━━━━━━━━━━━━━━━━━<br>🌐 <strong>3. Live Data Sources</strong><br>━━━━━━━━━━━━━━━━━━<br>• <strong>OpenWeatherMap API</strong> — live Dhaka weather on the dashboard<br>• <strong>GitHub API</strong> — public repo count for bikash-20<br>• <strong>Codeforces API</strong> — live rating & rank for talukder_20<br>• <strong>LeetCode Stats API</strong> — problems solved for bikashtalukder<br>• <strong>ExchangeRate-API</strong> — real-time currency conversion<br>• <strong>NIH MedlinePlus</strong> — verified medical information<br>• <strong>RSS Feeds</strong> — live tech news fetched on demand<br><br>━━━━━━━━━━━━━━━━━━<br>🛡️ <strong>4. Security & Privacy</strong><br>━━━━━━━━━━━━━━━━━━<br>• <strong>Stateless communication</strong> — no chat history stored on any server<br>• <strong>localStorage only</strong> — memory lives in your browser, never sent anywhere<br>• <strong>Instructional Guardrails</strong> — off-topic queries are politely redirected<br>• <strong>CORS proxying</strong> — sensitive requests routed through allorigins.win<br><br>━━━━━━━━━━━━━━━━━━<br>🎨 <strong>5. Frontend Stack</strong><br>━━━━━━━━━━━━━━━━━━<br>• <strong>Pure Vanilla JS</strong> — no React, no jQuery, no framework bloat<br>• <strong>Async/Await + Fetch API</strong> — non-blocking parallel API calls<br>• <strong>CSS Custom Properties</strong> — dark cinematic theme with Gold & Purple accents<br>• <strong>Google Fonts</strong> — Bebas Neue, DM Serif Display, Manrope<br>• <strong>Single HTML file</strong> — entire portfolio + AI + dashboard in one file<br><br>━━━━━━━━━━━━━━━━━━<br>🚀 <strong>6. Roadmap (Phase 2)</strong><br>━━━━━━━━━━━━━━━━━━<br>• Node.js + Vercel serverless backend<br>• Tavily API for true real-time web search<br>• MongoDB/Pinecone for persistent cross-device memory<br>• Claude Vision for image & circuit analysis<br>• LangChain (Python) for production AI pipelines<br><br><small style=\"opacity:0.45;font-size:11px;\">Built by Bikash Talukder — CSE student, Metropolitan University, Sylhet 🇧🇩</small> ✦";
-  }
-
-
+  // ── AI FAQ / HOW DOES THE AI WORK ─────────────────────────────
+  if (/how.*ai.*work|what.*brain|ai.*power|claude.*api|anthropic.*api|how.*chatbot|what.*model|api.*architecture|restful|system.*prompt|system.*context|knowledge.*sandbox|temperature.*ai|data.*safe|guardrail|digital twin|nlp|natural language/.test(q)) {
     return "🧠 <strong>Nexora — Technical FAQ:</strong><br><br>⚡ <strong>What powers it?</strong><br>The intelligence is driven by the <strong>Anthropic Claude API</strong>. It uses a RESTful API architecture to send and receive data packets in real-time for fast, fluid responses.<br><br>📚 <strong>How does it know Bikash's story?</strong><br>Through <strong>System Context Engineering</strong> — before any conversation, the AI receives a structured \"Knowledge Sandbox\" containing Bikash's professional background, personal values (Veganism, Selective Extroversion), family history, and inspirations like Akash Talukder and his grandmother.<br><br>🤔 <strong>Is it \"thinking\" or just \"searching\"?</strong><br>Both. It uses <strong>NLP</strong> to understand your intent, then cross-references custom System Prompt rules to generate original, context-aware responses — not just keyword matching.<br><br>🎭 <strong>Why is the tone so specific?</strong><br>Bikash tuned the <strong>Temperature & Persona Parameters</strong> — the \"Cinematic & Moody\" tone is intentional, matching the Blue Hour visual aesthetic of this portfolio.<br><br>🔒 <strong>Is my data safe?</strong><br>Yes. This uses <strong>stateless communication</strong> — chat history is never stored after you close the tab. The API key is protected via a secure backend proxy, never exposed on the frontend.<br><br>🎯 <strong>Can it discuss other topics?</strong><br>It has <strong>Instructional Guardrails</strong> — if you stray off-topic, it politely redirects you back to Bikash's projects and story. It is a true <em>Digital Twin</em> of this portfolio. ✦";
   }
 
@@ -1801,58 +1797,9 @@ function generateSmartReply(input) {
     return "🤝 <strong>Anidra Paul</strong> is one of those people who shows up — not just in the good moments, but in the hard ones too.<br><br>He is a <strong>consistent mental support</strong> for Bikash — someone who listens, encourages, and keeps Bikash grounded when things get difficult.<br><br>🚀 But beyond the emotional bond, they are building something together: the two of them are set to <strong>collaborate on a big AI project</strong>. Two minds aligned on a mission to build something meaningful in the world of artificial intelligence.<br><br>Anidra is not just a friend — he's a future co-builder. Watch this space. ✦";
   }
 
-
-  // ── JABEL ALVI ────────────────────────────────────────────────
-  if (/jabel|jabel alvi|alvi/.test(q)) {
-    return "💙 <strong>Jabel Alvi</strong> — a name that holds a quiet, special place in Bikash's heart.<br><br>They were close for a certain time at university — the kind of closeness where you share <em>everything</em>. Bikash spent most of his time with him, and those days carry a warmth that doesn't fade easily.<br><br>Right now, Jabel is preparing himself to go <strong>abroad</strong> — stepping into a new chapter of his life. The paths have separated, but the bond doesn't need proximity to stay real.<br><br><em>\"He was close to me for a certain time — but he will stay in my heart forever.\"</em> 💙";
-  }
-
-  // ── MAHDIN / ROBOTICS ─────────────────────────────────────────
-  if (/mahdin/.test(q)) {
-    return "🤖 <strong>Mahdin</strong> is Bikash's university classmate and a passionate <strong>robotics enthusiast</strong>. While Bikash dives deep into algorithms and AI, Mahdin brings the hardware energy — the kind of person who sees a problem and immediately thinks about how to build a machine to solve it.<br><br>Two people from the same class, two different approaches to technology — both brilliant. 🔧✦";
-  }
-
-  // ── TAHZIB EBAD / DEVELOPER ───────────────────────────────────
-  if (/tahzib|ebad/.test(q)) {
-    return "💻 <strong>Tahzib Ebad</strong> — Bikash describes him simply as a <em>\"such a talented person.\"</em> That's high praise coming from someone who doesn't use words loosely.<br><br>Tahzib is also a <strong>developer</strong>, bringing real technical skill to whatever he builds. The kind of person who makes you want to work harder just by existing in your orbit. A talented presence in Bikash's university life. ✦";
-  }
-
-  // ── ARMAN UDDIN ───────────────────────────────────────────────
-  if (/arman|arman uddin/.test(q)) {
-    return "🌟 <strong>Arman Uddin</strong> — Bikash has shared a lot with him, and Arman is someone genuinely impressive.<br><br>He holds a <strong>CGPA of 3.95</strong> — one of the highest in the class. But beyond grades, he has something rarer: a strong command of both <strong>business and technology</strong>. That combination — technical depth plus business thinking — is what separates good developers from great ones.<br><br>A brilliant mind and a great person to have in your circle at Metropolitan University. 💙";
-  }
-
-
-  // ── RUDRO / DEVELOPER ─────────────────────────────────────────
-  if (/rudro/.test(q)) {
-    return "💻 <strong>Rudro</strong> — a developer in Bikash's world and someone worth knowing.<br><br>He has built his own <strong>website</strong> — which already puts him ahead of most. Beyond that, he is a solid <strong>problem solver</strong>, the kind of developer who doesn't just write code but thinks through challenges methodically.<br><br>A builder and a thinker — two things that matter most in this field. ✦";
-  }
-
-
-  // ── 75 / SECRET EASTER EGG ──────────────────────────────────
-  if (/^75$|\b75\b/.test(q.trim())) {
-    const jokes = [
-      "🎂😂 Oh, 75? Interesting number to search. So, there is someone connected to this number — a <strong>cake maker</strong>, actually. She makes beautiful cakes. Soft, sweet, fluffy cakes. The irony? She herself is <em>not</em> as soft as her cakes. Not even close. She walks into a room and the whole room is supposed to notice — at least, that's what she believes. Runs a business too, very entrepreneurial. I'll say no more. 🤐",
-      "🎂👀 75, you say? That brings someone to mind — a <strong>cake business owner</strong> whose cakes are delightfully soft and sweet. The cakes. Just the cakes. The person behind them has a... let's say a <em>very different texture</em>. Confidence? Enormous. Softness? Reserved entirely for the batter. She wants the world's attention and she is working hard for it. Respect the grind. 😂",
-      "🎂🤭 Ah, 75. This is classified but here's what I can share: she bakes <strong>cakes for a living</strong>. Lovely cakes. Genuinely. But she is absolutely, provably <em>not as soft as the cake</em> — and the cake knows it too. She runs a business, she seeks the spotlight, and she fully believes she is the most attractive person wherever she goes. The world has not yet confirmed this. The cakes remain the most universally loved thing in the operation. 😄🎂"
-    ];
-    return jokes[Math.floor(Math.random() * jokes.length)];
-  }
-
-
-  // ── RISHAD AREFIN / CR ────────────────────────────────────────
-  if (/rishad|rishad arefin|cr.*section|b section|class representative/.test(q)) {
-    return "📋 <strong>Rishad Arefin</strong> — the CR (Class Representative) of Bikash's B section, and by all accounts a genuinely great one.<br><br>He manages the class affairs, coordinates everything, keeps the section running smoothly — and does it well. Organisation? Excellent. Communication? Solid. Academic responsibilities? Handled.<br><br>There is, however, one area where Rishad's managerial skills have mysteriously failed to deliver results: <em>finding Bikash a female friend</em>. 😔 For someone who manages an entire university section, this one task remains tragically incomplete.<br><br>Bikash holds him in high regard — but this specific gap in his service record has been noted. 🥹😂 ✦";
-  }
-
-  // ── SRIJON PAUL ───────────────────────────────────────────────
-  if (/srijon/.test(q)) {
-    return "😻 <strong>Srijon Paul</strong> — the cute boy of the group and, let's just say, the unofficial <em>girls' crush</em> of the university circle 😄💫<br><br>Beyond the charm, he's a genuine part of Bikash's university life and someone Bikash holds warmly. Some people just make a group more fun — and Srijon is exactly that. ✦";
-  }
-
   // ── ALL FRIENDS TOGETHER ───────────────────────────────────────
   if (/friend|friendship|buddy|mate|crew|gang|people|social|close to/.test(q)) {
-    return "💙 Bikash keeps a <strong>small, high-quality circle</strong> — loyal, real, no superficiality. His people:<br><br>🏙️ <strong>City inner circle:</strong><br>🌟 Susmit · 📏 Ankon · 🗣️ Arnob · 🇮🇳 Sakkor (NIT India)<br><br>🎓 <strong>Senior Dada:</strong> Mithu Roy — Sylhet Agricultural University<br><br>🏫 <strong>School friends (Akota, still close):</strong><br>Haridhan · Kripashish · Pranto Talukder<br><br>🌿 <strong>Village brothers:</strong> Probesh & Plabon<br><br>🏏 <strong>Ramdigha cricket legends:</strong><br>Swapan Sarkar · Subir Talukder · Tapan Sarkar (all-rounder & Swapan's brother) — stakes: one Glucose Biscuit 😂<br><br>⚽ <strong>Ramdigha football icons:</strong><br>Joy Sarkar (goalkeeper 🐀😂) · Mrittunjoy Sarkar (jersey #10, the Neymar of Ramdigha 🇧🇷)<br><br>🎓 <strong>University circle:</strong><br>😂 Dhruvo · 🕊️ Asma · 🌸 Monisha · 🤝 Anidra Paul (AI co-builder) · 💙 Jabel Alvi (going abroad) · 🤖 Mahdin (robotics) · 💻 Tahzib Ebad (developer) · 🌟 Arman Uddin (CGPA 3.95) · 😻 Srijon Paul<br><br>In code and in life, Bikash values <em>quality over quantity.</em> ✦";
+    return "💙 Bikash keeps a <strong>small, high-quality circle</strong> — loyal, real, no superficiality. His people:<br><br>🏙️ <strong>City inner circle:</strong><br>🌟 Susmit · 📏 Ankon · 🗣️ Arnob · 🇮🇳 Sakkor (NIT India)<br><br>🎓 <strong>Senior Dada:</strong> Mithu Roy — Sylhet Agricultural University<br><br>🏫 <strong>School friends (Akota, still close):</strong><br>Haridhan · Kripashish · Pranto Talukder<br><br>🌿 <strong>Village brothers:</strong> Probesh & Plabon<br><br>🏏 <strong>Ramdigha cricket legends:</strong><br>Swapan Sarkar · Subir Talukder · Tapan Sarkar (all-rounder & Swapan's brother) — stakes: one Glucose Biscuit 😂<br><br>⚽ <strong>Ramdigha football icons:</strong><br>Joy Sarkar (goalkeeper 🐀😂) · Mrittunjoy Sarkar (jersey #10, the Neymar of Ramdigha 🇧🇷)<br><br>🎓 <strong>University circle:</strong><br>😂 Dhruvo · 🕊️ Asma · 🌸 Monisha · 🤝 Anidra Paul (AI co-builder)<br><br>In code and in life, Bikash values <em>quality over quantity.</em> ✦";
   }
 
   // ── FALLBACK ───────────────────────────────────────────────────
@@ -1955,7 +1902,7 @@ async function weatherEngine() {
   }
   // Fresh fetch if cache not ready
   try {
-    const r = await fetch('https://api.openweathermap.org/data/2.5/weather?q=Dhaka&units=metric&appid=1926c1f86c487b32de625363a6372de0');
+    const r = await fetch('https://api.openweathermap.org/data/2.5/weather?q=Dhaka&units=metric&appid=21399a227abcc2dacc3f26fc39d69a3e');
     const d = await r.json();
     if (d.main) {
       const temp = Math.round(d.main.temp);
