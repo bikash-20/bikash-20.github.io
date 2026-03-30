@@ -1068,10 +1068,10 @@ LET'S<br>TALK<br>CODE
     </div>
     <div class="chat-quick-btns" id="quickBtns">
       <button class="quick-btn" onclick="sendQuick('Why is Bikash a vegetarian?')">🌱 Why Vegetarian?</button>
+      <button class="quick-btn" onclick="sendQuick('What is the tech behind this AI?')">⚙️ Tech Behind</button>
       <button class="quick-btn" onclick="sendQuick('Who inspires Bikash?')">About Bikash</button>
       <button class="quick-btn" onclick="sendQuick('245 * 378')">🧮 Calculator</button>
       <button class="quick-btn" onclick="sendQuick('100 USD to BDT')">💱 Currency</button>
-      <button class="quick-btn" onclick="sendQuick('check password MyPass@2025!')">🔐 Password</button>
       <button class="quick-btn" onclick="sendQuick('Latest AI news today')">📰 Live News</button>
     </div>
     <div class="chat-input-row">
@@ -1643,10 +1643,11 @@ function generateSmartReply(input) {
   }
 
   // ── SKILLS ─────────────────────────────────────────────────────
-  // ── AI FAQ / HOW DOES THE AI WORK ─────────────────────────────
-  if (/how.*ai.*work|what.*brain|ai.*power|claude.*api|anthropic.*api|how.*chatbot|what.*model|api.*architecture|restful|system.*prompt|system.*context|knowledge.*sandbox|temperature.*ai|data.*safe|guardrail|digital twin|nlp|natural language/.test(q)) {
-    return "🧠 <strong>Nexora — Technical FAQ:</strong><br><br>⚡ <strong>What powers it?</strong><br>The intelligence is driven by the <strong>Anthropic Claude API</strong>. It uses a RESTful API architecture to send and receive data packets in real-time for fast, fluid responses.<br><br>📚 <strong>How does it know Bikash's story?</strong><br>Through <strong>System Context Engineering</strong> — before any conversation, the AI receives a structured \"Knowledge Sandbox\" containing Bikash's professional background, personal values (Veganism, Selective Extroversion), family history, and inspirations like Akash Talukder and his grandmother.<br><br>🤔 <strong>Is it \"thinking\" or just \"searching\"?</strong><br>Both. It uses <strong>NLP</strong> to understand your intent, then cross-references custom System Prompt rules to generate original, context-aware responses — not just keyword matching.<br><br>🎭 <strong>Why is the tone so specific?</strong><br>Bikash tuned the <strong>Temperature & Persona Parameters</strong> — the \"Cinematic & Moody\" tone is intentional, matching the Blue Hour visual aesthetic of this portfolio.<br><br>🔒 <strong>Is my data safe?</strong><br>Yes. This uses <strong>stateless communication</strong> — chat history is never stored after you close the tab. The API key is protected via a secure backend proxy, never exposed on the frontend.<br><br>🎯 <strong>Can it discuss other topics?</strong><br>It has <strong>Instructional Guardrails</strong> — if you stray off-topic, it politely redirects you back to Bikash's projects and story. It is a true <em>Digital Twin</em> of this portfolio. ✦";
+  // ── TECH BEHIND THIS AI (NEXORA) ────────────────────────────────
+  if (/tech behind|how.*built|how.*made|how.*nexora|nexora.*built|technology.*behind|what.*powers|how.*ai.*work|what.*brain|ai.*power|claude.*api|anthropic.*api|how.*chatbot|what.*model|api.*architecture|restful|system.*prompt|system.*context|knowledge.*sandbox|temperature.*ai|data.*safe|guardrail|digital twin|nlp|natural language|what is nexora|nexora.*tech|tech.*nexora|architecture.*nexora|nexora.*architecture/.test(q)) {
+    return "⚙️ <strong>The Tech Behind Nexora</strong><br><br>Nexora is Bikash Talukder's handcrafted AI assistant, built entirely in <strong>Vanilla JavaScript</strong> with zero external frameworks. Here is every layer of the stack:<br><br>━━━━━━━━━━━━━━━━━━<br>🧠 <strong>1. AI Brain — Anthropic Claude API</strong><br>━━━━━━━━━━━━━━━━━━<br>• <strong>Model:</strong> Claude (by Anthropic) via RESTful API<br>• <strong>Architecture:</strong> System Context Engineering — a structured \"Knowledge Sandbox\" is injected before every conversation, containing Bikash's full personal, academic, and technical biography<br>• <strong>Persona:</strong> Temperature & tone parameters are tuned to match the Cinematic Blue Hour aesthetic — professional yet deeply personal<br>• <strong>Memory:</strong> <code>localStorage</code> stores the last 10 conversations so returning visitors get a personalised greeting<br><br>━━━━━━━━━━━━━━━━━━<br>🔀 <strong>2. Intent Router (RAG-style)</strong><br>━━━━━━━━━━━━━━━━━━<br>Every message is classified before a response is generated. The router detects:<br>• 🧮 <strong>Calculator</strong> — math expressions evaluated via sandboxed <code>Function()</code><br>• 💱 <strong>Currency</strong> — live rates via ExchangeRate-API with flag CDN<br>• 📐 <strong>Unit Converter</strong> — temperature, length, weight, volume, data<br>• 🔐 <strong>Password Checker</strong> — regex-based 5-criteria strength analyser<br>• 📝 <strong>Word Counter</strong> — words, chars, sentences, reading time<br>• 📰 <strong>Tech News</strong> — RSS feeds from TechCrunch, The Verge, Wired via allorigins proxy<br>• 🏥 <strong>Medical Info</strong> — NIH MedlinePlus free API (no key needed)<br>• 🕐 <strong>Time</strong> — live Bangladesh/Dhaka time<br>• 💬 <strong>Persona</strong> — Bikash's knowledge base (700+ lines of pattern-matched responses)<br><br>━━━━━━━━━━━━━━━━━━<br>🌐 <strong>3. Live Data Sources</strong><br>━━━━━━━━━━━━━━━━━━<br>• <strong>OpenWeatherMap API</strong> — live Dhaka weather on the dashboard<br>• <strong>GitHub API</strong> — public repo count for bikash-20<br>• <strong>Codeforces API</strong> — live rating & rank for talukder_20<br>• <strong>LeetCode Stats API</strong> — problems solved for bikashtalukder<br>• <strong>ExchangeRate-API</strong> — real-time currency conversion<br>• <strong>NIH MedlinePlus</strong> — verified medical information<br>• <strong>RSS Feeds</strong> — live tech news fetched on demand<br><br>━━━━━━━━━━━━━━━━━━<br>🛡️ <strong>4. Security & Privacy</strong><br>━━━━━━━━━━━━━━━━━━<br>• <strong>Stateless communication</strong> — no chat history stored on any server<br>• <strong>localStorage only</strong> — memory lives in your browser, never sent anywhere<br>• <strong>Instructional Guardrails</strong> — off-topic queries are politely redirected<br>• <strong>CORS proxying</strong> — sensitive requests routed through allorigins.win<br><br>━━━━━━━━━━━━━━━━━━<br>🎨 <strong>5. Frontend Stack</strong><br>━━━━━━━━━━━━━━━━━━<br>• <strong>Pure Vanilla JS</strong> — no React, no jQuery, no framework bloat<br>• <strong>Async/Await + Fetch API</strong> — non-blocking parallel API calls<br>• <strong>CSS Custom Properties</strong> — dark cinematic theme with Gold & Purple accents<br>• <strong>Google Fonts</strong> — Bebas Neue, DM Serif Display, Manrope<br>• <strong>Single HTML file</strong> — entire portfolio + AI + dashboard in one file<br><br>━━━━━━━━━━━━━━━━━━<br>🚀 <strong>6. Roadmap (Phase 2)</strong><br>━━━━━━━━━━━━━━━━━━<br>• Node.js + Vercel serverless backend<br>• Tavily API for true real-time web search<br>• MongoDB/Pinecone for persistent cross-device memory<br>• Claude Vision for image & circuit analysis<br>• LangChain (Python) for production AI pipelines<br><br><small style=\"opacity:0.45;font-size:11px;\">Built by Bikash Talukder — CSE student, Metropolitan University, Sylhet 🇧🇩</small> ✦";
   }
+
 
   // ── API SKILLS / TECHNICAL COMPETENCIES ───────────────────────
   if (/api|restful|fetch|async|json|payload|backend|proxy|error.*handling|try.*catch|rate.*limit|environment.*variable|authentication|security/.test(q)) {
@@ -1816,6 +1817,29 @@ function generateSmartReply(input) {
   // ── ARMAN UDDIN ───────────────────────────────────────────────
   if (/arman|arman uddin/.test(q)) {
     return "🌟 <strong>Arman Uddin</strong> — Bikash has shared a lot with him, and Arman is someone genuinely impressive.<br><br>He holds a <strong>CGPA of 3.95</strong> — one of the highest in the class. But beyond grades, he has something rarer: a strong command of both <strong>business and technology</strong>. That combination — technical depth plus business thinking — is what separates good developers from great ones.<br><br>A brilliant mind and a great person to have in your circle at Metropolitan University. 💙";
+  }
+
+
+  // ── RUDRO / DEVELOPER ─────────────────────────────────────────
+  if (/rudro/.test(q)) {
+    return "💻 <strong>Rudro</strong> — a developer in Bikash's world and someone worth knowing.<br><br>He has built his own <strong>website</strong> — which already puts him ahead of most. Beyond that, he is a solid <strong>problem solver</strong>, the kind of developer who doesn't just write code but thinks through challenges methodically.<br><br>A builder and a thinker — two things that matter most in this field. ✦";
+  }
+
+
+  // ── 75 / SECRET EASTER EGG ──────────────────────────────────
+  if (/^75$|\b75\b/.test(q.trim())) {
+    const jokes = [
+      "🎂😂 Oh, 75? Interesting number to search. So, there is someone connected to this number — a <strong>cake maker</strong>, actually. She makes beautiful cakes. Soft, sweet, fluffy cakes. The irony? She herself is <em>not</em> as soft as her cakes. Not even close. She walks into a room and the whole room is supposed to notice — at least, that's what she believes. Runs a business too, very entrepreneurial. I'll say no more. 🤐",
+      "🎂👀 75, you say? That brings someone to mind — a <strong>cake business owner</strong> whose cakes are delightfully soft and sweet. The cakes. Just the cakes. The person behind them has a... let's say a <em>very different texture</em>. Confidence? Enormous. Softness? Reserved entirely for the batter. She wants the world's attention and she is working hard for it. Respect the grind. 😂",
+      "🎂🤭 Ah, 75. This is classified but here's what I can share: she bakes <strong>cakes for a living</strong>. Lovely cakes. Genuinely. But she is absolutely, provably <em>not as soft as the cake</em> — and the cake knows it too. She runs a business, she seeks the spotlight, and she fully believes she is the most attractive person wherever she goes. The world has not yet confirmed this. The cakes remain the most universally loved thing in the operation. 😄🎂"
+    ];
+    return jokes[Math.floor(Math.random() * jokes.length)];
+  }
+
+
+  // ── RISHAD AREFIN / CR ────────────────────────────────────────
+  if (/rishad|rishad arefin|cr.*section|b section|class representative/.test(q)) {
+    return "📋 <strong>Rishad Arefin</strong> — the CR (Class Representative) of Bikash's B section, and by all accounts a genuinely great one.<br><br>He manages the class affairs, coordinates everything, keeps the section running smoothly — and does it well. Organisation? Excellent. Communication? Solid. Academic responsibilities? Handled.<br><br>There is, however, one area where Rishad's managerial skills have mysteriously failed to deliver results: <em>finding Bikash a female friend</em>. 😔 For someone who manages an entire university section, this one task remains tragically incomplete.<br><br>Bikash holds him in high regard — but this specific gap in his service record has been noted. 🥹😂 ✦";
   }
 
   // ── SRIJON PAUL ───────────────────────────────────────────────
