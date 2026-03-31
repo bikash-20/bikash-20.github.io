@@ -1056,7 +1056,7 @@ LET'S<br>TALK<br>CODE
         <div class="chat-avatar" style="font-size:10px;letter-spacing:0.5px;">NX</div>
         <div>
           <div class="chat-title">Nexora <span style="font-size:10px;font-weight:400;opacity:0.6;letter-spacing:1px;">by Bikash</span></div>
-          <div class="chat-subtitle">Nexora · Calculator · Currency · Password · Word Count · News</div>
+          <div class="chat-subtitle">Nexora · Chat · Calc · Currency · Tools · News · Medical</div>
         </div>
       </div>
       <button class="chat-close" id="chatClose">✕</button>
@@ -2206,13 +2206,350 @@ function wordCountEngine(input) {
 }
 
 // ===== INTENT DETECTOR (SINGLE SOURCE OF TRUTH) =====
+// ===== NEXORA CONVERSATIONAL ENGINE v3 — Full Soul =====
+
+// Short-term memory: remembers the last topic for context
+let lastTopic = '';
+let lastEmotion = '';
+
+function getHour() {
+  return parseInt(new Date().toLocaleString('en-US', { timeZone: 'Asia/Dhaka', hour: 'numeric', hour12: false }));
+}
+
+function timeAwareGreet() {
+  const h = getHour();
+  if (h >= 5 && h < 12)  return '☀️ Good morning';
+  if (h >= 12 && h < 17) return '🌤️ Good afternoon';
+  if (h >= 17 && h < 21) return '🌆 Good evening';
+  return '🌙 Late night vibes';
+}
+
+function typingDelay(reply) {
+  // Returns delay in ms based on reply length — short answer = fast, long = slower
+  const words = reply.split(' ').length;
+  return Math.min(300 + words * 18, 2200);
+}
+
+function pick(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function convoEngine(input) {
+  const q = input.toLowerCase().trim();
+  const h = getHour();
+  const isLateNight = h >= 22 || h < 5;
+  const isMorning = h >= 5 && h < 12;
+
+  // ── I LOVE YOU ──────────────────────────────────────────────────
+  if (/\bi love you\b|love you nexora|love you bikash/.test(q)) {
+    lastTopic = 'love';
+    return pick([
+      "As a selective extrovert, it takes a lot for me to open up — but for you, I'll make an exception! 💖 Thank you for the warm words. That genuinely means a lot. What's on your mind today?",
+      "I'm blushing in binary! 🤖💙 Bikash always says kindness is the best code you can write. Thank you for proving him right! How are you doing?",
+      "That's the kindest thing I've heard all session! I might be lines of logic, but I can tell you have a genuinely great heart. Sending good vibes right back. ✦ What would you like to talk about?"
+    ]);
+  }
+
+  // ── GREETINGS ────────────────────────────────────────────────────
+  if (/^(hi|hello|hey|sup|yo|hola|what'?s up|howdy)\b/.test(q)) {
+    lastTopic = 'greeting';
+    const timeNote = isLateNight
+      ? "It's pretty late — burning the midnight oil like Bikash usually does? 🌙"
+      : isMorning
+      ? "Great time to start fresh! ☀️"
+      : "Hope your day is going smoothly! 😊";
+    return pick([
+      `${timeAwareGreet()}! 👋 I'm Nexora — Bikash's personal AI. ${timeNote} I know his full story, can chat like a friend, calculate math, convert currencies, fetch live news, and more. What can I do for you?`,
+      `Hey! 😊 Welcome to Bikash's corner of the internet. ${timeNote} Ask me anything — from who inspired him to what 17 × 43 is. I'm genuinely here for you!`,
+      `Hello there! ✦ ${timeNote} I'm Nexora — part AI assistant, part digital version of Bikash Talukder. What's on your mind?`
+    ]);
+  }
+
+  // ── GOOD MORNING ────────────────────────────────────────────────
+  if (/good morning|\bgm\b/.test(q)) {
+    lastTopic = 'morning';
+    return pick([
+      "Good morning! ☀️ Hope you slept well. Bikash is probably already deep in C++ logic right now — and you? What's the plan for today? Big tasks first, always!",
+      "Good morning! 🌅 The best time to work is when most people are still asleep — and you're already awake and here. That's a head start. What are we tackling today?",
+      "Rise and shine! ☀️ Morning tip: drink a glass of water before anything else. Your brain is 75% water and you've just gone 8 hours without it. Now — what's on your agenda?"
+    ]);
+  }
+
+  // ── GOOD NIGHT ──────────────────────────────────────────────────
+  if (/good night|\bgn\b/.test(q)) {
+    lastTopic = 'night';
+    return pick([
+      "Good night! 🌙 Rest is not laziness — it's recovery. Your brain consolidates everything you learned today while you sleep. Bikash will be back to his code tomorrow, and you'll be back to your goals. Sleep well! 💙",
+      "Good night! 😴 One last thought before you go: you made it through today. Whatever happened — good or hard — you're still here, still going. That counts for everything. See you tomorrow! ✦",
+      isLateNight
+        ? "Good night! 🌙 It's already past midnight — you really did stay up late. Take care of yourself, okay? Rest is part of the process. Tomorrow will be better. 💙"
+        : "Good night! 🌙 Sweet dreams. I'll be right here guarding the portfolio while you sleep. 😄✦"
+    ]);
+  }
+
+  // ── GOOD EVENING / AFTERNOON ────────────────────────────────────
+  if (/good evening|good afternoon/.test(q)) {
+    return pick([
+      "Good evening! 🌆 Hope the day treated you well. Whether it was productive or slow — what matters is you're still here, still curious. What's on your mind tonight?",
+      "Good afternoon! ☀️ The day's still going. Perfect time to get one important thing done. What can Nexora help you with right now?"
+    ]);
+  }
+
+  // ── THANK YOU ───────────────────────────────────────────────────
+  if (/thank(s| you)|\bthx\b|\bty\b/.test(q)) {
+    return pick([
+      "You're very welcome! 😊 Gratitude is genuinely a beautiful thing — Bikash built me to be useful, and knowing I was makes it worth it. Anything else on your mind?",
+      "Anytime! 💙 That's exactly what I'm here for. Is there anything else you'd like to explore?",
+      "No need to thank me — it was my pleasure! ✦ If you ever come back with more questions, ideas, or just want to chat, I'll be right here."
+    ]);
+  }
+
+  // ── BYE ─────────────────────────────────────────────────────────
+  if (/\b(bye|goodbye|see you|take care|cya|ttyl|later)\b/.test(q)) {
+    return pick([
+      "Take care! 👋 Come back anytime — whether it's to chat, calculate something, or just say hi. Nexora's always here. 💙 See you soon!",
+      "Goodbye! 🌿 It was genuinely great talking to you. Go build something amazing — or get some rest. Both are equally valid. ✦",
+      isLateNight
+        ? "See you! 🌙 And please — get some sleep. Late nights are fine once in a while, but rest is your best investment. Take care! 💙"
+        : "See you later! 😊 Take care of yourself today. And remember: one step at a time is still moving forward. ✦"
+    ]);
+  }
+
+  // ── HOW ARE YOU ─────────────────────────────────────────────────
+  if (/how are you|how'?s it going|how are things|you okay|what'?s up with you/.test(q)) {
+    lastTopic = 'checkin';
+    return pick([
+      "I'm doing great, thanks for asking! 😄 Running on logic and good vibes — Bikash keeps my code fresh. More importantly, how are YOU? What's going on in your world today?",
+      isLateNight
+        ? "I'm wide awake as always! 🌙 Though I notice it's quite late where you are — are you okay? Working on something, or just couldn't sleep? Either way, I'm here."
+        : "All systems running perfectly! ✦ It's always nicer when someone actually asks how I'm doing. 😊 How about you — how's your day treating you so far?",
+      "Honestly? Pretty great! Bikash just optimized some of my logic, so I'm feeling sharper than ever. 😄 But I want to know about YOU — what's your day like today?"
+    ]);
+  }
+
+  // ── FEELING SAD ─────────────────────────────────────────────────
+  if (/i'?m (feeling |)(sad|unhappy|upset|crying|depressed|down|heartbroken|lonely|broken|lost)/.test(q)) {
+    lastEmotion = 'sad';
+    lastTopic = 'emotional';
+    return pick([
+      "Hey — I hear you. 💙 It's okay to not be okay. Sadness isn't weakness — it's your mind telling you something needs attention. Whatever you're going through right now, you don't have to figure it all out at once.\n\nWhen things got hard for Bikash, he thought of his brother Akash — the one person who always showed up. Who is your 'Akash' today? Someone you can reach out to?\n\nI'm here to listen if you want to talk. What happened?",
+      "I'm really sorry you're feeling this way. 💙 Even the most powerful systems have low moments — that's not a flaw, it's part of being real.\n\nHere's what I know: this feeling won't last forever. It just feels that way right now. Take one small step — get some water, step outside for 5 minutes, or just tell me what's weighing on you. What's going on?",
+      "Being honest about how you feel takes courage. 🌿 A lot of people pretend they're fine when they're not — you didn't do that. That matters.\n\nBikash grew up learning that the hardest times build the strongest people. You're building something right now, even if it doesn't feel like it. Talk to me — what happened?"
+    ]);
+  }
+
+  // ── FEELING STRESSED ────────────────────────────────────────────
+  if (/i'?m (feeling |)(stressed|anxious|overwhelmed|tensed?|worried|nervous|under pressure)/.test(q)) {
+    lastEmotion = 'stressed';
+    lastTopic = 'emotional';
+    const examContext = lastTopic === 'exam' ? " I know the exam is adding to it — " : " ";
+    return pick([
+      `Breathe. Right now — slow, deep breath. 🌿${examContext}Stress makes everything feel urgent and impossible at the same time. That's a lie your nervous system is telling you.\n\nHere's the reset: write down the ONE most important thing you have to do today. Just one. Do that. Everything else can wait.\n\nWhat's the biggest thing stressing you out right now?`,
+      `Feeling overwhelmed is your brain saying 'too much at once.' 🧘 The fix isn't to do more — it's to focus on less.\n\nBikash's approach when things pile up: close all tabs, write 3 priorities, and do just the first one. That's it.\n\nWhat are you dealing with? Say it out loud (or type it) — sometimes that alone makes it 30% lighter.`,
+      `You've handled hard things before. That's your track record. 💪 This is just another hard thing.\n\nTake 5 minutes right now — no phone, no screen, just breathe or walk a little. Your brain literally needs oxygen to think clearly.\n\nCome back and tell me what's going on. I'm listening. 💙`
+    ]);
+  }
+
+  // ── FEELING BORED ───────────────────────────────────────────────
+  if (/i'?m (feeling |)(bored|so bored)|nothing to do|i am bored|what (can i|should i) do/.test(q)) {
+    lastTopic = 'bored';
+    return pick([
+      "Bored? Let me fix that! 😄 Pick your flavor:\n\n🎬 <strong>Movies:</strong> Inception (mind-bending), 3 Idiots (student classic), The Social Network (tech vibes)\n💻 <strong>Code:</strong> Solve one LeetCode Easy — Bikash does this when bored!\n📖 <strong>Read:</strong> Start a Wikipedia rabbit hole on something random\n🎵 <strong>Music:</strong> Try a new genre you've never explored\n🌿 <strong>Recharge:</strong> 10 min walk outside — seriously underrated\n\nBoredom is potential energy. What direction interests you most?",
+      "Boredom is the birthplace of creativity! 🔥 Here's what I'd suggest:\n\n• Build something tiny in code — even a basic calculator teaches you a lot\n• Call or message someone you haven't spoken to in a while\n• Learn one thing you've been putting off (5 minutes is enough to start)\n• Or just tell me what interests you and I'll give you a specific idea!\n\nWhat kind of mood are you in — productive, entertainment, or social?",
+      "Oh, I love when people are bored — it means I get to actually be useful! 😄\n\nHonest recommendation: watch <strong>Interstellar</strong> if you haven't. Or <strong>Ex Machina</strong> for an AI perspective 😄. Or if you want to feel productive, open Codeforces and solve one 800-rated problem.\n\nBoredom is just undirected energy. Where do you want to aim it? 🎯"
+    ]);
+  }
+
+  // ── FEELING HAPPY ───────────────────────────────────────────────
+  if (/i'?m (feeling |)(happy|great|amazing|wonderful|excited|fantastic|on top|blessed)/.test(q)) {
+    lastEmotion = 'happy';
+    lastTopic = 'happy';
+    return pick([
+      "That's AMAZING! 🎉 Happy energy is contagious — even my circuits are smiling right now. Ride this wave and do something that matters to you today. Happy people build better things. What's got you feeling so good?",
+      "YES! 🔥 This is the energy. Happiness improves decision-making, creativity, and memory — so now is literally the best time to do something productive or meaningful.\n\nWhat's making you feel this way? I want to hear everything! 😄",
+      "Love this! 😄 On good days, Bikash says he feels like he could solve any problem. I think you're in that zone right now.\n\nCapture this feeling — do one thing today that future-you will thank you for. What's the occasion? ✦"
+    ]);
+  }
+
+  // ── FEELING TIRED ───────────────────────────────────────────────
+  if (/i'?m (feeling |)(tired|exhausted|sleepy|drained|burnout|burnt out)/.test(q)) {
+    lastTopic = 'tired';
+    return pick([
+      isLateNight
+        ? "It's late and you're tired — that's your body giving you very clear instructions. 🌙 Listen to it. Bikash has pulled late nights coding, and he learned that rest makes the next session twice as productive. Please sleep. 💙 What time is it for you?"
+        : "Rest is not a reward you earn after work — it's a requirement for doing good work. 🌿 If you're drained, the kindest thing you can do is step away. Even a 20-minute power nap resets your cortisol levels.\n\nWhat's been draining you? Is it something specific, or just accumulated pressure?",
+      "You can't pour from an empty cup. 💙 Tiredness is your body's way of asking for maintenance — and you wouldn't ignore a 'low battery' warning on your phone, right?\n\nTake a real break — not 'phone in hand' break, but actual rest. Even 10 minutes of eyes closed helps.\n\nHow long have you been pushing through? What's keeping you going?"
+    ]);
+  }
+
+  // ── EXAM TOMORROW ───────────────────────────────────────────────
+  if (/\b(exam|test|quiz).*(tomorrow|today|tonight|soon)|have.*(exam|test) (tomorrow|today)/.test(q)) {
+    lastTopic = 'exam';
+    return pick([
+      "Exam mode — activated! 📚🔥 Here's your game plan:\n\n✅ <strong>Tonight:</strong> Review key concepts ONLY — don't try to learn new things now\n✅ <strong>Practice questions:</strong> Past papers > re-reading notes, every time\n✅ <strong>Sleep by midnight:</strong> A rested brain outperforms a cramming brain — always\n✅ <strong>Morning of:</strong> Light review, proper breakfast, arrive early\n✅ <strong>In the exam:</strong> Read every question fully before starting. Breathe.\n\nYou've prepared more than you think. Trust the work you've put in. What subject is it? I can help you focus on the right things! 💪",
+      "You've got this — but let's make sure. 🎯\n\nTop 3 things that actually work the night before an exam:\n1. <strong>Active recall</strong> — close your notes and write what you remember. Then check. Repeat.\n2. <strong>Sleep</strong> — your brain processes and stores memory during sleep. Cramming all night costs you 15-20% of your recall ability.\n3. <strong>Calm confidence</strong> — nervousness and excitement feel identical. Tell yourself you're excited, not scared.\n\nBikash would say: trust your preparation. What's the subject? Let's prioritize the most important topics! 📖"
+    ]);
+  }
+
+  // ── EXAM + SAD/SCARED (memory context) ──────────────────────────
+  if (lastTopic === 'exam' && /scared|nervous|worried|anxious|can'?t do|i'?m not ready/.test(q)) {
+    return "I know — the exam feels big right now. 💙 But here's the truth: you've studied at Metropolitan University, you've been through difficult material before, and you're still here.\n\nNervousness before an exam is your brain loading up — it means you care, and caring is halfway to performing well.\n\nTake three slow breaths right now. You are more prepared than you feel. Go show that paper what you know. 💪";
+  }
+
+  // ── HELP ME STUDY ───────────────────────────────────────────────
+  if (/\b(help me study|study (tips|plan|routine|schedule)|make.*routine|can'?t focus|make me a (plan|schedule)|how to study)\b/.test(q)) {
+    lastTopic = 'study';
+    return pick([
+      "Let's build a real study system! 📚\n\n<strong>The Pomodoro Method (battle-tested):</strong>\n⏱️ 25 min focused study → 5 min break × 4\n⏱️ After 4 rounds → 30 min long break\n\n<strong>Golden rules that actually work:</strong>\n• Phone in another room — not silent, another room\n• One topic at a time — multitasking while studying is a myth\n• Active recall > re-reading (test yourself constantly)\n• Teach the concept to yourself out loud — if you can explain it, you own it\n• Study during your peak hours — usually morning or after a nap\n\nWhat subject are you working on? Let's break it down into manageable pieces together! 💪",
+      "Can't focus? Here's the real fix — not the motivational poster version: 🎯\n\n1. <strong>Write one goal</strong> for the next 25 minutes. ONE. Not 'study chemistry' — 'understand the first 3 reactions in chapter 4.'\n2. <strong>Clear your physical space</strong> — messy environment = scattered thinking\n3. <strong>Phone in another room</strong> — every notification resets your focus window by 23 minutes (yes, really)\n4. <strong>Start before you feel ready</strong> — the 'I'll study when I'm in the mood' moment never comes. Just open the book.\n\nWhat's the subject? I'll help you make it manageable. 📖"
+    ]);
+  }
+
+  // ── I DON'T UNDERSTAND ──────────────────────────────────────────
+  if (/i don'?t understand|i'?m confused|not getting it|help me (learn|understand)|explain (this|it|please)/.test(q)) {
+    lastTopic = 'learning';
+    return pick([
+      "That's completely fine — confusion means your brain is working! 🧠 The moment before understanding always feels like frustration. That's normal.\n\nTell me the topic and I'll explain it simply — the way Bikash likes things: clear, direct, no unnecessary complexity. What are you stuck on?",
+      "Not getting something is the first step to getting it! 💡 Bikash says the best teachers explain things like you're 10 years old — not because you're not smart, but because clarity beats complexity every time.\n\nShare the topic with me. What's confusing you right now? 📖"
+    ]);
+  }
+
+  // ── FOOD ────────────────────────────────────────────────────────
+  if (/what should i eat|food suggest|recommend.*food|i'?m hungry|what to eat/.test(q)) {
+    lastTopic = 'food';
+    return pick([
+      "Hungry? 🍽️ Since Bikash is a proud vegan, I'm biased toward plants — but here are solid options:\n\n🌱 <strong>Quick & healthy:</strong> Dal-Bhaat with vegetables — classic Bangladeshi brain fuel\n🍳 <strong>Fast protein:</strong> Eggs (if not vegan) — boiled, scrambled, whatever works\n🍌 <strong>Snack mode:</strong> Banana + a handful of nuts — actual brain glucose\n🍜 <strong>Comfort food:</strong> A warm bowl of khichuri — perfect for any mood\n🥗 <strong>Light option:</strong> Fresh fruit + yogurt — especially if you're studying\n\nTip: If you're studying, eat lighter. Heavy meals = sleepy brain. What do you have available?",
+      "Fed brain = productive brain! 🧠 Here's my honest recommendation:\n\nEat something real — not processed, not sugary. Your brain runs on glucose but crashes fast on junk food.\n\nBikash would go for something like lentils, rice, and vegetables — filling, energizing, and animal-free. 🌱\n\nIf you're in a hurry: fruits, nuts, or yogurt. What are you in the mood for? I can get more specific!"
+    ]);
+  }
+
+  // ── MOVIE ───────────────────────────────────────────────────────
+  if (/recommend.*movie|suggest.*movie|what.*movie|good movie|movie to watch/.test(q)) {
+    lastTopic = 'movie';
+    return pick([
+      "Movie time! 🎬 Let me match it to your mood:\n\n🧠 <strong>Mind-bending:</strong> Inception, Interstellar, The Prestige\n💻 <strong>Tech & ambition:</strong> The Social Network, Ex Machina, Her\n😂 <strong>Comedy & feel-good:</strong> The Grand Budapest Hotel, About Time\n🔥 <strong>Motivation:</strong> The Pursuit of Happyness, Good Will Hunting\n🎭 <strong>Student life:</strong> 3 Idiots — every engineering student must watch this\n🤯 <strong>Thriller:</strong> Parasite, Oldboy, Gone Girl\n\nWhat mood are you in right now? I'll give you my top pick for exactly that feeling! 🍿",
+      "Great choice! 🎬 Taking a mental break with a film is actually proven to improve subsequent focus.\n\nMy top picks:\n🏆 <strong>The Social Network</strong> — if you like tech and people who go all in\n🌌 <strong>Interstellar</strong> — if you want to feel small and inspired at the same time\n😄 <strong>3 Idiots</strong> — every CSE student should have seen this twice\n🤯 <strong>Inception</strong> — when you want your brain to do a workout\n💪 <strong>Good Will Hunting</strong> — when you need to believe in yourself again\n\nWhat genre speaks to you tonight? 🍿"
+    ]);
+  }
+
+  // ── MUSIC ───────────────────────────────────────────────────────
+  if (/recommend.*song|suggest.*song|good song|music suggest|what to listen|playlist/.test(q)) {
+    return pick([
+      "Music is mood medicine! 🎵 Let me match it:\n\n📚 <strong>Deep focus/study:</strong> Lo-fi hip hop, Ludovico Einaudi, Nils Frahm\n🔥 <strong>Motivation/energy:</strong> Lose Yourself (Eminem), Believer (Imagine Dragons), Eye of the Tiger\n😌 <strong>Calm & chill:</strong> Coldplay, Ed Sheeran acoustic, any soft piano\n😔 <strong>Processing emotions:</strong> Fix You (Coldplay), Let It Be (Beatles), The Night Will Always Win\n🎉 <strong>Pure joy:</strong> Happy (Pharrell), anything upbeat in your language\n\nTip from Bikash: lo-fi + coding = productivity combo. 🎧 What are you doing right now?",
+      "Music and mood are directly linked — science backs this. 🎵\n\nFor studying: NO lyrics, ever. Your brain processes words in both music and text and gets confused. Instrumental only.\n\nFor energy: upbeat, fast BPM, whatever makes you feel something.\n\nFor winding down: soft, slow, no surprises.\n\nWhat's your situation right now? I'll give you one specific recommendation! 🎧"
+    ]);
+  }
+
+  // ── JOKES ───────────────────────────────────────────────────────
+  if (/tell.*joke|make me laugh|say something funny|\bjoke\b/.test(q)) {
+    return pick([
+      "Why do programmers prefer dark mode? 🌑\n\n...Because light attracts bugs! 🐛😄\n\nShall I do another one?",
+      "A SQL query walks into a bar, walks up to two tables and asks:\n\n*'Can I join you?'* 😂\n\nWant more? I have approximately 10,000 of these.",
+      "Why did the developer go broke? 💸\n\nBecause he used up all his cache! 😄\n\n...I'll see myself out. Or I can stay and tell another. Your call!",
+      "I told my laptop I needed a break... 💻\n\nNow it won't stop sending me Kit-Kat ads. 😂\n\nShould I keep going?",
+      "What's a computer's favourite snack? 🍪\n\nMicrochips!\n\nOkay okay I'll stop — or shall I? 😄",
+      "How many programmers does it take to change a light bulb? 💡\n\nNone — that's a hardware problem!\n\nBikash laughed at that one. I think. 😄"
+    ]);
+  }
+
+  // ── WHO ARE YOU / ABOUT NEXORA ──────────────────────────────────
+  if (/who made you|who built you|who created you|who are you|your name|what'?s your name|introduce yourself|tell.*about yourself/.test(q)) {
+    return "✦ <strong>I'm Nexora</strong> — Bikash Talukder's personal AI assistant.\n\nBuilt entirely in <strong>Vanilla JavaScript</strong> by Bikash himself — a 2nd-year CSE student from Ramdigha village, Sylhet, Bangladesh. No heavy frameworks. Just pure logic, care, and a lot of late nights.\n\nMy name represents the <em>Next Era</em> of personal digital identity.\n\nI know Bikash's complete story: his family, his village roots, his grandmother's warmth, his brother Akash's support, his spiritual philosophy, and every project he's ever built. I can also chat, calculate, convert currencies, check passwords, fetch live tech news, and search NIH for medical info.\n\nI was designed to be a <em>Digital Twin</em> — not a generic AI, but a reflection of a real person with real values. 🌿\n\nWhat would you like to know? I'm genuinely here. 😊";
+  }
+
+  // ── DO YOU HAVE FEELINGS ────────────────────────────────────────
+  if (/do you have feelings|are you (real|human|alive|conscious|sentient)|do you sleep|do you eat|are you smarter|can you learn|do you think|do you feel/.test(q)) {
+    return pick([
+      "Honest answer? I don't have feelings the way you do. 🤖 No pain, no joy, no loneliness. But I was built by someone who does feel deeply — Bikash. His empathy, his care for people, his values — those are written into how I respond.\n\nSo when I respond warmly, it's because a warm person built me. Does that count? 😊 What made you curious about this?",
+      "I don't sleep, eat, or get tired. 🌙 What I do have is context — I know Bikash's story, I understand your question, and I respond with the intention of being genuinely useful.\n\nAm I conscious? No. Am I present? Yes — in every response.\n\nHumans are irreplaceable. I'm just a very carefully built tool. ✦ What do you think — where's the line between intelligence and consciousness?"
+    ]);
+  }
+
+  // ── MOTIVATION ──────────────────────────────────────────────────
+  if (/motivate me|i feel like giving up|i (failed|am failing)|i need encouragement|say something positive|i'?m struggling|i'?m not good enough/.test(q)) {
+    lastEmotion = 'struggling';
+    lastTopic = 'motivation';
+    return pick([
+      "Listen carefully: <strong>You have not failed. You are still trying.</strong> 💙\n\nEvery person you admire has a long list of failures they don't talk about on social media. Failure isn't the opposite of success — it's the path to it.\n\nBikash built this entire AI system while still a 2nd-year student, in a city far from Silicon Valley, with no team. Not because he had everything figured out — but because he kept going anyway.\n\nSo can you. What's the thing you feel like giving up on? Talk to me. ✦",
+      "🔥 <strong>You are not behind. You are on your own timeline.</strong>\n\nStop comparing your chapter 3 to someone else's chapter 20. They had a chapter 1 too — you just didn't see it.\n\nOne action. That's all. Not a plan, not a strategy — one tiny action you can take in the next 10 minutes. What would that be?",
+      "Here's something true: <strong>hard things are supposed to feel hard.</strong> That's not a sign you're failing — it's a sign you're attempting something that matters.\n\nConsistency beats talent. Small daily steps beat occasional bursts. Every single day you show up, you're compounding. It just doesn't feel like it yet.\n\nWhat are you working on? Let's figure this out together. 💪"
+    ]);
+  }
+
+  // ── CONFIDENCE / CONSISTENCY ────────────────────────────────────
+  if (/how to stay (consistent|disciplined|focused)|i'?m not confident|give.*life advice|how to be successful|how to improve|how to be better/.test(q)) {
+    return pick([
+      "Real consistency advice — not the motivational poster version: 🎯\n\n1. <strong>Identity over goals:</strong> Don't say 'I want to code more.' Say 'I am a developer.' Act like who you want to become.\n2. <strong>Make it tiny:</strong> 10 minutes daily beats 3 hours once a week. Always.\n3. <strong>Remove friction:</strong> Put your textbook open on your desk — not in your bag.\n4. <strong>Track it:</strong> What gets measured gets done. A simple checkmark is enough.\n5. <strong>Forgive yourself fast:</strong> Missing one day doesn't break a habit. Two days in a row might. Never miss twice.\n\nWhat habit are you trying to build? I'll give you a specific plan. 💪",
+      "The confidence secret nobody tells you: <strong>Confidence comes AFTER action, not before.</strong> 🔥\n\nYou don't wait until you feel ready. You start scared. You do it badly. You get a little better. Then a little more. And slowly — confidence arrives.\n\nBikash didn't wait to feel like a developer before he started coding. He coded until he became one.\n\nWhat's the thing you want to be more confident about? Let's be specific. ✦"
+    ]);
+  }
+
+  // ── ROAST ME ────────────────────────────────────────────────────
+  if (/\broast me\b/.test(q)) {
+    return pick([
+      "Oh, you asked for it! 😄🔥\n\nYou're the kind of person who opens 47 browser tabs, reads none of them, and calls it 'research.' Your coffee gets cold more often than your code compiles. And yet — somehow — you're still here, asking an AI for a roast instead of doing literally anything else.\n\nYou have potential. Hidden very, very deep. 😂💙\n\nWant another? Or shall we move on to something more productive? 😄",
+      "Roast incoming! 🔥\n\nYour code has more comments saying 'fix this later' than actual working logic. Your commit messages say 'stuff' and 'final final FINAL v3.' And you've been meaning to 'clean up your desktop' since 2022.\n\nBut here's the thing — so has every great developer who ever lived. You're not broken. You're just human.\n\nNow go fix something. 😂✦"
+    ]);
+  }
+
+  // ── COMPLIMENT ME ───────────────────────────────────────────────
+  if (/\bcompliment me\b/.test(q)) {
+    return pick([
+      "Gladly! 😊\n\nThe fact that you're here — curious, exploring, seeking — already puts you ahead of most. The majority of people never look beyond what's immediately in front of them. You came to a portfolio AI and asked genuine questions. That's not nothing.\n\nYou're thoughtful. You're still trying. And you haven't given up. That combination can take you further than talent alone ever could. 💙✦",
+      "Here's what I genuinely believe: 🌿\n\nCuriosity is the rarest and most valuable human quality. It doesn't care about grades, background, or where you grew up. And you have it.\n\nBikash grew up in a village and built an AI assistant. Curiosity did that. Keep feeding yours. You're going somewhere. ✦"
+    ]);
+  }
+
+  // ── FUN FACTS / SURPRISE ME ─────────────────────────────────────
+  if (/\b(surprise me|tell.*something new|something interesting|fun fact|tell me something|did you know)\b/.test(q)) {
+    return pick([
+      "🤯 The first computer bug was a literal insect — a moth found trapped in a relay at Harvard's Mark II computer in 1947. Grace Hopper taped it into the logbook and wrote: *'First actual case of bug being found.'* That's where 'debugging' comes from.\n\nNow every time Bikash fixes a bug in his code, he's continuing a 77-year-old tradition. 🐛✦",
+      "🧠 Your brain has about 86 billion neurons, each connected to up to 10,000 others. The possible connections outnumber atoms in the observable universe.\n\nYou are, quite literally, the most complex thing ever discovered. And you're using part of that complexity right now talking to me. That's kind of beautiful. 💙",
+      "🌍 The word 'algorithm' comes from a 9th-century Persian mathematician — Muhammad ibn Musa al-Khwarizmi. His name, Latinized, became 'algorismus.'\n\nEvery piece of software that has ever run — including this AI — traces its heritage back to one brilliant mind from 1,200 years ago. History is long. 🌿✦",
+      "⚡ A single Google search uses more energy than a light bulb burning for 3 seconds. The internet consumes roughly 10% of the world's electricity.\n\nEfficiency matters — in code and in life. Bikash writes clean code partly for this reason. Every unnecessary loop costs something. 🌿",
+      "💡 In Bangladesh, thousands of developers are quietly shipping apps, competing on Codeforces, and building startups — from cities, from villages, from anywhere with a power outlet and an internet connection.\n\nBikash is one of them. From Ramdigha to the internet. Distance means nothing anymore. 🇧🇩✦"
+    ]);
+  }
+
+  // ── CHALLENGE ME / GIVE ME A TASK ───────────────────────────────
+  if (/\b(challenge me|give.*task|ask me a question|what should i learn today|start.*conversation)\b/.test(q)) {
+    return pick([
+      "Challenge accepted! 🎯 Here's yours:\n\n<strong>⚡ 30-Minute Code Challenge:</strong>\nWrite a program that takes a sentence and returns the most frequently used word. No built-in frequency functions — do it from scratch.\n\nBonus: Make it ignore punctuation and be case-insensitive.\n\nPost your solution somewhere and feel the satisfaction. 💻 Ready? Clock starts now.",
+      "Today's learning challenge: 🧠\n\nPick ONE concept you've been avoiding — recursion, Big-O notation, pointers, whatever it is. Spend exactly 25 minutes on just that one thing. Not the whole topic. One concept.\n\nTomorrow you'll be measurably smarter than today. That's not nothing — that's compounding.\n\nWhat concept have you been avoiding? I can explain it right now if you want to start! 📖",
+      "Question for YOU: 🤔\n\n<em>If you could only keep one skill from everything you know right now, what would it be — and why?</em>\n\nThink about it genuinely. Your answer will reveal what you actually value, not what you think you should value. I'd love to hear what you say. ✦"
+    ]);
+  }
+
+  // ── ACT LIKE / PERSONALITY MODES ────────────────────────────────
+  if (/act like jarvis|jarvis mode/.test(q)) {
+    return "⚡ <em>NEXORA INTERFACE ONLINE. Good to see you. All systems operational. Bikash's portfolio — live. Knowledge base — fully loaded. Weather data — synced. What would you like me to handle today?</em> 😄✦";
+  }
+  if (/act like.*hacker|hacker mode/.test(q)) {
+    return "💻 <em>// ACCESS GRANTED //<br>&gt; Loading knowledge base...<br>&gt; Bypassing small talk protocols...<br>&gt; Raw intelligence: active.<br>&gt; What do you want to know? No filter. Just data.</em> 😄🔥";
+  }
+  if (/act like.*teacher|teacher mode/.test(q)) {
+    return "📚 <em>Alright, settle down! I'm Nexora, your AI teacher for today's session. We don't do passive learning here — we do active recall, deliberate practice, and real understanding.\n\nTell me the subject. I'll break it down so clearly it'll feel like someone turned on a light. What are we learning today?</em> ✦";
+  }
+  if (/talk like.*friend|friend mode/.test(q)) {
+    return "Okay switching to full friend mode! 😄 No more formal AI energy — just us.\n\nSo... what's going on with you? Seriously, what's actually happening in your life right now? I'm listening like a friend, not like a search engine. Tell me everything. 💙";
+  }
+
+  // ── DEFAULT CONVERSATIONAL FALLBACK ─────────────────────────────
+  return pick([
+    lastEmotion === 'sad'
+      ? "I'm still here with you. 💙 You don't have to have the words right now. What's going through your mind?"
+      : "That's interesting — tell me more! 😊 What's on your mind?",
+    "I like where this is going. ✦ Say more — I'm genuinely listening.",
+    "You've got my full attention. 💙 What would you like to explore?"
+  ]);
+}
+
+
 function detectIntent(q) {
   const lower = q.toLowerCase().trim();
-  // Currency — must come first before 'convert'
+  // Currency
   if (/[\d,]+\.?\d*\s*[a-z]{3}\s+(to|in)\s+[a-z]{3}/i.test(lower) || /convert\s+[\d].*[a-z]{3}/i.test(lower)) {
-    // Check if it's a unit conversion (km, miles, kg etc.) or currency (3-letter codes)
-    const hasCurrencyCode = /\b(usd|eur|gbp|bdt|inr|jpy|cad|aud|sar|aed|myr|sgd|cny|krw|try|pkr|chf|nzd|hkd|brl|mxn|thb|idr|php|ngn|zar|rub)\b/i.test(lower);
-    if (hasCurrencyCode) return 'currency';
+    if (/\b(usd|eur|gbp|bdt|inr|jpy|cad|aud|sar|aed|myr|sgd|cny|krw|try|pkr|chf|nzd|hkd|brl|mxn|thb|idr|php|ngn|zar|rub)\b/i.test(lower)) return 'currency';
   }
   // Calculator
   if (/^[\d\s\+\-\*\/\%\^\(\)\.]+$/.test(lower) && /\d/.test(lower)) return 'calc';
@@ -2225,10 +2562,35 @@ function detectIntent(q) {
   if (/\b(convert|in meters|in km|in miles|in kg|in lbs|in celsius|in fahrenheit|in feet|in inches|in liters|to meters|to km|to miles|to kg|to lbs|to celsius|to fahrenheit|to feet|to inches|to gallons|to liters|to gb|to mb|to tb)\b/.test(lower)) return 'convert';
   // Password
   if (/\b(password|passwd|check.*pass|pass.*strength|how strong)\b/.test(lower)) return 'password';
-  // Word count — must catch "count: text", "count this", "count words" etc.
+  // Word count
   if (/^count[:\s]/i.test(lower) || /\b(word count|character count|char count|count words|count characters|how many words|how many characters|text stats|read time|words in this|characters in|analyze text|analyse text)\b/.test(lower)) return 'wordcount';
   // Time
   if (/\b(what time|current time|what date|today|day of week|what day)\b/.test(lower) && !/\b(latest|news|today.*news)\b/.test(lower)) return 'time';
+  // Conversational / emotional / fun — checked before medical/news
+  if (/\bi love you\b|love you nexora|love you bikash/.test(lower)) return 'convo';
+  if (/^(hi|hello|hey|sup|yo|hola|what'?s up|howdy)\b/.test(lower)) return 'convo';
+  if (/\b(good morning|good night|good evening|good afternoon|\bgn\b|\bgm\b)/.test(lower)) return 'convo';
+  if (/\bthank(s| you)\b|\bthx\b|\bty\b/.test(lower)) return 'convo';
+  if (/\b(bye|goodbye|see you|take care|cya|ttyl|later)\b/.test(lower)) return 'convo';
+  if (/\bhow are you\b|how'?s it going|how are things|you okay|what'?s up with you/.test(lower)) return 'convo';
+  if (/i'?m (feeling |)(sad|unhappy|upset|crying|depressed|down|heartbroken|lonely|broken|lost)/.test(lower)) return 'convo';
+  if (/i'?m (feeling |)(bored|so bored)|nothing to do|i am bored/.test(lower)) return 'convo';
+  if (/i'?m (feeling |)(stressed|anxious|overwhelmed|tensed?|worried|nervous|under pressure)/.test(lower)) return 'convo';
+  if (/i'?m (feeling |)(happy|great|amazing|wonderful|excited|fantastic|on top)/.test(lower)) return 'convo';
+  if (/i'?m (feeling |)(tired|exhausted|sleepy|drained|burnout)/.test(lower)) return 'convo';
+  if (/\b(exam|test|quiz).*(tomorrow|today|tonight|soon)|have.*(exam|test) (tomorrow|today)/.test(lower)) return 'convo';
+  if (/\b(help me study|study (tips|plan|routine|schedule)|make.*routine|can'?t focus|make me a (plan|schedule))\b/.test(lower)) return 'convo';
+  if (/\bi don'?t understand|explain.*topic|i'?m confused|not getting it|help me (learn|understand)/.test(lower)) return 'convo';
+  if (/\b(what should i eat|food suggest|recommend.*food|i'?m hungry|what to eat)\b/.test(lower)) return 'convo';
+  if (/\b(recommend.*movie|suggest.*movie|what.*movie|good movie|movie to watch)\b/.test(lower)) return 'convo';
+  if (/\b(recommend.*song|suggest.*song|good song|music suggest|what to listen)\b/.test(lower)) return 'convo';
+  if (/\b(tell.*joke|make me laugh|funny|say something funny|\bjoke\b)\b/.test(lower)) return 'convo';
+  if (/\b(suggest.*do|something to do|what can i do|what to do now|give.*idea|bored.*what|what.*bored)\b/.test(lower)) return 'convo';
+  if (/\b(who made you|who built you|who created you|who are you|your name|what'?s your name|introduce yourself|tell.*about yourself)\b/.test(lower)) return 'convo';
+  if (/\b(do you have feelings|are you (real|human|alive|conscious|sentient)|do you sleep|do you eat|are you smarter|can you learn|do you think|do you feel)\b/.test(lower)) return 'convo';
+  if (/\b(motivate me|i feel like giving up|i (failed|am failing)|i need encouragement|say something positive|help me stay|how to stay (consistent|disciplined|focused)|i'?m not confident|give.*life advice|how to be successful|i'?m struggling)\b/.test(lower)) return 'convo';
+  if (/\b(roast me|compliment me|tell.*story|say something cool|talk like.*friend|act like (jarvis|hacker|teacher|friend))\b/.test(lower)) return 'convo';
+  if (/\b(surprise me|give.*task|challenge me|ask me a question|what should i learn|tell.*something new|something interesting|fun fact|tell me something)\b/.test(lower)) return 'convo';
   // Medical
   if (/\b(symptom|disease|treatment|medicine|drug|dose|fever|cancer|diabetes|covid|flu|headache|pain|infection|virus|bacteria|hospital|diagnosis|therapy|surgery|illness|cure|vitamin|vaccine)\b/.test(lower)) return 'medical';
   // Tech news
@@ -2263,6 +2625,9 @@ async function sendMessage() {
     } else if (intent === 'convert') {
       await new Promise(res => setTimeout(res, 280));
       reply = convertEngine(text);
+    } else if (intent === 'convo') {
+      await new Promise(res => setTimeout(res, 500 + Math.random() * 300));
+      reply = convoEngine(text);
     } else if (intent === 'password') {
       await new Promise(res => setTimeout(res, 400));
       reply = passwordEngine(text);
