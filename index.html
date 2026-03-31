@@ -1419,15 +1419,32 @@ let chatHistory = [];
 function generateSmartReply(input) {
   const q = input.toLowerCase().trim();
 
-  // ── GREETINGS ──────────────────────────────────────────────────
-  if (/^(hi|hello|hey|howdy|sup|what'?s up|yo)\b/.test(q)) {
-    return "Hey there! 👋 I'm <strong>Nexora</strong> — Bikash Talukder's personal AI assistant. I'm built to know everything about him: his roots in Ramdigha village, his family, his philosophy, his tech skills, and even live tech news & medical info. What would you like to know? ✦";
-  }
-
-  // ── ABOUT THE BOT ──────────────────────────────────────────────
-  if (/who are you|what are you|are you (ai|a bot|real|human|claude)|nexora|your name|what.*name/.test(q)) {
-    return "I'm <strong>Nexora</strong> — Bikash Talukder's personal AI assistant, named to reflect the idea of a <em>new era</em> of intelligent, personal digital identity. 🌌<br><br>I'm not a generic chatbot. I know Bikash's full story: his village roots in Ramdigha, his family, his brothers, his grandmother, his projects, his philosophy — and I can reach the live internet for tech news 📰 and NIH medical info 🏥.<br><br>Built with System Context Engineering, Intent Routing, and localStorage Memory. Ask me anything. ✦";
-  }
+  // ── SAFETY NET: route all conversational queries to convoEngine ──
+  // This ensures convo replies work even if detectIntent missed them
+  if (/^(hi|hello|hey|sup|yo|hola|howdy)\b/.test(q)) return convoEngine(input);
+  if (/\bi love you\b|love you nexora/.test(q)) return convoEngine(input);
+  if (/good morning|good night|good evening|\bgm\b|\bgn\b/.test(q)) return convoEngine(input);
+  if (/\bthank(s| you)\b|\bthx\b/.test(q)) return convoEngine(input);
+  if (/\b(bye|goodbye|see you|take care|cya)\b/.test(q)) return convoEngine(input);
+  if (/how are you|how'?s it going/.test(q)) return convoEngine(input);
+  if (/i'?m (feeling |)(sad|depressed|upset|stressed|anxious|overwhelmed|bored|so bored|happy|excited|tired|exhausted)/.test(q)) return convoEngine(input);
+  if (/i am (sad|bored|happy|stressed|tired)/.test(q)) return convoEngine(input);
+  if (/i feel (sad|bored|happy|stressed|tired|lonely|lost|great|amazing)/.test(q)) return convoEngine(input);
+  if (/\b(exam|test).*(tomorrow|today|tonight)/.test(q)) return convoEngine(input);
+  if (/\b(help me study|study tips|make.*routine|pomodoro)\b/.test(q)) return convoEngine(input);
+  if (/what should i eat|i'?m hungry|food suggest/.test(q)) return convoEngine(input);
+  if (/\b(recommend|suggest).*(movie|film|song|music|playlist)\b/.test(q)) return convoEngine(input);
+  if (/\b(tell.*joke|make me laugh|\bjoke\b|funny)\b/.test(q)) return convoEngine(input);
+  if (/\b(motivate me|giving up|i need encouragement|say something positive)\b/.test(q)) return convoEngine(input);
+  if (/\broast me\b|\bcompliment me\b/.test(q)) return convoEngine(input);
+  if (/\b(surprise me|fun fact|tell me something|something interesting|did you know)\b/.test(q)) return convoEngine(input);
+  if (/\b(challenge me|give.*task|what should i learn today)\b/.test(q)) return convoEngine(input);
+  if (/\b(act like|jarvis mode|hacker mode|teacher mode|friend mode)\b/.test(q)) return convoEngine(input);
+  if (/\b(what can i do|i'?m bored|nothing to do|suggest.*do)\b/.test(q)) return convoEngine(input);
+  if (/who (made|built|created) you|what'?s your name|introduce yourself/.test(q)) return convoEngine(input);
+  if (/do you have feelings|are you (real|human|alive|conscious)|do you sleep/.test(q)) return convoEngine(input);
+  if (/how to stay (consistent|disciplined|focused)|life advice|how to be successful/.test(q)) return convoEngine(input);
+  if (/i'?m not confident|i'?m struggling|i feel like giving up|i failed/.test(q)) return convoEngine(input);
 
   // ── FULL INTRO / WHO IS BIKASH ─────────────────────────────────
   if (/who is bikash|about bikash|tell me about (him|bikash|yourself)|introduce|overview/.test(q)) {
