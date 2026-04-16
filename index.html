@@ -397,6 +397,7 @@ nav a:hover {
 .sb-row:nth-child(6) .sb-fill { width:45%; }
 .sb-row:nth-child(7) .sb-fill { width:35%; }
 @keyframes growBar { from{transform:scaleX(0)} to{transform:scaleX(1)} }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.4;transform:scale(1.5);} }
 .sb-pct { font-size:10px; color:var(--gold); text-align:right; font-weight:700; }
 
 /* ===== PROJECTS ===== */
@@ -752,11 +753,38 @@ footer {
       <a href="https://github.com/bikash-20/google-maps-navigator-DSA-project/blob/main/maps_dijkstra.cpp" target="_blank" class="proj-github">⬡ View on GitHub</a>
       <div class="proj-arrow">→</div>
     </div>
-    <div class="proj-card" style="border-style:dashed;opacity:.35;">
+    <div class="proj-card">
       <div class="proj-num">04</div>
-      <div class="proj-lang">Coming Soon</div>
-      <h3 class="proj-title">Next Project</h3>
-      <p class="proj-desc">Always building something new. Stay tuned for what's coming next.</p>
+      <span class="proj-lang">HTML · CSS · JavaScript · PWA</span>
+      <h3 class="proj-title">Nexora — AI Companion</h3>
+      <p class="proj-desc">A <em>futuristic AI companion</em> web app with a sleek neon-glass UI. Chat intelligently, compare multiple AI models side-by-side, and get a synthesized verdict — all from a zero-install Progressive Web App.</p>
+      <ul class="proj-bullets">
+        <li><em>Smart Intent Engine</em> — auto-detects queries (math, currency, unit conversion, medical, tech news, conversation) and routes to the right handler</li>
+        <li><em>Multi-Model AI Compare</em> — queries several AI models in parallel and generates a final synthesis verdict</li>
+        <li><em>Voice I/O</em> — speak your prompt and hear responses read back via speech synthesis</li>
+        <li><em>Offline-Ready PWA</em> — installable on any device with a home screen icon, works without internet</li>
+        <li><em>Free &amp; Key-less</em> — uses Pollinations.ai as a fallback so it works with zero API setup</li>
+        <li><em>Memory &amp; Dark/Light Mode</em> — remembers recent context, full markdown rendering, animated UI</li>
+      </ul>
+      <a href="https://github.com/bikash-20" target="_blank" class="proj-github">⬡ View on GitHub</a>
+      <div class="proj-arrow">→</div>
+    </div>
+    <div class="proj-card" style="border-style:dashed; border-color:rgba(201,168,76,0.3); background: linear-gradient(135deg, rgba(26,92,90,0.07), rgba(61,43,86,0.1));">
+      <div class="proj-num" style="color:rgba(201,168,76,0.18);">05</div>
+      <span class="proj-lang" style="color:var(--gold); border-color:rgba(201,168,76,0.4);">🔬 In Progress</span>
+      <h3 class="proj-title" style="color:var(--gold-lt);">Nexora v2 — Full LLM Integration</h3>
+      <p class="proj-desc">Currently expanding Nexora with direct API integrations for the world's most powerful LLMs — turning it into a true multi-brain AI hub.</p>
+      <ul class="proj-bullets">
+        <li><em>ChatGPT (OpenAI)</em> — GPT-4o integration for deep reasoning and instruction-following</li>
+        <li><em>Claude (Anthropic)</em> — long-context analysis, coding, and nuanced conversation</li>
+        <li><em>Gemini (Google)</em> — multimodal understanding with Google's latest models</li>
+        <li><em>Perplexity AI</em> — real-time web-search-backed answers for live knowledge queries</li>
+        <li><em>Unified Compare Engine</em> — query all four simultaneously, diff responses, and generate a final AI verdict</li>
+      </ul>
+      <div style="margin-top:14px; display:flex; align-items:center; gap:8px;">
+        <div style="width:8px;height:8px;border-radius:50%;background:var(--neon);box-shadow:0 0 6px var(--neon);animation:pulse 1.8s ease-in-out infinite;"></div>
+        <span style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);font-weight:600;">Actively Building</span>
+      </div>
     </div>
   </div>
 </section>
@@ -1387,6 +1415,7 @@ PROJECTS:
 1. Digital Clock (C) - Terminal-based clock using POSIX threads, mutex locks, ANSI escape codes. Runs on macOS & Linux. GitHub: github.com/bikash-20/C-project
 2. Echoes of the Void (C++) - Full text-adventure RPG with turn-based combat, puzzles, OOP design. GitHub: github.com/bikash-20/cpp-project
 3. Google Maps Navigator (C++ + HTML) - Navigation system using Dijkstra's algorithm with Raylib graphics, 15-node city graph, animated car movement, web version. GitHub: github.com/bikash-20/google-maps-navigator-DSA-project
+4. Nexora (HTML + CSS + JavaScript + PWA) - Futuristic AI companion web app. Features smart intent detection engine (math, currency, unit conversion, medical, tech news, conversation), multi-model AI compare with synthesis verdict, voice I/O, offline-ready PWA installable on any device, Pollinations.ai free fallback, memory, dark/light mode, markdown rendering. GitHub: github.com/bikash-20
 
 RESEARCH INTERESTS:
 - Artificial Intelligence & intelligent systems
